@@ -1,0 +1,267 @@
+CSS 
+CSS3 cascade style sheet
+
+Para empezar a programar con css se debe poner
+<link rel="stylesheet" type="text/css" href="Archivo.css">
+EN HTML, en la parte de <head></head>
+
+La estructura básica de CSS es:
+
+selector{
+	propiedad:valor;
+}
+
+
+La propiedad es el objeto que queremos cambiar. El valor es por lo que lo vamos a cambiar
+
+
+
+Para centrar algo se utiliza adentro del style="text-align:center"
+
+ejemplo
+<p style="text-align:center">Parrafo</p>
+
+
+Para cambiar el color del fondo se utiliza style="background-color:un color"
+
+ejemplo, si queremos cambiar el fondo de un div, ponemos:
+<div style="background-color="yellow>
+	<p>Parrafo</p>
+</div>
+el fondo del div es amarillo
+
+
+
+
+<SELECTORES>
+
+
+Universales= *
+Para seleccionar todos los elementos se pone un selector universal "*"
+ejemplo
+* {
+	color: red;
+}
+en este caso, selecciona todas las propiedades y las pinta de un color
+
+
+
+
+
+DE TIPO= elementos
+
+Para seleccionar un elemento en específico ponemos el selector de tipo
+ejemplo
+h1 {
+	color: red;
+}
+En este caso, selecciona solo la propiedad que queremos y la pinta de rojo
+
+
+De clase
+
+Se le agrega a una etiqueta de html la palabra class=""
+Luego, en CSS, para seleccionar los que sean de clase se pone: .nombre de clase
+
+ejemplo
+
+Supongamos que decidimos ponerle un class al h2
+quedaría en HTML
+<h2 class="Subtítulo">Subtítulo</h2>
+en CSS
+.Subtítulo{ 
+	color: red;
+}
+
+Esto sirve por el caso en el que tengamos muchos <p> por ejemplo, que seleccione los que queramos
+
+
+De ID
+
+Se le agrega a una etiqueta de HTML la palabra id=""
+Luego en CSS, para seleccionarlo, se pone: #nombre de id
+
+ejemplo
+supongamos que decidimos ponerle un id al h2
+quedaría en HTML
+<h2 id="subtitulo">Subtítulo</h2>
+en CSS
+#subtitulo{
+	color:green;
+}
+
+Esto sirve para seleccionar de forma más específica que la de class
+
+
+DE ATRIBUTO
+
+Se le agrega a una etiqueta de HTML un atributo cualquiera, por ejemplo Messi="el goat"
+Luego en CSS, para seleccionarlo se pone: [Messi="el goat"]
+
+ejemplo
+supongamos que decidimos ponerle un atributo="algo" al button
+quedaría en HTML
+<button Messi="el goat">Seguinos para más información</button>
+en CSS
+[Messi="el goat"] {
+	color:purple;
+}
+
+Esto tiene la misma función que el id
+
+
+
+De PSEUDO CLASE
+
+
+El elemento hover sirve para que cuando alguien toque con el mouse una palabra, se pueda poner de un color
+
+ p:hover{
+	color: red;
+}
+
+en este caso cuando el mouse este en el párrafo, este se va a ver en rojo
+
+
+
+
+<ESPECIFICIDAD>
+
+Cuando se pone 2 veces un selection, siempre va a mostrar el ultimo
+
+ejemplo
+
+p{
+	color: red;
+}
+
+p{
+	color:blue;
+}
+
+En este caso, el parrafo va a ser azul en vez de rojo, porque fue lo ultimo
+
+
+En el caso que pongamos un título y adentro una clase en HTML, si en CSS ponemos:
+
+HTML:
+<h2 class="color-rojo">Hola</h2>
+
+CSS:
+.color-rojo{
+	color:red;
+}
+
+h2{
+	color:blue;
+}
+
+En este caso, el subtítulo "hola" se va a ver en rojo, porque es más específico
+
+
+Tambien se pueden hacer con los atributos o id, pero si hay un class y un atributo por ejemplo, será el ultimo el color
+
+En el caso que haya un id y un class, se toma el id
+
+
+En el caso que haya un style, se coloca directo en el HTML y se pone como style="" como si fuese un atributo
+El style le gana a todo,
+ejemplo
+<h2 class="color-rojo" atributo="color-verde" id="color-violeta" style="color:yellow"></h2>
+el subtitulo sera amarillo no importa en que orden este
+
+
+!IMPORTANT:
+
+el !important es lo que le gana literalmente a todo
+ejemplo
+<h1 style="color:red">Hola mundo</h1>
+
+pero en CSS ponemos
+h1{
+	color:blue !important;
+}
+va a ser azul si o si
+
+
+
+<METODOLOGIA BEM>
+
+ejemplo, si en HTML ponemos esto
+
+	<div class="form">
+		<h2 class="form-h2">Preguntas?</h2>
+			<p class="form-h2-p">Contactanos</p>
+	</div>
+
+en CSS, si quiero cambiar el color del div, pongo
+.form{
+	color:red;
+}
+en este caso, todo lo que está en el div, se cambia a color rojo
+
+si quiero cambiar el color del h2, pongo
+.form-h2{
+	color:blue;
+}
+se cambia a azul
+
+en el caso del p
+.form-h2-p{
+	color:yellow;
+}
+se cambia a amarillo
+
+
+
+<UNIDADES>
+
+Ya vimos la própiedad color,
+font.size sirve para cambiar el tamaño de la letra
+
+ejemplo
+h2 {
+	font-size: 30px
+}
+en este caso, cambia la letra del h2 a 30px(pueden ser px,mm,cm o pt)
+
+
+además de px o cm, están los em, que su valor default es 16px
+pero nosotros lo podemos cambiar con el contenedor, ejemplo
+
+.h2{
+	font-size:20px; 
+}
+.h2-p{
+	font-size:2em;
+}
+en este caso, 1em vale 20px, y el párrafo va a valer 40px porque es 2em
+
+
+
+Los viewports, son para personalizar una cantidad de pantalla que queremos editar
+
+Se utiliza adentro de un selection por ejemplo
+.class{
+	background-color:#000;
+	height:50vh;
+	width:50vw;
+}
+dentro del height se pone cualquier numero y vh
+dentro del width se pone cualquier numero y vw
+en este ejemplo, un cuarto de la pagina va a ser negro
+
+
+
+<PROPIEDADES DE TEXTO>
+
+La propiedad font-family se utiliza para cambiar la tipografía del texto
+ejemplo
+.class{
+	font-family: georgia;
+}
+
+
+La propiedad font size viene por defecto de 16px.
+
+Podemos representar el color rojo con el nombre red, el hexadecimal #FF0000 y el RGB rgb(255,0,0)
