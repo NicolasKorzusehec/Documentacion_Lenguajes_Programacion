@@ -41,7 +41,13 @@ Propiedades del texto:
 
 	Text-shadow:  CorrimientoDerecha CorrimientoInferior Blur ColorSombra;
 			Establece una sombra para el texto con los respectivos valores a definir
-			/*Aplicable un sistema similar con la prop box shadow pero para divs.*/
+			/*Aplicable un sistema similar con la prop box shadow pero para divs. Usado para que parezca que se levanta en evento hover. Ejemplo:
+			.div {
+				transition: box-shadow 0.3s 
+			.div:hover {
+				box-shadow: DespDerecha DespAbajo Blur ColorSombra;
+				cursor: pointer;
+			}*/
 
 	*Google fonts*
 
@@ -132,6 +138,11 @@ Centrar un elemento
 		margin: 0 auto;
 	}
 	Para el verticar se recurre al padding: DespVertical 0;
+
+Propiedad Transión de css
+	Requiere una propiedad definida por un evento que empiece y termine, un tiempo y un algoritmo para desarrollarlo.
+
+	Ejemplo el evento puede ser hover, la propiedad cualquiera dentro del mismo, y el algoritmo ease.
 
 
 /*
