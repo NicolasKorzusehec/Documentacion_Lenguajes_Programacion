@@ -1,9 +1,10 @@
 CSS 
 CSS3 cascade style sheet
 
-Para empezar a programar con css se debe poner
-<link rel="stylesheet" type="text/css" href="Archivo.css">
-EN HTML, en la parte de <head></head>
+Para comentar seleccionamos comentario y atajo shift + alt + A 
+
+Primero se debe vincular la hoja de estilos a la pagina html en el tag de head
+<link rel="stylesheet" type="text/css" href="Carpeta/Archivo.css">
 
 La estructura básica de CSS es:
 
@@ -11,10 +12,129 @@ selector{
 	propiedad:valor;
 }
 
+	Selector: Elemento a modificar su formato
+	Propiedad: Parámetro a modificar
+	Valor: resultado de la propiedad
 
-La propiedad es el objeto que queremos cambiar. El valor es por lo que lo vamos a cambiar
+EL body suele venir con un margen predeterminado indeseado, se resetea la prop con margin: 0;
+
+Height y width son medidas del contenido.
+
+Propiedades del background:
+	Background-image: url('######')
+	
+	Background-size: siempre se usa después de la prop. background
+	Valor= Cover -- La foto se adapta al ancho del fondo de pantalla
+	Valor= Auto -- Mantiene el tamaño original de la imagen
+	
+	Orden abreviatura Background: 
+			color urlImagen repeat ubicar(eje x) ubicar(eje y) / bckgrsizeX bckgrsizeY
+				* Siempre se debe ubicar de manera independiente el height del elemento
+
+Overflow: ; -- Valor= (visible, hidden, scroll)
+	Define como se verá un elemento que supera el tamaño de boxmodel que tiene a su disposición
+	
+Outline: ; borde externo al borde normal, mismos valores que la propiedad border
+
+Propiedades del texto:
+	Text-decoration: ; -- (línea debajo, a traves o arriba del texto)
+
+	Text-shadow:  CorrimientoDerecha CorrimientoInferior Blur ColorSombra;
+			Establece una sombra para el texto con los respectivos valores a definir
+			/*Aplicable un sistema similar con la prop box shadow pero para divs.*/
+
+	*Google fonts*
+
+Propiedades de los links: 
+El selector sedesigna como a: *estado del link* {}
+
+Se debe respetar el siguiente orden para establecer dichos formatos
+	a: link {}-- Sin visitar el sitio
+	a: visited {} -- Sitio ya visitado
+	a: hover {} -- Cursor del mouse sobre el link
+	a: active {} -- Link siendo clickeado
+
+Propiedades de las listas:    
+	list-style-type: ; -- Define si es con puntos o numeros, etc
+	list-style-position: ; (inside- Ubica la señalética de la lista dentro del margen del contenido)
+
+Propiedades de tablas:
+	Selector aplicable
+		table, th, td {
+		}
+	Puede figurar un doble borde corregible con la propiedad en el selector table
+		border-collapse: collapse;
+	Combinas dos celas para un contenido con la propiedad
+		colspan="número de celdas a combinar horizontamente"
+		rowspan="número de celdas a combinar verticalmente"
+	
+	Selector usual
+	table{}
+	th,td{}
+	
+	Esimportante que el orden en el colocamos los selectores con sus seudoclases se respete ya que sino se desestimaran algunas
+		:nth-child() => :hover
+	
+	Darle propiedades a filas o columnas en función de si se encuentran en una posición par o impar u otros parametros con la seudoclase de tr nth-child()
+		tr:nth-child(valor)
+			Los valores pueden ser odd (par) even (impar)
+
+	Ver cambio de color cuando estemos sobre una celda y el ícono del dedo en el cursor
+		tr:hover {
+			background-color: valor;
+			cursor: pointer;
+		}
+
+Propiedad de display:
+		#ejemplo {
+			display: block; /*Valor predeterminado, el elemento ocupa todo el ancho*/
+			display: inline; /*Valor de la etiqueta span, reduce el tamaño del elemento al del contenido.
+			No se le podra asignar la propiedad de width ni de height al lemento*/
+			display: none; /*Desaparece el elemento, resultado identico a la prop: visibility:hidden; */
+			display: inline-block; /*Similar a inline pero permite manipular ancho y alto de los elementos. Usualmente usado en los menus de navegación para darles uniformidad*/
+		}
+
+Propiedad para variar ancho:
+		max-width: ; -- solo define el ancho maximo pero puede ser menos.
+
+Propiedad para posicionar elementos:
+		article {
+			position: static; /*Valor predeterminado*/
+			position: relative; /*Relativa a donde debiese estar posicionado este elemento, lo ubica a donde vos desees*/
+			left: distancia a moverse desde la izquierda; 
+			top: idem prop left;
+			/*Estas dos propiedades pueden encimar elementos, existiendo tambien right y bottom*/
+			position: fixed; /*Posición con respecto a lo que nosotros deberiamos estar viendo en el ordenador, se fija el elemento en la pantalla*/ 
+			position: absolute; /*Se posiciona relativo a la etiqueta padre más cercana que tenga*/
+			position: sticky; /*Mezcla entre relative y fixed*/
+		}
+
+Propiedad para hacer flotar elementos de html dentro del documento:
+		Ubica los elementos con la propiedad en la ubicación que desees y los demas elementos en el lado contrario acomodandose con respecto al definido con float, en especial si recibe propiedades de ancho y alto. Aplica a divs.
+		div.left {
+			float: left;
+		}
+		div.right {
+			float: right;
+		}
+	Permite alinear elementos uno al lado del otro si se les aplica la misma propiedad de float
+
+Valores de Propiedades Padding y Margin:
+	Propiedad: DespArriba DespDerecha DespAbajo DespIzquierda;
+	Propiedad: DepArriba DespLaterales DespAbajo;
+	Propiedad: DespVerticales DespLaterales;
+	Propiedad: DespGeneral;
+
+Centrar un elemento 
+	Indicarle siempre un ancho menor al 100%. Centrará el elemento y no el contenido.
+	p {
+		width: 200px;
+		margin: 0 auto;
+	}
+	Para el verticar se recurre al padding: DespVertical 0;
 
 
+/*
 
 Para centrar algo se utiliza adentro del style="text-align:center"
 
@@ -114,7 +234,7 @@ Esto tiene la misma función que el id
 De PSEUDO CLASE
 
 
-El elemento hover sirve para que cuando alguien toque con el mouse una palabra, se pueda poner de un color
+El elemento hover sirve para que cuando alguien tenga el mouse sobre una palabra, se pueda poner de un color
 
  p:hover{
 	color: red;
