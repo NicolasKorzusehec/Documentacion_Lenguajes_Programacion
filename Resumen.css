@@ -20,7 +20,23 @@ selector{
 	Propiedad: Parámetro a modificar
 	Valor: resultado de la propiedad
 
-EL body suele venir con un margen predeterminado indeseado, se resetea la prop con margin: 0;
+	Selectores de atributo
+		El selector de atributos CSS coincide con los elementos en función de la presencia o el valor de un atributo determinado.
+			Ej.:
+				/* Elementos <a> con un href que contenga "example" */
+					a[href*="example"] {
+						font-size: 2rem;
+					}
+					
+	Pseudoclases 
+		Los elementos HTML se encuentran en varios estados, ya sea porque interactúan con ellos o porque uno de sus elementos secundarios está en un estado determinado. Se definen con un signo (:).
+
+	Pseudoelementos 
+		Los pseudoelementos se diferencian de las pseudoclases porque en lugar de responder al estado de la plataforma, actúan como si estuvieran insertando un nuevo elemento con CSS.
+		También son sintácticamente diferentes de las pseudoclases, ya que en vez de usar un solo signo de dos puntos (:), utilizamos un signo de dos puntos dobles (::).
+
+
+El body suele venir con un margen predeterminado indeseado, se resetea la prop con margin: 0;
 
 Height y width son medidas del contenido.
 
