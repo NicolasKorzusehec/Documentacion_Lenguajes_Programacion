@@ -1,3 +1,7 @@
+/*Indagar Resets y Normalizers*/
+
+
+
 CSS 
 CSS3 cascade style sheet
 
@@ -102,6 +106,7 @@ Propiedad de display:
 
 Propiedad para variar ancho:
 		max-width: ; -- solo define el ancho maximo pero puede ser menos.
+		Width: min-content; el ancho del elemento es el mínimo necesario
 
 Propiedad para posicionar elementos:
 		article {
@@ -140,10 +145,23 @@ Centrar un elemento
 	Para el verticar se recurre al padding: DespVertical 0;
 
 Propiedad Transión de css
-	Requiere una propiedad definida por un evento que empiece y termine, un tiempo y un algoritmo para desarrollarlo.
+	Requiere una propiedad definida por un evento que empiece y termine, un tiempo y un algoritmo para desarrollarlo. Se ubica en el selector principal.
 
 	Ejemplo el evento puede ser hover, la propiedad cualquiera dentro del mismo, y el algoritmo ease.
 
+BOX-SIZING
+	box-sizing: content-box;
+		Cuando estableces dimensiones de alto y ancho se aplican al cuadro de contenido. Los valores dde padding y border se agregan al valor del tamaño de caja de contenido.
+	box-sizing: border box;
+		Este modelo le dice a CSS que aplique el width a la caja de borde en vez de a la de contenido. Concluyendo que el border y el padding se empuje hacia dentro. Siendo el width definido el ancho al que se renderiza	.
+		Este modelo de caja alternativo se suele aplicar con una regla de CSSS para todos los elementos, todos los : :before y todos los : :after
+		Siendo:
+			*,
+			*: :before,
+			*: :After{ 
+					box-sizing: border-box;
+			}
+			Se suele agregar a resets y normalizers porque es un modelo de caja más predecible.
 
 /*
 
