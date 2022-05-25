@@ -35,6 +35,62 @@ selector{
 		Los pseudoelementos se diferencian de las pseudoclases porque en lugar de responder al estado de la plataforma, actúan como si estuvieran insertando un nuevo elemento con CSS.
 		También son sintácticamente diferentes de las pseudoclases, ya que en vez de usar un solo signo de dos puntos (:), utilizamos un signo de dos puntos dobles (::).
 
+		.my-element::before {
+			content: 'Prefix - ';
+		  }
+		 Puede usar el pseudoelemento ::before para insertar contenido al comienzo de un elemento, o el pseudoelemento ::after para insertar contenido al final de un elemento.
+		 
+		 También puede usarlos para apuntar a partes específicas de un elemento. 
+		 Por ejemplo, suponga que tiene una lista. Utilice ::marker para diseñar cada viñeta (o número) en la lista.
+			/* Su lista ahora tendrá puntos rojos o números rojos */
+			li::marker {
+				color: red;
+			}
+
+		También puede usar ::selection para agregarle un estilo al contenido que un usuario ha resaltado.
+			::selection {
+				background: black;
+				color: white;
+			}
+
+	Selectores complejos
+		Aplica estilos a los elementos secundarios de un elemento partiendo de la recursividad.
+
+		Combinadores descendientes
+			Un combinador descendiente nos permite apuntar a un elemento secundario. Esto usa un espacio ( ) para indicarle al navegador que busque elementos secundarios:
+					p strong {
+						color: blue;
+					}
+
+		Combinador de hermano siguiente
+			Puede buscar un elemento que siga inmediatamente a otro elemento si usa un cáracter + en su selector.
+					.top + {
+						margin-top: 5em;
+					}
+				/*Agrega el margin a cada elemento dentro del elemento padre con clase .top que sea consecutivo a algun elemento dentro del mismo. 
+				Util para espaciar elementos equitativamente sin un espacio extra.*/
+
+		Combinador de hermano siguiente, combinado con un selector universal
+			Puede agregar margen a todos los elementos secundarios de .top 
+			/*Puede presentar un espaciado excedente*/
+					.top * {
+						margin-top: 1em;
+					}
+
+		Combinador secundario (también conocido como descendiente directo) 
+			Le permite más control sobre la recursividad que viene con los selectores de combinador. Al usar el carácter >, limita el selector de combinador para que se aplique solo a los secundarios directos.	
+			El espacio se agrega a cada hermano siguiente, pero si uno de esos elementos también tiene elementos del hermano siguiente como secundarios, puede resultar en un espaciado adicional no deseado
+			Para aliviar este problema, cambie el selector de hermanos siguientes para incorporar un combinador de secundarios: > * + *. La regla ahora solo se aplicará a los secundarios directos de .top.
+				.top > + {
+					margin-top: 1.5em;
+				}
+
+		Selectores compuestos
+			Puede combinar selectores para aumentar la especificidad y la legibilidad. Por ejemplo, para apuntar a los elementos <a>, que también tienen una clase de .my-class
+				a.class {
+					color: red;
+				}
+
 
 El body suele venir con un margen predeterminado indeseado, se resetea la prop con margin: 0;
 
