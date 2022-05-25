@@ -11,15 +11,36 @@ Primero se debe vincular la hoja de estilos a la pagina html en el tag de head
 <link rel="stylesheet" type="text/css" href="Carpeta/Archivo.css">
 
 La estructura básica de CSS es:
+			selector{
+				propiedad:valor;
+			}
 
-selector{
-	propiedad:valor;
-}
+BOX-MODEL
+	Se estructura el formato de los elementos de html como un conjunto de cajas, una dentro de otra:
+			MARGIN -> BORDER -> PADDING -> CONTENT
+		
+		BOX-SIZING
+			box-sizing: content-box;
+				Cuando estableces dimensiones de alto y ancho se aplican al cuadro de contenido. Los valores dde padding y border se agregan al valor del tamaño de caja de contenido.
+			box-sizing: border box;
+				Este modelo le dice a CSS que aplique el width a la caja de borde en vez de a la de contenido. Concluyendo que el border y el padding se empuje hacia dentro. Siendo el width definido el ancho al que se renderiza	.
+				Este modelo de caja alternativo se suele aplicar con una regla de CSS para todos los elementos, todos los ::before y todos los ::after
+				Siendo:
+					*,
+					*::before,
+					*::After { 
+							box-sizing: border-box;
+					}
+					/*Se suele agregar a resets y normalizers porque es un modelo de caja más predecible.*/
 
-	Selector: Elemento a modificar su formato
-	Propiedad: Parámetro a modificar
-	Valor: resultado de la propiedad
 
+
+
+		Selector: Elemento a modificar su formato
+		Propiedad: Parámetro a modificar
+		Valor: resultado de la propiedad
+
+SELECTORES		
 	Selectores de atributo
 		El selector de atributos CSS coincide con los elementos en función de la presencia o el valor de un atributo determinado.
 			Ej.:
@@ -90,6 +111,9 @@ selector{
 				a.class {
 					color: red;
 				}
+
+LA CASCADA
+	Dos o más reglas CSS pueden aplicarse a un elemento, el navegador elige cuál usar en función de diversos casos.
 
 
 El body suele venir con un margen predeterminado indeseado, se resetea la prop con margin: 0;
@@ -221,19 +245,6 @@ Propiedad Transión de css
 
 	Ejemplo el evento puede ser hover, la propiedad cualquiera dentro del mismo, y el algoritmo ease.
 
-BOX-SIZING
-	box-sizing: content-box;
-		Cuando estableces dimensiones de alto y ancho se aplican al cuadro de contenido. Los valores dde padding y border se agregan al valor del tamaño de caja de contenido.
-	box-sizing: border box;
-		Este modelo le dice a CSS que aplique el width a la caja de borde en vez de a la de contenido. Concluyendo que el border y el padding se empuje hacia dentro. Siendo el width definido el ancho al que se renderiza	.
-		Este modelo de caja alternativo se suele aplicar con una regla de CSSS para todos los elementos, todos los : :before y todos los : :after
-		Siendo:
-			*,
-			*: :before,
-			*: :After{ 
-					box-sizing: border-box;
-			}
-			Se suele agregar a resets y normalizers porque es un modelo de caja más predecible.
 
 /*
 
