@@ -85,10 +85,10 @@ SELECTORES
 
 		Combinador de hermano siguiente
 			Puede buscar un elemento que siga inmediatamente a otro elemento si usa un cáracter + en su selector.
-					.top + {
+					SelectorPadre SelectorInicial + SelectorConsecuente {
 						margin-top: 5em;
 					}
-				/*Agrega el margin a cada elemento dentro del elemento padre con clase .top que sea consecutivo a algun elemento dentro del mismo. 
+				/*Agrega el margin a cada elemento dentro del elemento padre con clase .top que sea consecutivo a algun elemento dentro del mismo (SE CONDICIONA LA CONSECUCIÖN NECESARIA. 
 				Util para espaciar elementos equitativamente sin un espacio extra.*/
 
 		Combinador de hermano siguiente, combinado con un selector universal
@@ -102,7 +102,7 @@ SELECTORES
 			Le permite más control sobre la recursividad que viene con los selectores de combinador. Al usar el carácter >, limita el selector de combinador para que se aplique solo a los secundarios directos.	
 			El espacio se agrega a cada hermano siguiente, pero si uno de esos elementos también tiene elementos del hermano siguiente como secundarios, puede resultar en un espaciado adicional no deseado
 			Para aliviar este problema, cambie el selector de hermanos siguientes para incorporar un combinador de secundarios: > * + *. La regla ahora solo se aplicará a los secundarios directos de .top.
-				.top > + {
+				.top > * + * {
 					margin-top: 1.5em;
 				}
 
