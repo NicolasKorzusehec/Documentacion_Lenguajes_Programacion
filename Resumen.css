@@ -100,7 +100,7 @@ SELECTORES
 
 		Combinador secundario (también conocido como descendiente directo) 
 			Le permite más control sobre la recursividad que viene con los selectores de combinador. Al usar el carácter >, limita el selector de combinador para que se aplique solo a los secundarios directos.	
-			El espacio se agrega a cada hermano siguiente, pero si uno de esos elementos también tiene elementos del hermano siguiente como secundarios, puede resultar en un espaciado adicional no deseado
+			El espacio se agrega a cada hermano siguiente, pero si uno de esos elementos también tiene elementos del hermano siguiente como secundarios, puede resultar en un espaciado adicional no deseado.
 			Para aliviar este problema, cambie el selector de hermanos siguientes para incorporar un combinador de secundarios: > * + *. La regla ahora solo se aplicará a los secundarios directos de .top.
 				.top > * + * {
 					margin-top: 1.5em;
