@@ -46,6 +46,18 @@ Siempre se deberá respetar el ; al final de una linea
                 Código a ejecutar
                 };
 
+        Se pueden crear funciones sin argumentos, simplemente se ejecutara su bloque al llamarla, util cuando no depende de ninguna eleccion del usuario.
+            ejemplo:
+                var num1=x;
+                var num2=y;
+                function suma(){
+                    return console.log(num1+num2);
+                };
+                /*En terminal */
+                >>suma()
+                xy <<
+
+
     VARIABLES Y SU AMBITOS
     Almacena un valor, debe tener un nombre para ser referenciada (identificador) y su valor corresponde a un valor que puede ser un número, un string o datos más complejos (como un arreglo o un objeto).
     El ámbito de una variable es el bloque de codigo dónde se puede ejecutar.
@@ -60,10 +72,12 @@ Siempre se deberá respetar el ; al final de una linea
             let nombrevariable= valor;
             Son variables locales que se ejecutan únicamente en el bloque de codigo dónde se encuentren {}
 
-                *Ambas se pueden ver modificadas o reasignadas.
+                /*Ambas se pueden ver modificadas o reasignadas.*/
 
             const nombrevariable= valor;
             Tipo de variable que no se puede reasignar su valor una vez que se ha creado, en los arreglos o objects todavía se pueden agregar valores pero no reasignar.
+
+                /*Tanto let como const suelen ser usados en bloques, contrario a var que es usado globalmente*/
 
     strings (cadenas de texto):
     Letras, palabras y textos ubicados entre comillas ''.
@@ -122,10 +136,12 @@ Siempre se deberá respetar el ; al final de una linea
     Combinan pruebas
         Compuerta AND: casoA && casoB
         Compuerta OR: casoA || casoB
+        Negacion: !condicion /*Negara el resultado de la preposicion.*/
 
     Operadores matemáticos:
     -, /, *
-    +(Puede usarse para combinarse strings)
+    +(Puede usarse para combinarse strings) 
+        /*Concatenara cualquier suma que involucre un string.*/
         Sintaxis:
             Var word=('So'+' cool')
             console.log(word)
@@ -155,3 +171,47 @@ Siempre se deberá respetar el ; al final de una linea
 
         Ciclos anidados:
         Ciclos dentro de otros ciclos que pueden ser muy útiles. Si tiene demasiados puede causar que la ejecución sea lenta o difícil de entender.
+
+        Otros ciclos
+            while, do while, foreach
+            
+            while-sintaxis: 
+            declaracion de la variable;
+            while(condicion){
+                accion;
+                incrementacion de la variable;
+            };
+
+            dowhile-sintaxis: /*Ejecuta la accion y luego analiza la variable para ver si lo repite.*/
+            declaracion de la variable;
+            do {
+                accion;
+                incrementacion de la variable;                
+            } while (condicion);
+
+        SWITCH:
+            Tiene una sintaxis practica para el analisis recurrente de una variable que derive en muchos casos distintos.
+            Sintaxis:
+                declaracion variable;
+                switch(variable){
+                    case valor1:
+                        accion1;
+                            break;
+                    case valor2:
+                        accion2;
+                            break;
+                    case valor3:
+                        accion3;
+                            break;
+                    default:
+                        acciondefault;
+                            break; /*termina el case.*/
+                };      
+                /*Aplicable a loops en funcion de un horario especifico. */
+
+
+    FUNCION alert   
+            Al iniciar la website salta un mensaje con la informaci[on en la funcion.
+
+            Sintaxis:
+                alert('Mensaje a abrir**')
