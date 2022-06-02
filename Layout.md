@@ -1,7 +1,7 @@
 Comprender la propiedad display 
 La propiedad display hace dos cosas. Lo primero es determinar si la caja a la que se aplica actúa como en línea o en bloque.
 La propiedad display también determina el comportamiento de los hijos de un elemento.
-
+```
     display: inline;
         No puede establecer un ancho y un alto explícito en elementos en línea. Los elementos circundantes ignorarán cualquier margen y espacio de relleno a nivel de bloque.
 
@@ -10,26 +10,33 @@ La propiedad display también determina el comportamiento de los hijos de un ele
 
     display:flex
         Establecer la propiedad a display: flex hace de la caja una caja a nivel de bloque, y también convierte a sus hijos en elementos flexibles. Esto habilita las propiedades flexibles que controlan la alineación, el orden y el flujo.
-
+```
 Flexbox y Grid 
 Hay dos mecanismos de diseño principales que crean reglas de diseño para múltiples elementos, flexbox y grid. 
 Comparten similitudes, pero están dirigidos a resolver diferentes problemas de diseño.
 
 Flexbox
 Mecanismo de diseño para diseños unidimensionales, horizontal o vertical.
+
+            ```css 
             .my-element {
                 display: flex;
             }
+            ```
+```
         De forma predeterminada, flexbox alineará los elementos hijos del elemento uno al lado del otro, en la dirección en línea, y los estirará en la dirección del bloque para que todos tengan la misma altura.
 
         Los elementos permanecerán en el mismo eje y no se ajustarán cuando se queden sin espacio. En lugar de ello, intentarán encajarse en la misma línea que el otro. Este comportamiento es modificable con `align-items`, `justify-content` y `flex-wrap`.
 
     Flexbox también convierte los elementos hijos en **elementos flexibles**, lo que significa que puede escribir reglas sobre cómo se comportan dentro de un contenedor flexible. Puede cambiar la alineación, el orden y la justificación de un objeto individual. También puede cambiar la forma en que se encoge o crece utilizando la propiedad `flex`.
+```
+            ```css
             .my-element div {
                 flex: 1 0 auto;
             }
+            ```
         La propiedad flex es una abreviatura de flex-grow, flex-shrink y flex-basis
-
+```
 Grid
 Diseñado para controlar diseños de varios ejes en lugar de diseños de un solo eje (espacio vertical u horizontal). 
 Permite escribir reglas de diseño en un elemento que tiene display: grid e introduce algunas primitivas nuevas para el estilo de diseño, como las funciones repeat() y minmax(). 
