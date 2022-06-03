@@ -1,5 +1,7 @@
 ```js
 
+//Indagar Callbacks
+
 JavaScript
 Se define como orientado a objetos, basado en prototipos, imperativo, debilmente tipado y dinámico.
 Siempre se deberá respetar el ; al final de una linea
