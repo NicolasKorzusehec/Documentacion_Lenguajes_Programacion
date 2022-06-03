@@ -12,8 +12,6 @@ Desarrollo de distintas herramientas y estrategias usadas para ubicar elementos 
     - `Disposicion multicolumna`
     - `Posicionamiento`
 
-
-
 ### Propiedad display
 La propiedad display hace dos cosas. Lo primero es determinar si la caja a la que se aplica actúa como en línea o en bloque.
 La propiedad display también determina el comportamiento de los hijos de un elemento.
