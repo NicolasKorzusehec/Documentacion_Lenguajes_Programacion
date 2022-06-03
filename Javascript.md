@@ -149,71 +149,135 @@ Siempre se deberá respetar el ; al final de una linea
             console.log(word)
                 En consola:
                 So cool
+    Operador modulo '%'
+        Operando1%Operando2
+    Devuelve el resto de la division entre ambos operandos, haceun return con ese resultado.
 
     Operadores de asignación:
 
-    CICLOS:
-    Repite la sección del código dentro de {} una determinada cantidad de veces
 
-        For... Of loop:
-        Pasa por cada elemento de un string o arreglo, repitiendo el código para cada elemento.
-            Sintaxis:
-                Var exampleArray=[a, b, c, d];
-                for (let element of exampleArray) {codigo a ejecutar;};
+```
 
-        Classic for loop:
-        Repite el código una cantidad definida de veces.
-        Se difine en 3 partes.
-        for (variable de ciclado definida, prueba que determina continuidad del ciclo, modificador del valor por ciclo)
-        {Código a interar hasta que el límite termine el ciclo}
-            Sintaxis:
-                for (var i=valorInicial, i prueba(<,>,===) valorLimite, i=i+-valordeActualización) {
-                código a ejecutar;
-                };
+### CICLOS:
+Repite la sección del código dentro de {} una determinada cantidad de veces
 
-        Ciclos anidados:
-        Ciclos dentro de otros ciclos que pueden ser muy útiles. Si tiene demasiados puede causar que la ejecución sea lenta o difícil de entender.
+### For loop
+`For... Of loop`
+Pasa por cada elemento de un string o arreglo, repitiendo el código para cada elemento.
 
-        Otros ciclos
-            while, do while, foreach
-            
-            while-sintaxis: 
-            declaracion de la variable;
-            while(condicion){
-                accion;
-                incrementacion de la variable;
-            };
+    ```js
+    Var exampleArray=[a, b, c, d];
+    for (let element of exampleArray){
+        codigo a ejecutar;
+        };
+    ```
 
-            dowhile-sintaxis: /*Ejecuta la accion y luego analiza la variable para ver si lo repite.*/
-            declaracion de la variable;
-            do {
-                accion;
-                incrementacion de la variable;                
-            } while (condicion);
+### Classic for loop
+Repite el código una cantidad definida de veces.
+Se difine en 3 partes.
+`for (variable de ciclado definida, prueba que determina continuidad del ciclo, modificador del valor por ciclo){Código a interar hasta que el límite termine el ciclo}`
 
-        SWITCH:
-            Tiene una sintaxis practica para el analisis recurrente de una variable que derive en muchos casos distintos.
-            Sintaxis:
-                declaracion variable;
-                switch(variable){
-                    case valor1:
-                        accion1;
-                            break;
-                    case valor2:
-                        accion2;
-                            break;
-                    case valor3:
-                        accion3;
-                            break;
-                    default:
-                        acciondefault;
-                            break; /*termina el case.*/
-                };      
-                /*Aplicable a loops en funcion de un horario especifico. */
+    ```js
+    for (var i=valorInicial, i prueba(<,>,===) valorLimite, i=i+-valordeActualización){
+    código a ejecutar;
+    };
+    ```
+
+### Ciclos anidados
+Ciclos dentro de otros ciclos que pueden ser muy útiles. 
+Si tiene demasiados puede causar que la ejecución sea lenta o difícil de entender.
+
+### Otros ciclos
+while, do while, foreach
+    
+`while-sintaxis` 
+
+    ```js
+    var variable;
+    while(variable!=='condicion'){
+        accion();
+        variable++;
+    };
+    ```
+
+`dowhile`
+Ejecuta la accion y luego analiza la variable para ver si lo repite.
+
+    ```js
+    var variable;
+    do {
+        accion();
+        variable++;                
+    } while (variable!=='condicion');
+    ```
+
+### SWITCH:
+Tiene una sintaxis practica para el analisis recurrente de una variable que derive en muchos casos distintos.
+
+    ```js
+    var ejemplo;
+    switch(variable){
+        case 'valor1':
+            accion1();
+                break;
+        case 'valor2':
+            accion2();
+                break;
+        case 'valor3':
+            accion3();
+                break;
+        default:
+            acciondefault();
+                break; /*termina el case.*/
+    };      
+    /*Aplicable a loops en funcion de un horario especifico. */
+    ```
 
 
-    FUNCION alert   
-            Al iniciar la website salta un mensaje con la informaci[on en la funcion.
+### Funcion alert   
+Al iniciar la website salta un mensaje que contiene el argumento de la funcion.
 
-            Sintaxis:
-                alert('Mensaje a abrir**')
+    ```js
+    alert('Mensaje a abrir');
+    ```
+
+### Funcion prompt
+Esta funcion es similar a la de alert pero solicita al usuario un dato bajo la premisa escrita en el argumento. En otras palabras el argumento es lo que le explica al usuario que debe ingresar en el campo.
+ 
+    ```js
+    prompt('Ingrese un dato')
+    ```
+
+### Funcion write en elementos
+Se elige el elemento en el que se escribira el argumento de la funcion.
+
+    ```js
+    document.write('contenido');
+    ```
+
+### Escribiendo en html
+Creamos un div con un id especifico en el que se escribira lo buscado.
+
+    ```html
+    <div id="datos">
+    ```
+
+Incluimos ese elemento html en una variable y trabajamos sobre la misma
+
+    ```js
+    var datos = document.getElementById("datos");
+
+    datos.innerHTML = "contenido";
+    ```
+
+Se debe tener en cuenta que si escribimos algo inmediatamente sin que se haga un llamado a una `funcion` sera necesario que el elemento `script` aparezca al final del `body` para que se leen todos los `id` y recien ahi se `ejecute`.
+
+Se puede escribir html en el elemento elegido de la siguiente manera
+
+    ```js
+    datos.innerHTML = `
+    <h1>primer texto</h1>
+    <h2>segundo texto</h2>
+    <h3>Esto es una variable: $(nombre) </h3>
+    `;
+    ```
