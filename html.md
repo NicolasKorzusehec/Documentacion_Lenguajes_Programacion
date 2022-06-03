@@ -43,7 +43,7 @@ Atributos
 	Brindan información extra y van dentro de un tag: href, color, etc.
 
 Etiquetas/tags y Comandos:
-	n<nombre caracteristica="valor"></nombre>
+	<nombre caracteristica="valor"></nombre>
 		Ejemplo=<button color="red" tamaño="grande" borde="negros"></button>
 
 			Botón tag
