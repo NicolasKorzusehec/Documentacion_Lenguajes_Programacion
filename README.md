@@ -1,15 +1,17 @@
 # Resumen-Lenguajes-Pogramacion
-        Recursos interesantes:
-            Apps: 
-                Grasshopper
-                mimo
 
-            E-books:
-                Alura - Intro al desarrollo Web
+Recursos interesantes:
 
-            Páginas Web:
-                https://web.dev/       (Visto hasta la cascada inclusive y layout)
-                https://lab.github.com/
-                https://developer.mozilla.org/es/
-                https://www.frontendmentor.io/          Ejercicios
+    Apps: 
+        Grasshopper
+        mimo
+
+    E-books:
+        Alura - Intro al desarrollo Web
+
+    Páginas Web:
+        https://web.dev/       (Visto hasta la cascada inclusive y layout)
+        https://lab.github.com/
+        https://developer.mozilla.org/es/
+        https://www.frontendmentor.io/          Ejercicios
                 
