@@ -4,6 +4,9 @@ JavaScript
 Se define como orientado a objetos, basado en prototipos, imperativo, debilmente tipado y dinámico.
 Siempre se deberá respetar el ; al final de una linea
 
+Tipos de datos
+Hay seis tipos de datos primitivos: string, number, bigint, boolean, undefined y symbol.
+
     VALORES BOOLEANOS:
     //Binarios referidos a la verdad, TRUE o FALSE.
     JavaScript genera coerción de tipo para concluir un valor truthy o falsy en distinto casos sin que sea explícito.
@@ -140,23 +143,41 @@ Siempre se deberá respetar el ; al final de una linea
         Compuerta OR: casoA || casoB
         Negacion: !condicion /*Negara el resultado de la preposicion.*/
 
-    Operadores matemáticos:
-    -, /, *
-    +(Puede usarse para combinarse strings) 
-        /*Concatenara cualquier suma que involucre un string.*/
-        Sintaxis:
-            Var word=('So'+' cool')
-            console.log(word)
-                En consola:
-                So cool
-    Operador modulo '%'
-        Operando1%Operando2
-    Devuelve el resto de la division entre ambos operandos, haceun return con ese resultado.
-
-    Operadores de asignación:
-
-
 ```
+
+### Operadores matemáticos:
+    -, /, *,+
+    
+`Concatenar`
+Para concatenar strings usamos `+`, pudiendo usarse en cualquier suma que involucre al menos un `string`. Si hay una combinacion larga de strings y numeros, se ejecuta en funcion de su `presedencia`, realizandose las sumas de manera simple hasta alcanzar el primer string y a partir de ahi se concatenara ese resutado con todo lo demas.
+
+    ```js
+    Var word=('So'+' cool')
+    console.log(word)  //   So cool
+    ```
+
+`Operador modulo %`
+Devuelve el resto de la division entre ambos operandos, hace un return con ese resultado.
+        a % b
+
+`Operador exponenciacion **`
+De igual modo esta definida para numeros no enteros,aplicandose la radicacion cuando el exponente es fraccion.
+        a ** b
+
+`Conversion numerica, unario`
+Si se le aplica un signo `+` a un valor que no es de tipo `numerico`, dicho
+valor es convertido en un numero, respondiendo a lassemejansas con los valores booleanos.
+
+    ```js
+    alert( +true);  //  1
+    alert( +' ' );  // 0
+    ```
+La funcion `number()` ejecuta lo mismo
+
+`Operadores de asignación`
+///////////////////////////////////////
+
+
 
 ### CICLOS:
 Repite la sección del código dentro de {} una determinada cantidad de veces
@@ -243,9 +264,14 @@ Al iniciar la website salta un mensaje que contiene el argumento de la funcion.
 
 ### Funcion prompt
 Esta funcion es similar a la de alert pero solicita al usuario un dato bajo la premisa escrita en el argumento. En otras palabras el argumento es lo que le explica al usuario que debe ingresar en el campo.
- 
+
     ```js
-    prompt('Ingrese un dato')
+    prompt('Ingrese un dato:')
+    ```
+    Podemos guardar este prompt en una variable
+
+    ```js
+    var dato = prompt('Ingrese un dato')
     ```
 
 ### Funcion write en elementos
