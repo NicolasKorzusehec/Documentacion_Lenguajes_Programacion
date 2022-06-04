@@ -309,3 +309,11 @@ Se puede escribir html en el elemento elegido de la siguiente manera
     <h3>Esto es una variable: $(nombre) </h3>
     `;
     ```
+
+Para recibir la entrada de un input se recurre a la siguiente sintaxis
+
+    ```js
+    let temperatura = document.getElementById('temperatura').value;
+    ```
+
+En caso de tratarse de marcar una casilla o un elemento se termina la estructura con un `.checked` en vez de un `.value`
