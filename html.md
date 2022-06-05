@@ -349,7 +349,7 @@ ejemplo
 </body>
 
 
-Volviendo a las imagenes, por si no se muestra las imagenes, se pone <img src="foto.jpg" alt="nombre que queremos que aparezca"> es CLAVE para el CEO (SEO?)
+Volviendo a las imagenes, por si no se muestra las imagenes, se pone <img src="foto.jpg" alt="nombre que queremos que aparezca"> es CLAVE para el SEO
 
 La función del atributo title en una imagen es de poner un nombre que aparece cuando el mouse está en la imagen. sería<img src="" alt="" title="">
 
