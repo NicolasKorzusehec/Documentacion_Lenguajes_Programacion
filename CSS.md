@@ -234,8 +234,9 @@ El orden de importancia, de menor a mayor, es el siguiente:
 
 ### PENDIENTE FORMATEAR
 
-```css
 
+
+```css
 
 El body suele venir con un margen predeterminado indeseado, se resetea la prop con margin: 0;
 
@@ -276,10 +277,10 @@ Propiedades de los links:
 El selector sedesigna como a: *estado del link* {}
 
 Se debe respetar el siguiente orden para establecer dichos formatos
-	a: link {}-- Sin visitar el sitio
-	a: visited {} -- Sitio ya visitado
-	a: hover {} -- Cursor del mouse sobre el link
-	a: active {} -- Link siendo clickeado
+	a:link {} /*Sin visitar el sitio*/
+	a:visited {} /*Sitio ya visitado*/
+	a:hover {} /*Cursor del mouse sobre el link*/
+	a:active {} /*Link siendo clickeado*/
 
 Propiedades de las listas:    
 	list-style-type: ; -- Define si es con puntos o numeros, etc
