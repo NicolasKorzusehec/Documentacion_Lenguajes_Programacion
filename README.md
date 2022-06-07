@@ -18,3 +18,10 @@ Páginas Web:
     https://developer.mozilla.org/es/
     https://www.frontendmentor.io/          Ejercicios
             
+### Indagar Documentacion
+
+- Sass
+- Testeos unitarios
+- Pytest
+- js Callbacks
+- js objects
