@@ -39,7 +39,7 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - `.forEach`
     - [SWITCH](#switch)
 - [Write en elementos](#write-en-elementos)
-- [Ecribiendo en html](#escribiendo-en-html)
+- [Escribiendo en html](#escribiendo-en-html)
 
       
 ### Variables y sus Ambitos

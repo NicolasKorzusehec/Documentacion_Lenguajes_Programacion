@@ -16,6 +16,11 @@ CSS3 cascade style sheet
 		- `hermano siguiente con selector universal`
 		- `Combinador secundario`
 		- `Selectores compuestos`
+- [LA CASCADA](#la-cascada)
+	- `Posicion y orden de aparicion`
+	- `Especificidad`
+	- `Origen`
+	- `Importancia`
 - [PENDIENTE FORMATEAR](#pendiente-formatear)
 
 ### Comentarios
@@ -168,58 +173,68 @@ Puede combinar selectores para aumentar la especificidad y la legibilidad. Por e
 
 
 
-### PENDIENTE FORMATEAR
-```css
-LA CASCADA
-	Dos o más reglas CSS pueden aplicarse a un elemento, el navegador elige cuál usar en función de diversos casos.
-	La cascada es el algoritmo para resolver conflictos donde se aplican múltiples reglas CSS a un elemento HTML. 
+### LA CASCADA
+Dos o más reglas CSS pueden aplicarse a un elemento, el navegador elige cuál usar en función de diversos casos.
+`La cascada` es el algoritmo para resolver conflictos donde se aplican `múltiples reglas CSS` a un `elemento HTML`. 
 
-	El algoritmo en cascada se divide en 4 etapas distintas:
+El algoritmo en cascada se divide en 4 etapas distintas:
 		
-		Posición y orden de aparición
-			El orden en el que aparecen tus reglas CSS.
-			Se vuelven más específicos cuanto más abajo están en el archivo CSS, contrario a lo que ocurre en un archivo html con la posición de las etiquetas que dan estilo. 
-			/*Ya sean etiquetas links que vinculen páginas de estilos o bien directamente reglas CSS en un archivo CSS.*/
-			Este enfoque de declarar la misma propiedad dos veces funciona porque los navegadores ignoran los valores que no comprenden. 
-				En el siguiente ejemplo, font-size se declara dos veces. Si el navegador es compatible con clamp(), se descartará la declaración de font-size. Si clamp() no es compatible, se respetará la declaración inicial y el tamaño de fuente será 1.5rem.
-						.my-element {
-							font-size: 1.5rem;
-							font-size: clamp(1.5rem, calc(1rem + 3vw), 2rem);
-						}
+#### Posición y orden de aparición
+El orden en el que aparecen tus reglas CSS.
+Se vuelven más `específicos` cuanto más `abajo` están en el archivo CSS, contrario a lo que ocurre en un archivo html con la posición de las etiquetas que dan estilo. 
+	Ya sean etiquetas links que vinculen páginas de estilos o bien directamente reglas CSS en un archivo CSS.
+Este enfoque de declarar la misma propiedad dos veces funciona porque los navegadores ignoran los valores que no comprenden. 
 
-		Especificidad
-			La especificidad es un algoritmo que determina qué selector de CSS es el más específico, utilizando un sistema de ponderación o puntuación para realizar esos cálculos. 
-			Al hacer una regla más específica, puede hacer que se aplique incluso si algún otro CSS que coincida con el selector aparece más adelante en el CSS.
-						
-				- El CSS dirigido a una clase en un elemento hará que la regla sea más específica.
-				- Una id hace que el CSS sea aún más específico, por lo que los estilos aplicados a una id anularán los aplicados de muchas otras formas. 
-					/*Esta es una de las razones por las que generalmente no es una buena idea adjuntar estilos a una id. Puede dificultar la sobrescritura de ese estilo con otra cosa.*/
-				- Si apuntas a un elemento con una lista de selección como a.my-class.another-class[href]:hover, será bastante difícil de sobrescribir con otro CSS. 
-					/*Para ayudar a que tu CSS sea más reutilizable, es una buena idea mantener tus selectores lo más simples posible. Usa la especificidad como una herramienta para llegar a los elementos cuando lo necesites, pero siempre considera refactorizar listas de selectores largas y específicas, si es posible.*/
+	```js
+	//Si el navegador es compatible con clamp(), se descartará la declaración de font-size. Si clamp() no es compatible, se respetará la declaración inicial y el tamaño de fuente será 1.5rem.
+			.my-element {
+				font-size: 1.5rem;
+				font-size: clamp(1.5rem, calc(1rem + 3vw), 2rem);
+			}
+	```
+
+#### Especificidad
+La especificidad es un algoritmo que `determina qué selector de CSS es el más específico`, utilizando un sistema de ponderación o puntuación para realizar esos cálculos. 
+	Al hacer una regla más específica, puede hacer que se aplique incluso si algún otro CSS que coincida con el selector aparece más adelante en el CSS.		
+- El CSS dirigido a una `class` en un elemento hará que la regla sea más específica.
+- Una `id` hace que el CSS sea aún más específico, por lo que los estilos aplicados a una id anularán los aplicados de muchas otras formas. 
+		Esta es una de las razones por las que generalmente no es una buena idea adjuntar estilos a una id. Puede dificultar la sobrescritura de ese estilo con otra cosa.
+- Si apuntas a un elemento con una lista de selección , será bastante difícil de sobrescribir con otro CSS.
+	```css
+		a .my-class .another-class[href]:hover {
+
+		}
+	```
+	Para ayudar a que tu CSS sea más reutilizable, es una buena idea mantener tus selectores lo más simples posible. Usa la especificidad como una herramienta para llegar a los elementos cuando lo necesites, pero siempre considera refactorizar listas de selectores largas y específicas, si es posible.
 
 
-		Origen
-			El CSS propio no es el único CSS que se aplica a una página. La cascada tiene en cuenta el origen del CSS. Este origen incluye la hoja de estilo interna del navegador, los estilos agregados por las extensiones del navegador o el sistema operativo y el CSS creado propio.
-				Siendo del menos específico al más específico:
-					- Estilos base de agente de usuario. 
-						Estos son los estilos que tu navegador aplica a los elementos HTML de forma predeterminada.
-					- Estilos de usuarios locales. 
-						Estos pueden provenir del nivel del sistema operativo, como un tamaño de fuente base o una preferencia de movimiento reducido. /* También pueden provenir de extensiones de navegador, como una extensión de navegador que permite al usuario escribir su propio CSS personalizado para una página web. */
-					- CSS creado propio
-					- Los !important creados.
-						Cualquier !important que agregues a tus declaraciones creadas.
-					- Estilos de usuarios locales !important. 
-						Cualquier !important que provenga del nivel del sistema operativo o del nivel de extensión del navegador CSS.
-					- Agente de usuario !important. 
-						Cualquier !important que se define en el CSS predeterminado, proporcionado por el navegador.
+#### Origen
+El CSS propio no es el único CSS que se aplica a una página. `La cascada tiene en cuenta el origen del CSS.` Este origen incluye la hoja de estilo interna del navegador, los estilos agregados por las extensiones del navegador o el sistema operativo y el CSS creado propio.
 
-		Importancia
-			El orden de importancia, de menor a mayor, es el siguiente:
-				- Regla normal, como font-size , background o color
-				- Regla de animation
-				- Regla de !important (siguiendo el mismo orden que el origen)
-				- Regla de transition
-				/* 	Los tipos de reglas de transition (transición) y animation (animación) tienen más importancia que las reglas normales. En el caso de las transiciones, es más importante que los tipos de reglas !important. Esto se debe a que cuando una animación o transición se activa, su comportamiento esperado es cambiar el estado visual. */
+Siendo del menos específico al más específico:
+- Estilos base de agente de usuario. 
+	`Estos son los estilos que tu navegador aplica a los elementos HTML de forma predeterminada.`
+- Estilos de usuarios locales. 
+	`Estos pueden provenir del nivel del sistema operativo, como un tamaño de fuente base o una preferencia de movimiento reducido. También pueden provenir de extensiones de navegador, como una extensión de navegador que permite al usuario escribir su propio CSS personalizado para una página web. */`
+- CSS creado propio.
+- Los `!important` creados.
+	`Cualquier !important que agregues a tus declaraciones creadas.`
+- Estilos de usuarios locales `!important`. 
+	`Cualquier !important que provenga del nivel del sistema operativo o del nivel de extensión del navegador CSS.`
+- Agente de usuario `!important`. 
+	`Cualquier !important que se define en el CSS predeterminado, proporcionado por el navegador.`
+
+#### Importancia
+El orden de importancia, de menor a mayor, es el siguiente:
+- Regla normal, `como font-size , background o color`
+- Regla de animation
+- Regla de !important `siguiendo el mismo orden que el origen`
+- Regla de transition
+		Los tipos de reglas de transition (transición) y animation (animación) tienen más importancia que las reglas normales. En el caso de las transiciones, es más importante que los tipos de reglas !important. Esto se debe a que cuando una animación o transición se activa, su comportamiento esperado es cambiar el estado visual. 
+
+### PENDIENTE FORMATEAR
+
+```css
 
 
 El body suele venir con un margen predeterminado indeseado, se resetea la prop con margin: 0;

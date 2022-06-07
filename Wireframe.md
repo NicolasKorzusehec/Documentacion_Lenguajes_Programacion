@@ -1,4 +1,4 @@
-Resources
+### Resources Wireframe
 
     figma.com
 
@@ -26,7 +26,7 @@ Ejemplos de wireframes
         El uso de todo el espectro de la escala de grises puede ayudar a determinar la fuerza visual de los elementos sin tener que escoger una paleta de color. 
 
 
-Frameworks CSS
+### Frameworks CSS
 
         https://get.foundation/
 Flexibilidad extrema: A diferencia de Bootstrap, Foundation se creó para brindar al desarrollador de front-end un control total sobre sus interfaces de usuario. Como resultado, Foundation se sentirá insípido y enormemente complejo para el recién llegado. Sin embargo, la razón es que Foundation no le impone ningún lenguaje de estilo, sino que pretende ser exactamente lo que es: un excelente marco CSS.
