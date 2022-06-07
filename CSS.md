@@ -172,6 +172,8 @@ Puede combinar selectores para aumentar la especificidad y la legibilidad. Por e
 	```
 
 
+
+
 ### PENDIENTE FORMATEAR
 ```css
 LA CASCADA

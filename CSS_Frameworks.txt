@@ -1,4 +1,0 @@
-https://get.foundation/
-Flexibilidad extrema: A diferencia de Bootstrap, Foundation se creó para brindar al desarrollador de front-end un control total sobre sus interfaces de usuario. Como resultado, Foundation se sentirá insípido y enormemente complejo para el recién llegado. Sin embargo, la razón es que Foundation no le impone ningún lenguaje de estilo, sino que pretende ser exactamente lo que es: un excelente marco CSS.
-
-https://getbootstrap.com/
