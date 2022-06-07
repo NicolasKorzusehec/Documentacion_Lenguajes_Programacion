@@ -178,11 +178,11 @@ Ejecutan una sección de codigo tanto en caso de `true` como de `false`.
         ```
 
 ### Pruebas de comparacion
-Si se cumplen devuelven true, de lo contrario false
-    Igualdad: a===b
-    Desigualdad: a!==b
-    Menor y mayor que: a<b a>b
-    Menor y mayor o igual que: a<=b a>=b
+Si se cumplen devuelven true, de lo contrario false.
+    `Igualdad`: a===b
+    `Desigualdad`: a!==b
+    `Menor` y `mayor` que: a<b a>b
+    `Menor` y `mayor` o igual que: a<=b a>=b
 
 ### Compuertas lógicas
 Combinan pruebas
