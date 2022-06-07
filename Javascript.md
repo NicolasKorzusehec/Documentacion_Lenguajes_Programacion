@@ -22,7 +22,7 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
     - [If statement](#if-statement)
     - [If else](#if-else)
 - `Pruebas y operaciones`
-    - [Pruebas de comparacion](#pruebas-de-comparacion)
+    - [Comparaciones](#comparaciones)
     - [Compuertas logicas](#compuertas-lógicas)
     - [Operadores matematicos y Operaciones](#operadores-matemáticos-y-operaciones)
         - `Concatenar`
