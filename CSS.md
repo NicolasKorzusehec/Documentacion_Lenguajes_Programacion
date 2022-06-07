@@ -19,9 +19,6 @@ CSS3 cascade style sheet
 		- `Selectores compuestos`
 - [PENDIENTE FORMATEAR](#pendiente-formatear)
 
-
-
-
 ### Buscar
 Indagar Resets y Normalizers
 
