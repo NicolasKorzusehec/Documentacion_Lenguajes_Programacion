@@ -2,14 +2,13 @@
 CSS3 cascade style sheet
 
 ## Contenidos
-- [Buscar](#buscar)
 - [Comentarios](#comentarios)
 - [Vinculacion a un html](#vinculacion-a-un-html)
 - [Estructura basica](#estructura-basica)
 - [BOX-MODEL](#box-model)
 - [Selectores especificos](#selectores-especificos)
 	- [Selectores de atributo](#selectores-de-atributo)
-	- [Pseudoclase](#pseudoclases)
+	- [Pseudoclases](#pseudoclases)
 	- [Pseudoelementos](#pseudoelementos)
 	- [Selectores complejos](#selectores-complejos)
 		- `Combinadores descendientes`
@@ -18,9 +17,6 @@ CSS3 cascade style sheet
 		- `Combinador secundario`
 		- `Selectores compuestos`
 - [PENDIENTE FORMATEAR](#pendiente-formatear)
-
-### Buscar
-Indagar Resets y Normalizers
 
 ### Comentarios
 Para comentar seleccionamos comentario y atajo shift + alt + A 
@@ -134,7 +130,8 @@ Puede buscar un elemento que siga inmediatamente a otro elemento si usa un cára
 	.SelectorPadre .SelectorInicial + .SelectorConsecuente {
 			margin-top: 5em;
 		}
-	/*Agrega el margin a cada elemento dentro del elemento padre con clase .SelectorPadre que sea consecutivo a algun elemento dentro del mismo (SE CONDICIONA LA CONSECUCION NECESARIA. */
+	/*Agrega el margin a cada elemento dentro del elemento padre con clase .SelectorPadre que sea consecutivo a algun elemento dentro del mismo 
+	(SE CONDICIONA LA CONSECUCION NECESARIA. */
 	```
 
 `hermano siguiente con selector universal`

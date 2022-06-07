@@ -20,7 +20,8 @@ Páginas Web:
             
 ### Indagar Documentacion
 
-- Sass
+- css Sass
+- css resets y normalizers
 - Testeos unitarios
 - Pytest
 - js Callbacks
