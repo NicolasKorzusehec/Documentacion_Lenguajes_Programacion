@@ -14,11 +14,15 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
     - [Undefined](#undefined)
 - [Funcion](#funcion)
     - [Parametros](#parametros)
-    - [Return]()
+    - [Return](#return)
     - [Funcion alert](#funcion-alert)
     - [Funcion prompt](#funcion-prompt)
+    - [Algunas funciones](#algunas-funciones)
     - [Impresion en consola](#impresion-en-consola)
 - [Metodos](#metodos)
+    - [De strings](#de-strings)
+        - .replace
+        - .indexOf
 - [Arreglo ARRAY](#arreglo-array)
 - [Indexacion de Arreglos y Strings](#indexacion-de-arreglos-y-strings)
 - [CONDICIONALES](#condicionales)
@@ -55,6 +59,7 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
 - [js y manipulacion del DOM](#js-y-manipulacion-del-dom)
     - [Write en elementos](#write-en-elementos)
     - [Escribiendo en html](#escribiendo-en-html)
+    - [Importar js](#importar-js)
     - [Bibliotecas js](#biblioteca-js)
 
       
@@ -89,7 +94,19 @@ Hay seis tipos de datos `primitivos`:
 
 #### Strings
 `Cadenas de texto`
-Letras, palabras y textos ubicados entre comillas ''.
+Letras, palabras y textos ubicados entre comillas `''`.
+Si se desea incluir una comilla `simple` o `doble` en el `string` es conveniente colocar una `\` justo antes de la `comilla`.
+
+- `Strings en JavaScript son codificados usando UTF-16.`
+- `backticks`
+    Permiten ingresar expresiones dentro del string, envolviéndolos en ${…}
+
+        ```js
+        ${variable o funcion a incluir}
+        ```
+- `String extensos`
+Es posible crear strings de múltiples líneas usando comillas simples, usando un llamado `carácter de nueva línea`, escrito como `\n`, lo que denota un salto de línea:
+
 
 #### Valores Booleanos
 Binarios referidos a la verdad, TRUE o FALSE.
@@ -188,10 +205,25 @@ Esta funcion es similar a la de alert pero solicita al usuario un dato bajo la p
     var dato = prompt('Ingrese un dato')
     ```
 
+#### Algunas funciones
+    ```js
+    //Number, trasnforma DATOS en strings
+    var myString = '123';
+    var myNum = Number(myString);
+    typeof myNum;
+
+    //toString, Convierte el equivalente en una string
+    var myNum = 123;
+    var myString = myNum.toString();
+    typeof myString;
+    ```
+
+
 ### Metodos
 Conjunto de funcionalidades, o funciones que dependen del objeto sobre el que actuan.
 
 #### De strings
+[Listado de metodos de strings](https://tutobasico.com/string-javascript/)
 
 - `.replace`
 Toma 2 valores: los caracteres que queremos sacar y los caracteres que los van a reemplazar.
@@ -204,6 +236,27 @@ Toma 2 valores: los caracteres que queremos sacar y los caracteres que los van a
     example = example.replace("perros", "gatos") 
     // Seguardo
     ```
+- `.indexOf`
+Busca un elemento `string` dentro de otro elemento `string` que es el `objeto` al que se le aplcia el metodo. cuenta desde el `0`.
+
+    ```js
+    var example = "Hola"
+    console.log ( example.indexOf("o") ) // 1
+    ```
+
+- `lastIndexOf`
+Devuelve la posición de la última ocurrencia del carácter pasado como parámetro.
+
+- `.lenght`
+Evalua y devuelve la contidad de caracteres que tene un string.
+
+- `match`
+Busca una coincidencia en una cadena y devuelve todas las coincidencias encontradas
+
+- `.slice`
+    objeto.slice('index1, index2');
+
+
 
 
 #### Impresion en consola
@@ -511,6 +564,19 @@ Tiene una sintaxis practica para el analisis recurrente de una variable que deri
 ### js y manipulacion del DOM
 Es el responsable de manejar los elementos del `HTML`, `nodos`, por ejemplo crear nuevos, darles una clase CSS, modificarlos y/o eliminarlos.
 
+- Sintaxis interesante para vincular funciones a partes del `html`
+
+    ```html
+    <button>Press me</button>
+    ```
+
+    ```js
+    var button = document.querySelector('button');
+    button.onclick = function() {
+        var name = prompt('What is your name?');
+        alert('Hello ' + name + ', nice to see you!');
+    }
+    ```
 
 #### Write en elementos
 Se elige el elemento en el que se escribira el argumento de la funcion.
@@ -553,6 +619,13 @@ Para recibir la entrada de un `input` se recurre a la siguiente sintaxis
     ```
 
 En caso de tratarse de marcar una casilla o un elemento se termina la estructura con un `.checked` en vez de un `.value`
+
+#### Importar js
+Para `importar` funciones u objetos de otro `archivo.js` se utiliza la siguiente sintaxis:
+
+    ```js
+    import {funcion} from "./archivo.js";
+    ```
 
 #### Biblioteca js
 Se suele referir al JavaScript escrito por tercero como una `biblioteca` o `plugin`. 
