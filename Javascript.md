@@ -16,6 +16,7 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
     - [Funcion alert](#funcion-alert)
     - [Funcion prompt](#funcion-prompt)
     - [Impresion en consola](#impresion-en-consola)
+- [Metodos](#metodos)
 - [Arreglo ARRAY](#arreglo-array)
 - [Indexacion de Arreglos y Strings](#indexacion-de-arreglos-y-strings)
 - [CONDICIONALES](#condicionales)
@@ -32,14 +33,14 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - Comparaciones matematicas
         - Casos particulares
     - [Comparacion de cadenas](#comparacion-de-cadenas)
-    - [Comparacion de diferentes tipos](#comparacion-de-diferentes-tipos)
-    - [Compuertas logicas](#compuertas-lógicas)
-- [Operadores matematicos y Operaciones](#operadores-matemáticos-y-operaciones)
+    - [Compuertas logicas](#compuertas-logicas)
+- [Operadores matematicos](#operadores-matematicos)
         - Concatenar
         - Operador Modulo %
         - Operador Exponenciacion **
         - Conversion numerica UNARIO
     - [Operadores de asignacion](#operadores-de-asignacion)
+    pendiente
 - [ciclos](Ciclos)
     - [For loop](#for-loop)
     - [Classic for loop](#classic-for-loop)    
@@ -49,8 +50,10 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - Do while
         - .forEach
     - [SWITCH](#switch)
-- [Write en elementos](#write-en-elementos)
-- [Escribiendo en html](#escribiendo-en-html)
+- [js y manipulacion del DOM](#js-y-manipulacion-del-dom)
+    - [Write en elementos](#write-en-elementos)
+    - [Escribiendo en html](#escribiendo-en-html)
+    - [Bibliotecas js](#biblioteca-js)
 
       
 ### Variables y sus Ambitos
@@ -116,6 +119,7 @@ Se devuelve en funciones que no tienen declaración return. De igual modo en ín
 ### Funcion
 Pueden tomar argumentos y darle información adicional a la computadora.
 Guarda un bloque de codigo para ser usado posteriormente, siendo su principal objetivo permitir la reutilizacion de codigo constante.
+Son independietes del objeto alque se aplican , estando condicionadas al uso correcto por parte del programador.
 
     ```js
         function nombrefunción(argumentos){
@@ -157,6 +161,24 @@ Esta funcion es similar a la de alert pero solicita al usuario un dato bajo la p
     var dato = prompt('Ingrese un dato')
     ```
 
+### Metodos
+Conjunto de funcionalidades, o funciones que dependen del objeto sobre el que actuan.
+
+#### De strings
+
+- `.replace`
+Toma 2 valores: los caracteres que queremos sacar y los caracteres que los van a reemplazar.
+`La mayoría de funciones de JavaScript para estos propósitos toman el valor que le damos y retornan un nuevo valor, sin modificar el valor que le pasamos.`
+
+    ```js
+    var example = "perros hermosos"
+    example.replace("perros", "gatos") // gatos hermosos
+    Para guardar este valor se tiene que reasignar este metodo a la variable.
+    example = example.replace("perros", "gatos") 
+    // Seguardo
+    ```
+
+
 #### Impresion en consola
 Corre en consola aquello que se encuentre en el paréntesis.
 
@@ -187,7 +209,8 @@ Los elementos de un arreglo se indexan comenzando por índice 0. De igual modo o
     ```
 
 ### CONDICIONALES
-Compuertas binarias que se guian por `TRUE` y `False` para tomar un camino a realizar, llamandose `Control de flujo de los datos`.
+Compuertas binarias que se guian por `TRUE` y `FALSE` para tomar un camino a realizar, llamandose `Control de flujo de los datos`.
+La condicion dentro del parentesis realiza `coercion de tipo booleana`, vista en el apartado [Valores booleanos](#valores-booleanos), llamandose `valores booleanos directos a esa conversion`.
 
 #### If statement
 Permite ejecutar una sección de código específica cuando una prueba es `verdadera`, también se aplica en `valores booleanos directos`
@@ -202,15 +225,48 @@ Permite ejecutar una sección de código específica cuando una prueba es `verda
 Ejecutan una sección de codigo tanto en caso de `true` como de `false`.
 
 
-        ```js
+    ```js
         if (prueba) {ejecución si true} else {ejecución si false};
+    ```
 
-        Semántica con operador ternario:
-        Ejecutan if else con menos código.
+#### Operador ternario
+Ejecutan if else con menos código aunque son menos legibles.
+Su principal uso radica en asignar una variable dependiendo alguna condicion.
 
-            (prueba) ? (Ejecución true) : (Ejecución false);
+    ```js
+        let result = condition ? value1 : value2;       
+    ```
 
-        ```
+- Ejemplo:
+
+    ```js
+        let accessAllowed = (age > 18) ? true : false;
+        // Este ejemplo se podria realizar de la siguiente manera, dado que la comparacion devuelve directamete true o false.
+        let accessAllowed = age > 18;
+    ```
+
+    ```js
+        Caso convencional:
+        if (age < 3) {
+            message = '¡Hola, bebé!';
+            } else if (age < 18) {
+            message = '¡Hola!';
+            } else if (age < 100) {
+            message = '¡Felicidades!';
+            } else {
+            message = '¡Qué edad tan inusual!';
+            }
+
+        Caso ternario:
+        let age = prompt('¿edad?', 18);
+
+        let message = (age < 3) ? '¡Hola, bebé!' :
+            (age < 18) ? '¡Hola!' :
+            (age < 100) ? '¡Felicidades!' :
+            '¡Qué edad tan inusual!';
+
+        alert( message );
+    ```
 
 ### Pruebas condicionales
 Si se cumplen devuelven true, de lo contrario false.
@@ -313,13 +369,13 @@ Js utiliza el orden de `diccionario` o `Lexicografico` para definir que cadenas 
 - A mayor posicion en el alfabeto, mayor es el indice en la tabla de codificacion interna.
 - Los caracteres en minúsculas tiene un mayor índice en la tabla de codificación interna que utiliza JavaScript (Unicode). 
 
-#### Compuertas lógicas
+#### Compuertas logicas
 Combinan pruebas
     Compuerta AND: casoA `&&` casoB
     Compuerta OR: casoA `||` casoB
     Negacion: `!`condicion /*Negara el resultado de la preposicion.*/
 
-### Operadores matemáticos y Operaciones
+### Operadores matematicos
 `Concatenar`
 Para concatenar `strings` usamos `+`, pudiendo usarse en cualquier suma que involucre al menos un `string`. Si hay una combinacion larga de strings y numeros, se ejecuta en funcion de su `presedencia`, realizandose las sumas de manera simple hasta alcanzar el primer string y a partir de ahi se concatenara ese resutado con todo lo demas.
 
@@ -425,15 +481,19 @@ Tiene una sintaxis practica para el analisis recurrente de una variable que deri
     /*Aplicable a loops en funcion de un horario especifico. */
     ```
 
-### Write en elementos
+### js y manipulacion del DOM
+Es el responsable de manejar los elementos del `HTML`, `nodos`, por ejemplo crear nuevos, darles una clase CSS, modificarlos y/o eliminarlos.
+
+
+#### Write en elementos
 Se elige el elemento en el que se escribira el argumento de la funcion.
 
     ```js
     document.write('contenido');
     ```
 
-### Escribiendo en html
-Creamos un div con un id especifico en el que se escribira lo buscado.
+#### Escribiendo en html
+Creamos un div con un `id` especifico en el que se escribira lo buscado.
 
     ```html
     <div id="datos">
@@ -442,14 +502,14 @@ Creamos un div con un id especifico en el que se escribira lo buscado.
 Incluimos ese elemento html en una variable y trabajamos sobre la misma
 
     ```js
-    var datos = document.getElementById("datos");
-
+    var datos = document.getElementById("datos"); 
+    //ahora manipulamos el elemento desde la variable
     datos.innerHTML = "contenido";
     ```
 
-Se debe tener en cuenta que si escribimos algo inmediatamente sin que se haga un llamado a una `funcion` sera necesario que el elemento `script` aparezca al final del `body` para que se leen todos los `id` y recien ahi se `ejecute`.
+Se debe tener en cuenta que si escribimos algo que se ejecute inmediatamente sin requerir un llamado a una `funcion` sera necesario que el elemento `script` aparezca al final del `body` para que se leen todos los `id` y recien ahi se `ejecute`.
 
-Se puede escribir html en el elemento elegido de la siguiente manera
+Se puede escribir html en el elemento elegido de la siguiente manera:
 
     ```js
     datos.innerHTML = `
@@ -459,10 +519,23 @@ Se puede escribir html en el elemento elegido de la siguiente manera
     `;
     ```
 
-Para recibir la entrada de un input se recurre a la siguiente sintaxis
+Para recibir la entrada de un `input` se recurre a la siguiente sintaxis
 
     ```js
     let temperatura = document.getElementById('temperatura').value;
     ```
 
 En caso de tratarse de marcar una casilla o un elemento se termina la estructura con un `.checked` en vez de un `.value`
+
+#### Biblioteca js
+Se suele referir al JavaScript escrito por tercero como una `biblioteca` o `plugin`. 
+Una reconocida es [Underscore.js](http://underscorejs.org/)
+Para su inclusion en consola se escribe lo siguiente:
+
+    ```js
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://cdn.jsdelivr.net/npm/underscore@1.13.3/underscoreumd-min.js"; // use this for linked script
+    script.text = "alert('voila!');" // use this for inline script
+    document.body.appendChild(script); //Lo incluye en el body creo que al final
+    ```
