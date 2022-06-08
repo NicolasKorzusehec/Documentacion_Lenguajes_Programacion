@@ -15,16 +15,20 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
 - [Funcion](#funcion)
     - [Parametros](#parametros)
     - [Return](#return)
-    - [Funcion alert](#funcion-alert)
-    - [Funcion prompt](#funcion-prompt)
+    - [Recursividad](#recursividad)
+        - [Funcion alert](#funcion-alert)
+        - [Funcion prompt](#funcion-prompt)
+        - [Impresion en consola](#impresion-en-consola)
     - [Algunas funciones](#algunas-funciones)
-    - [Impresion en consola](#impresion-en-consola)
 - [Metodos](#metodos)
     - [De strings](#de-strings)
         - .replace
         - .indexOf
+    - [De Arrays](#de-arrays)
+        - .filter
 - [Arreglo ARRAY](#arreglo-array)
 - [Indexacion de Arreglos y Strings](#indexacion-de-arreglos-y-strings)
+- [Object](#object)
 - [CONDICIONALES](#condicionales)
     - [If statement](#if-statement)
     - [If else](#if-else)
@@ -142,9 +146,9 @@ Guarda un bloque de codigo para ser usado posteriormente, siendo su principal ob
 Son independietes del objeto al que se aplican , estando condicionadas al uso correcto por parte del programador.
 
     ```js
-        function nombrefunción(argumentos){
-            Codigo a ejecutar;
-        };
+    function nombrefunción(argumentos){
+        Codigo a ejecutar;
+    };
 
     () => {}
     //No requiere ni siquiera nombre. Corresponde guardarlo dentro de una variable.
@@ -186,6 +190,19 @@ Una función puede devolver un valor al código de llamada como resultado utiliz
 La directiva `return` puede estar en cualquier lugar de la función. Cuando la ejecución lo alcanza, la función se detiene y el valor se devuelve al código de llamada `asignado al result anterior`.
 Se puede utilizar el `return` para terminar una funcion inmediatamente.
 
+#### Recursividad
+Es cuando una funcion se llama a si misma desde su propia definicion.
+Siempre debe haber una condicion o final, o caso base, para que la funcion no se llame a si misma para siempre.
+
+    ```js
+    function ftl(n){
+        if (n===1){
+            return 1;
+        }
+        return n * ftl(n-1);
+    };
+    ```
+
 #### Funcion alert   
 Al iniciar la website salta un mensaje que contiene el argumento de la funcion.
 
@@ -204,6 +221,13 @@ Esta funcion es similar a la de alert pero solicita al usuario un dato bajo la p
     ```js
     var dato = prompt('Ingrese un dato')
     ```
+
+#### Impresion en consola
+Corre en consola aquello que se encuentre en el paréntesis.
+
+        ```js
+        console.log('muestreo pantalla');
+        ```
 
 #### Algunas funciones
     ```js
@@ -256,16 +280,37 @@ Busca una coincidencia en una cadena y devuelve todas las coincidencias encontra
 - `.slice`
     objeto.slice('index1, index2');
 
+    #### De Arrays
+- `.filter`
+Aplica una prueba a cada elemento en un arreglo y devuelve un nuevo arreglo que solo contiene los elementos que pasan, `return TRUE`. No modifica el arreglo original.
 
+    ```js
+    function lessThanTen ( number ){
+        return number < 10;
+    }
+    let numbers = [
+        3,
+        42,
+        7,
+    ];
+    let numbersUnderTen = numbers.filter( lessThanTen );
+    //Se evalua cada elemento del array y de pasar laprueba lo incluye al nuevo array declarado, sin modificar el anterior. 
+    ```
 
+- `.forEach`
+Es una forma util de ejecutar una funcion de `devolucion de llamada` una vez para cada `elemento` de un `arreglo`, y cada elemento se convierte en el `argumento` de la devolucion de llamada.
 
-#### Impresion en consola
-Corre en consola aquello que se encuentre en el paréntesis.
-
-        ```js
-        console.log('muestreo pantalla');
-        ```
-
+    ```js
+    let example = [
+        'case1',
+        'case2',
+        'case3'
+    ];
+    function print( element ){
+        console.log( element );
+    };
+    example.forEach(print); 
+    ```
 ### Arreglo ARRAY
 Lista de elementos enmarcados en una variable. Puede compenerse por `números`, `strings`, o incluso otros `arreglos`, llamándose `anidamiento de arreglos`.
 
@@ -287,6 +332,10 @@ Los elementos de un arreglo se indexan comenzando por índice 0. De igual modo o
 
         var secondArray = first array [1];  // secondArray = 'xd'
     ```
+
+### Object
+Un `Object` almacena varos valores que tienen nombres de `propiedades` tambien llamadas `claves`. Facilita el `acceso` mas adelante en el codigo.
+
 
 ### CONDICIONALES
 Compuertas binarias que se guian por `TRUE` y `FALSE` para tomar un camino a realizar, llamandose `Control de flujo de los datos`.
@@ -538,6 +587,9 @@ Ejecuta la accion y luego analiza la variable para ver si lo repite.
         variable++;                
     } while (variable!=='condicion');
     ```
+
+`.forEach`
+Vease en la seccion de [Metodos de Arrays](#de-arrays)
 
 #### SWITCH:
 Tiene una sintaxis practica para el analisis recurrente de una variable que derive en muchos casos distintos.
