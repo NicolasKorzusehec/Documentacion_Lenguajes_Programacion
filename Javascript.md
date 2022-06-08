@@ -13,6 +13,8 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - Coerciones resultantes en TRUE
     - [Undefined](#undefined)
 - [Funcion](#funcion)
+    - [Parametros](#parametros)
+    - [Return]()
     - [Funcion alert](#funcion-alert)
     - [Funcion prompt](#funcion-prompt)
     - [Impresion en consola](#impresion-en-consola)
@@ -118,8 +120,9 @@ Se devuelve en funciones que no tienen declaración return. De igual modo en ín
 
 ### Funcion
 Pueden tomar argumentos y darle información adicional a la computadora.
+Una función de cualquier tipo lleva SIEMPRE los paréntesis ().
 Guarda un bloque de codigo para ser usado posteriormente, siendo su principal objetivo permitir la reutilizacion de codigo constante.
-Son independietes del objeto alque se aplican , estando condicionadas al uso correcto por parte del programador.
+Son independietes del objeto al que se aplican , estando condicionadas al uso correcto por parte del programador.
 
     ```js
         function nombrefunción(argumentos){
@@ -141,6 +144,30 @@ Son independietes del objeto alque se aplican , estando condicionadas al uso cor
             /*En consola */
             suma() // x+y
     ```
+    Las funciones devuelven undefined por defecto. 
+Una función debe hacer exactamente lo que sugiere su nombre, no más.
+Dos acciones independientes por lo general merecen dos funciones, incluso si generalmente se convocan juntas `en ese caso, podemos hacer una tercera función que llame a esas dos`.
+
+#### Parametros
+Si se llama una `funcion` sin declararle un `parametro` su valor correspondiente se convierte en `undefined`. Podemos especificar un valor llamado `predeterminado` o `default` (que se usa si el argumento fue omitido) en la declaración de función usando `=`
+
+    ```js
+    function showMessage(from, text = "sin texto") {
+        alert( from + ": " + text );
+    }
+    showMessage("Ann"); // Ann: sin texto
+
+    Tambien se pudo haber desarrollado otra solucion mas compleja:
+    function showMessage(from, text = anotherFunction()) {
+    // anotherFunction() solo se ejecuta si text no fue asignado
+    // su resultado se convierte en el valor de texto
+    }
+    ```
+
+#### Return
+Una función puede devolver un valor al código de llamada como resultado utilizando el `return`
+La directiva `return` puede estar en cualquier lugar de la función. Cuando la ejecución lo alcanza, la función se detiene y el valor se devuelve al código de llamada `asignado al result anterior`.
+Se puede utilizar el `return` para terminar una funcion inmediatamente.
 
 #### Funcion alert   
 Al iniciar la website salta un mensaje que contiene el argumento de la funcion.
