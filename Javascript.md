@@ -23,9 +23,21 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
 - [Metodos](#metodos)
     - [De strings](#de-strings)
         - .replace
-        - .indexOf
+        - .indexOf 
+        - .lastIndexOf
+        - .lenght
     - [De Arrays](#de-arrays)
         - .filter
+        - .forEach
+        - .map
+        - .push
+            .unshift `similar`
+            .pop `analogo`
+            .shift `analogo`
+        - .reverse
+        - .slice
+        - .splice
+        - [Operador de propagacion]()
 - [Arreglo ARRAY](#arreglo-array)
 - [Indexacion de Arreglos y Strings](#indexacion-de-arreglos-y-strings)
 - [Object](#object)
@@ -58,7 +70,7 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
     - [Otros ciclos](#otros-ciclos)
         - While
         - Do while
-        - .forEach
+        - [.forEach](#de-strings)
     - [SWITCH](#switch)
 - [js y manipulacion del DOM](#js-y-manipulacion-del-dom)
     - [Write en elementos](#write-en-elementos)
@@ -244,14 +256,14 @@ Corre en consola aquello que se encuentre en el paréntesis.
 
 
 ### Metodos
-Conjunto de funcionalidades, o funciones que dependen del objeto sobre el que actuan.
+Conjunto de funcionalidades, o funciones que dependen del objeto sobre el que actuan. Siempre llevan `()` aunque no lleven argumento.
+`La mayoría de funciones de JavaScript para estos propósitos toman el valor que le damos y retornan un nuevo valor, sin modificar el valor que le pasamos.`
 
 #### De strings
 [Listado de metodos de strings](https://tutobasico.com/string-javascript/)
 
 - `.replace`
-Toma 2 valores: los caracteres que queremos sacar y los caracteres que los van a reemplazar.
-`La mayoría de funciones de JavaScript para estos propósitos toman el valor que le damos y retornan un nuevo valor, sin modificar el valor que le pasamos.`
+Toma 2 valores: los caracteres que queremos sacar y los caracteres que los van a reemplazar. No modifica el `string` original.
 
     ```js
     var example = "perros hermosos"
@@ -260,27 +272,23 @@ Toma 2 valores: los caracteres que queremos sacar y los caracteres que los van a
     example = example.replace("perros", "gatos") 
     // Seguardo
     ```
+
 - `.indexOf`
-Busca un elemento `string` dentro de otro elemento `string` que es el `objeto` al que se le aplcia el metodo. cuenta desde el `0`.
+Busca el argumento de la funcion dentro de el `string` al que se le esta aplicando elmetod. Cuenta desde el `0`. 
+Devuelve el `indice` de la primer coincidencia.
 
     ```js
     var example = "Hola"
     console.log ( example.indexOf("o") ) // 1
     ```
 
-- `lastIndexOf`
-Devuelve la posición de la última ocurrencia del carácter pasado como parámetro.
+- `.lastIndexOf`
+Analogo a `.indexOf` pero busca las coincidencias de atras para adelante.
 
 - `.lenght`
 Evalua y devuelve la contidad de caracteres que tene un string.
 
-- `match`
-Busca una coincidencia en una cadena y devuelve todas las coincidencias encontradas
-
-- `.slice`
-    objeto.slice('index1, index2');
-
-    #### De Arrays
+#### De Arrays
 - `.filter`
 Aplica una prueba a cada elemento en un arreglo y devuelve un nuevo arreglo que solo contiene los elementos que pasan, `return TRUE`. No modifica el arreglo original.
 
@@ -311,6 +319,91 @@ Es una forma util de ejecutar una funcion de `devolucion de llamada` una vez par
     };
     example.forEach(print); 
     ```
+
+- `.map`
+Ejecuta cada elemento a traves de una funcion y luego devuelve un nuevo arreglo con el resultado de cada elemento. `El arreglo original no se modifica`.
+
+    ```js
+    let array = [
+        1,
+        2,
+        3
+    ];
+    let doubled = array.map( (i) => { return i*2;
+    });
+    // doubled = [2, 4, 6]
+    ```
+
+- `.push`
+`Agrega` su argumentos al `final` de un `arreglo`.
+
+Similar:
+    `.shift`: `elimina` el elemento  al `principio` de un arreglo. A su vez lo `retorna`.
+
+Analogo:
+    `.pop`: `elimina` un valor al `final` de un arreglo. A su vez lo `retorna`.
+    `.unshift`: `Agrega` su argumentos al `principio` de un `arreglo`.
+
+- `.reverse`
+Invierte el orden de los elementos. `No requiere argumento`. `Modifica el Array original`.
+
+- `.slice`
+Crea un arreglo que es un `subconjunto` de otro arreglo. 
+Toma `2 argumentos` en funcion de la `indexacion de arreglos`: 
+El `inicio` - `incluido`
+El `fin` - `no incluido`
+
+    ```js
+    var example = [
+        'case1',
+        'case2',
+        'case3',
+        'case4'
+    ];
+    var subexample = example.slice(1, 3);
+    //subexample = [case2, case3];
+    ```
+
+- `.splice`
+`Reemplaza` una seccion de un arreglo con nuevos elementos. 
+De forma particular permite `insertar` o `eliminar` elementos de manera controlada en cuanto a su posicion, `sin ser necesario que ocurran ambas`.
+Toma `2 argumentos`:
+El `indice` para comenzar la seleccion.
+El numero de elementos para eliminar al comienzo del indice `0 si quieres insertar sin reemplazar`.
+Los siguientes argumentos son los nuevos elementos para insertar en el indice `en blanco si solo estas eliminando`.
+`No busca de volver llamada`
+
+    ```js
+    let array = [
+        'A',  //[0]
+        'L',  //[1]
+        'A',  //[2]
+        'S',  //[3]
+        'K',  //[4]
+        'A',  //[5]
+    ];
+    array.splice(3, 2, 'B', 'A', 'M');
+    //Se posiciona en array[3] = 'S'
+    //Elimina dos elementos, desde esa posicion => 'S', 'K'
+    //Queda array = [ 'A', 'L', 'A', (...), 'A' ]
+    //Inserta los elementos 'B', 'A', 'M'
+    //Finalmente array = [ 'A', 'L', 'A', 'B', 'A', 'M', 'A' ] 
+    ```
+
+#### Operador de propagacion
+`...`
+El operador de propagacion de usa para agregar todos los elementos individuales de un arreglo a otro arreglo.
+
+    ```js
+    let dogs = [ 'Retriever', 'Sheperd', 'Terrier' ];
+    let pets = [ 'Hedgehog', ...dogs, 'Turtle' ];
+    //En un loop que consolee los elementos se veria cada elemento de manera individual como en cualquier array gracias al operador de propagacion.
+    //Si no se implementara este operador se veria de la siguiente manera:
+    // Hedgehog;
+    // Retriever, Sheperd, Terrier;
+    // Turtle;
+    ```
+
 ### Arreglo ARRAY
 Lista de elementos enmarcados en una variable. Puede compenerse por `números`, `strings`, o incluso otros `arreglos`, llamándose `anidamiento de arreglos`.
 
