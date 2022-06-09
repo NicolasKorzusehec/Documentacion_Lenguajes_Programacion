@@ -17,6 +17,36 @@ Páginas Web:
     https://lab.github.com/
     https://developer.mozilla.org/es/
     https://www.frontendmentor.io/          Ejercicios
+
+### Actividades pendientes
+- Ejercicios Front End - FrontEnd Mentor
+
+- Finalizar cursos Grasshooper
+- Finalizar mimo
+
+- Ejercicio clase 5 Sprint 2- ARRAYS
+    Analiza mails validos e invalidos
+- actividades extra clase 5 Sprint 2
+- Calculadora Web, Actividad en segunda parte de la clase del 24/05
+- Arma tu sandwich, armarla con selects. En segunda parte de la clase 26/05
+- Enriquecer app Pay Together, eemplo en clase 7/6 19.38 min
+- Juego Ahorcado, 30/05 1h
+- Ejercicio de entrevista con html de grasshopper
+- Landingpage CocaCola
+- Landingpage RuyDiazdeGuzman (material del diseñador web en mail)
+
+
+
+### ITBANK
+Encuentro semanal, encararlo.
+Wireframe mas definitorio, funciones.
+
+### Propuesta Aishi
+Pasarla en limpio, encararla
+
+
+
+
             
 ### Indagar Documentacion
 

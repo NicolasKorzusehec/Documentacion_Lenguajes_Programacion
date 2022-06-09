@@ -419,6 +419,7 @@ Lista de elementos enmarcados en una variable. Puede compenerse por `números`, 
             1, 'string', [secondArray]
         ];
     ```
+Objetos tipo lista de alto nivel
 
 ### Indexacion de arreglos y strings:
 Los elementos de un arreglo se indexan comenzando por índice 0. De igual modo ocurre en los strings.
