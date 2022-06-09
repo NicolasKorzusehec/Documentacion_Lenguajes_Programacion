@@ -37,8 +37,9 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - .reverse
         - .slice
         - .splice
-        - [Operador de propagacion]()
+        - [Operador de propagacion](#operador-de-propagacion)
 - [Arreglo ARRAY](#arreglo-array)
+    - [Reemplazar y agregar elementos](#reemplazar-y-agregar-elementos)
 - [Indexacion de Arreglos y Strings](#indexacion-de-arreglos-y-strings)
 - [Object](#object)
 - [CONDICIONALES](#condicionales)
@@ -420,6 +421,16 @@ Lista de elementos enmarcados en una variable. Puede compenerse por `números`, 
         ];
     ```
 Objetos tipo lista de alto nivel
+
+#### Reemplazar y agregar elementos
+    ```js
+    let fruits = ['Apple', 'Orange', 'Plum']
+    //reemplazar un elemento
+    fruits[1] = Watermelon
+    // ahora ["Apple", "Watermelon", "Pear"]
+    //Agregar un elemento
+    fruits[3] = 'Lemon'; // ahora ["Apple", "Orange", "Pear", "Lemon"]      
+    ```
 
 ### Indexacion de arreglos y strings:
 Los elementos de un arreglo se indexan comenzando por índice 0. De igual modo ocurre en los strings.
