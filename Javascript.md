@@ -30,6 +30,7 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - .filter
         - .forEach
         - .map
+        - .reduce
         - .push
             .unshift `similar`
             .pop `analogo`
@@ -341,6 +342,50 @@ Ejecuta cada elemento a traves de una funcion y luego devuelve un nuevo arreglo 
     // doubled = [2, 4, 6]
     ```
 
+- `.reduce`
+Toma todos los valores de una `lista`, aplica una funcion de `devolucion de llamada` a cada uno de ellos y acumula el resultado en un valor de salida. 
+`.map` se diferencia de `.reduce` porque crea un `array nuevo` con los resultados individuales, mientras que `.reduce` reduce todos los resultados a un `unico valor`.
+
+    ```js
+    const resultado = lista.reduce( function callback(valorAnterior, valorActual){
+        return; /*Resultado de la funcion callback*/
+    }, valorInicial );
+    ```
+    resultado: variable que recoge el valor despues de aplicar .reduce
+
+    reduce: Es el metodo usado. Todos los array tienen una funcion .reduce que se puede invocar. 
+    Recibe dos parametro: una funcion Callback y el valor inicial.
+
+    callback: Funcion que recibe como primer parametro el metodo reduce. Recibe 2 parametro, el valor anterior y el actual. 
+
+    valorAnterior: resultado devuelto por la ejecucion anterior de callback. Llamese tambien accumulator.
+
+    valorActual: elemento en el cual se encuentra iterando .reduce
+
+    valorInicial: Opcional. De ser la primera vez que se ejecuta .reduce, se tomara como valorAnterior al parametro valorInicial que hayamos incluido en el .reduce y el cual se interpreta como un valor del que puede partir la funcion callback().
+
+    Ejemplos:
+
+    ```js
+    const demoArray = [2, 4, 6, 8];
+    let reducedArray = demoArray.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue
+    }, 10); 
+    //Se declara como primer parametro de la funcion .reduce una funcion flecha de devolucion de llamada y como segundo parametro un valor inicial del que se parte en la funcion flecha que es 10.
+    //La funcion flecha suma el elemento actual en el que esta iterando .reduce al valor acumulado hasta el momento.
+    //.reduce en este caso esta siendo usado para sumar todos los elementos de un Array.
+    console.log(reducedArray); // 30
+    ```
+
+    ```js
+    const partesDelCoche = ['asientos', 'volante', 'puertas', 'ruedas'];
+    const coche = partesDelCoche.reduce( function (accumulator, currentValue) {
+        return `${accumulator} ${currentValue}, `;
+    }, 'Mi coche tiene: ');
+    console.log(coche); 
+    // Mi coche tiene: asientos, volante, puertas, ruedas
+    ```    
+
 - `.push`
 `Agrega` su argumentos al `final` de un `arreglo`.
 
@@ -426,8 +471,7 @@ Objetos tipo lista de alto nivel
     ```js
     let fruits = ['Apple', 'Orange', 'Plum']
     //reemplazar un elemento
-    fruits[1] = Watermelon
-    // ahora ["Apple", "Watermelon", "Pear"]
+    fruits[1] = Watermelon // ahora ["Apple", "Watermelon", "Pear"]
     //Agregar un elemento
     fruits[3] = 'Lemon'; // ahora ["Apple", "Orange", "Pear", "Lemon"]      
     ```
