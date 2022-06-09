@@ -310,7 +310,7 @@ Aplica una prueba a cada elemento en un arreglo y devuelve un nuevo arreglo que 
         7,
     ];
     let numbersUnderTen = numbers.filter( lessThanTen );
-    //Se evalua cada elemento del array y de pasar laprueba lo incluye al nuevo array declarado, sin modificar el anterior. 
+    //Se evalua cada elemento del array y de pasar la prueba lo incluye al nuevo array declarado, sin modificar el anterior. 
     ```
 
 - `.forEach`
