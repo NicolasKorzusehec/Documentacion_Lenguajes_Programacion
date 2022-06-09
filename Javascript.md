@@ -271,6 +271,12 @@ Toma 2 valores: los caracteres que queremos sacar y los caracteres que los van a
     Para guardar este valor se tiene que reasignar este metodo a la variable.
     example = example.replace("perros", "gatos") 
     // Seguardo
+
+    Caso particular
+    var palabra = 'Fullstack';
+    let palabraConGuiones = palabra.replace( /./g, '_ ');
+    //reemplaza las letras por guiones y un punto.
+    console.log(palabraConGuiones) // _ _ _ _ _ _ _ _ _ 
     ```
 
 - `.indexOf`
@@ -418,16 +424,25 @@ Lista de elementos enmarcados en una variable. Puede compenerse por `números`, 
 Los elementos de un arreglo se indexan comenzando por índice 0. De igual modo ocurre en los strings.
 
     ```js
-        var firstArray=['ok', 'xd', 'nashei', 'fiumba'];
-            index => firstArray[]
-            
-            [0]='ok', [1]='xd', [2]='nashei', [3]='fiumba'
-
+        var firstArray=[
+            'ok', // [0]
+            'xd', // [1]
+            'nashei', // [2]
+            'fiumba' // [3]
+            ];
         var secondArray = first array [1];  // secondArray = 'xd'
     ```
 
 ### Object
 Un `Object` almacena varos valores que tienen nombres de `propiedades` tambien llamadas `claves`. Facilita el `acceso` mas adelante en el codigo.
+
+    ```js
+    var example = {
+        prop1: value1;
+        prop2: value2;
+    };
+    console.log(example.prop1); // value1
+    ```
 
 
 ### CONDICIONALES
