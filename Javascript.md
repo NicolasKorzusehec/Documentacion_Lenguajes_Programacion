@@ -404,6 +404,7 @@ Crea un arreglo que es un `subconjunto` de otro arreglo.
 Toma `2 argumentos` en funcion de la `indexacion de arreglos`: 
 El `inicio` - `incluido`
 El `fin` - `no incluido`
+No modifica el arreglo original
 
     ```js
     var example = [
@@ -423,7 +424,8 @@ Toma `2 argumentos`:
 El `indice` para comenzar la seleccion.
 El numero de elementos para eliminar al comienzo del indice `0 si quieres insertar sin reemplazar`.
 Los siguientes argumentos son los nuevos elementos para insertar en el indice `en blanco si solo estas eliminando`.
-`No busca de volver llamada`
+`No busca devolver llamada`
+Modifica el arreglo original.
 
     ```js
     let array = [
@@ -455,6 +457,7 @@ El operador de propagacion de usa para agregar todos los elementos individuales 
     // Retriever, Sheperd, Terrier;
     // Turtle;
     ```
+Puede convertir `strings` en `arrays`.
 
 ### Arreglo ARRAY
 Lista de elementos enmarcados en una variable. Puede compenerse por `números`, `strings`, o incluso otros `arreglos`, llamándose `anidamiento de arreglos`.

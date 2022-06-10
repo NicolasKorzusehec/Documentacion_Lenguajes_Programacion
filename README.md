@@ -52,10 +52,11 @@ Pasarla en limpio, encararla
 - `Pytest`
 - https://uniwebsidad.com/libros/javascript?from=librosweb `js Documentation`
 - https://www.java5cript.com/ `js resources`
+- `js eventlisteners`
 - `js Callbacks`
 - `js objects`
 - https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Template_literals `js Plantillas literales, Plantilla de cadenas` 
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math `funciones relativas a la matematica en js`
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math `js funciones relativas a la matematica`
 - https://developer.mozilla.org/es/docs/Learn/Getting_started_with_the_web/How_the_Web_works `Como funciona la web`
 - https://code.visualstudio.com/docs/editor/emmet `Emmet en VS code`
 - https://code.visualstudio.com/docs/editor/multi-root-workspaces `Multi-root Workspaces`
