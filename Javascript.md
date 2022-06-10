@@ -245,15 +245,20 @@ Corre en consola aquello que se encuentre en el paréntesis.
 
 #### Algunas funciones
     ```js
-    //Number, trasnforma DATOS en strings
+    //Number, trasnforma strings a numeros
     var myString = '123';
     var myNum = Number(myString);
-    typeof myNum;
+    console.log( myNum ); //123
 
-    //toString, Convierte el equivalente en una string
+    //.tofixed, define cuantos decimales tiene un numero.
+    var myFirstNum = 8.3333339;
+    var myCorrectNum = myFirstNum.toFixed(2);
+    console.log(myCorrectNum) //8.33
+
+    //toString, Convierte un elemento en un string equivalente.
     var myNum = 123;
     var myString = myNum.toString();
-    typeof myString;
+    console.log( myString ); //'123'
     ```
 
 
