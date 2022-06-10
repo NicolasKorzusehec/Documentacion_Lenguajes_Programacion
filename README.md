@@ -46,6 +46,7 @@ Pasarla en limpio, encararla
 
 - `Markdown`
 - https://www.markdownguide.org/ `Markdown documentation`
+- `html forms`
 - `css Sass`
 - `css resets y normalizers`
 - `Testeos unitarios`
