@@ -6,82 +6,97 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
     - VAR
     - LET
     - CONST
-- [Tipos de datos](#tipos-de-datos)
-    - [Strings](#strings)
-    - [Valores Booleanos](#valores-booleanos)
-        - Coerciones resultantes en FALSE
-        - Coerciones resultantes en TRUE
-    - [Undefined](#undefined)
-- [Funcion](#funcion)
-    - [Parametros](#parametros)
-    - [Return](#return)
-    - [Recursividad](#recursividad)
-        - [Funcion alert](#funcion-alert)
-        - [Funcion prompt](#funcion-prompt)
-        - [Impresion en consola](#impresion-en-consola)
-    - [Algunas funciones](#algunas-funciones)
-- [Metodos](#metodos)
-    - [De strings](#de-strings)
-        - .replace
-        - .indexOf 
-        - .lastIndexOf
-        - .lenght
-    - [De Arrays](#de-arrays)
-        - .filter
-        - .forEach
-        - .map
-        - .reduce
-        - .push
-            .unshift `similar`
-            .pop `analogo`
-            .shift `analogo`
-        - .reverse
-        - .slice
-        - .splice
-        - [Operador de propagacion](#operador-de-propagacion)
-- [Arreglo ARRAY](#arreglo-array)
-    - [Reemplazar y agregar elementos](#reemplazar-y-agregar-elementos)
-- [Indexacion de Arreglos y Strings](#indexacion-de-arreglos-y-strings)
-- [Object](#object)
-- [CONDICIONALES](#condicionales)
-    - [If statement](#if-statement)
-    - [If else](#if-else)
-- [Pruebas condicionales](#pruebas-y-operaciones)
-    - [Igualdad regular](#igualdad-regular)
-        - Desigualdad regular
-    - [Igualdad estricta](#igualdad-estricta)
-        - Desigualdad estricta
-    - [Comparacion de null y undefined](#comparacion-de-null-y-undefined)
-        - Igualados estrictamente
-        - Igualados no estrictamente
-        - Comparaciones matematicas
-        - Casos particulares
-    - [Comparacion de cadenas](#comparacion-de-cadenas)
-    - [Compuertas logicas](#compuertas-logicas)
-- [Operadores matematicos](#operadores-matematicos)
-        - Concatenar
-        - Operador Modulo %
-        - Operador Exponenciacion **
-        - Conversion numerica UNARIO
-    - [Operadores de asignacion](#operadores-de-asignacion)
-    pendiente
-- [ciclos](Ciclos)
-    - [For loop](#for-loop)
-    - [Classic for loop](#classic-for-loop)    
-    - [Ciclos anidados](#ciclos-anidados)
-    - [Otros ciclos](#otros-ciclos)
-        - While
-        - Do while
-        - [.forEach](#de-strings)
-    - [SWITCH](#switch)
-- [js y manipulacion del DOM](#js-y-manipulacion-del-dom)
+    - [Tipos de datos](#tipos-de-datos)
+        - [Strings](#strings)
+        - [Valores Booleanos](#valores-booleanos)
+            - Coerciones resultantes en FALSE
+            - Coerciones resultantes en TRUE
+        - [Undefined](#undefined)
+    - [Funcion](#funcion)
+        - [Parametros](#parametros)
+        - [Return](#return)
+        - [Recursividad](#recursividad)
+            - [Funcion alert](#funcion-alert)
+            - [Funcion prompt](#funcion-prompt)
+            - [Impresion en consola](#impresion-en-consola)
+        - [Algunas funciones](#algunas-funciones)
+    - [Metodos](#metodos)
+        - [De strings](#de-strings)
+            - .replace
+            - .indexOf 
+            - .lastIndexOf
+            - .lenght
+        - [De Arrays](#de-arrays)
+            - .filter
+            - .forEach
+            - .map
+            - .reduce
+            - .push
+                .unshift `similar`
+                .pop `analogo`
+                .shift `analogo`
+            - .reverse
+            - .slice
+            - .splice
+            - [Operador de propagacion](#operador-de-propagacion)
+    - [Arreglo ARRAY](#arreglo-array)
+        - [Reemplazar y agregar elementos](#reemplazar-y-agregar-elementos)
+    - [Indexacion de Arreglos y Strings](#indexacion-de-arreglos-y-strings)
+    - [Object](#object)
+    - [CONDICIONALES](#condicionales)
+        - [If statement](#if-statement)
+        - [If else](#if-else)
+    - [Pruebas condicionales](#pruebas-y-operaciones)
+        - [Igualdad regular](#igualdad-regular)
+            - Desigualdad regular
+        - [Igualdad estricta](#igualdad-estricta)
+            - Desigualdad estricta
+        - [Comparacion de null y undefined](#comparacion-de-null-y-undefined)
+            - Igualados estrictamente
+            - Igualados no estrictamente
+            - Comparaciones matematicas
+            - Casos particulares
+        - [Comparacion de cadenas](#comparacion-de-cadenas)
+        - [Compuertas logicas](#compuertas-logicas)
+    - [Operadores matematicos](#operadores-matematicos)
+            - Concatenar
+            - Operador Modulo %
+            - Operador Exponenciacion **
+            - Conversion numerica UNARIO
+        - [Operadores de asignacion](#operadores-de-asignacion)
+        pendiente
+    - [ciclos](Ciclos)
+        - [For loop](#for-loop)
+        - [Classic for loop](#classic-for-loop)    
+        - [Ciclos anidados](#ciclos-anidados)
+        - [Otros ciclos](#otros-ciclos)
+            - While
+            - Do while
+            - [.forEach](#de-strings)
+        - [SWITCH](#switch)
+
+- [DOM](#dom)
+    - [Elemento por ID](#elemento-por-id)
+        - .getElementById('id')
+        - .querySelector('#id')
+    - [Arrays de elementos del DOM](#arrays-de-elementos-del-dom)
+        - .getElementsByClassName() 
+        - .getElementsByTagName()
+    - [Agregar una class a un elemento](#agregar-una-class-a-un-elemento)
+        - .className
+    - [Recuperar el valor del tributo class](#recuperar-el-valor-del-tributo-class-pendiente)
+        - articulo.attributes.class
+    - [Insertar un elemento en el DOM](#insertar-un-elemento-en-el-dom)
+        - .insertAdjacentHTML
+
     - [Write en elementos](#write-en-elementos)
     - [Escribiendo en html](#escribiendo-en-html)
+        - .innerHTML
     - [Importar js](#importar-js)
     - [Bibliotecas js](#biblioteca-js)
 
-      
-### Variables y sus Ambitos
+`Para comprimir la vista temporalmente le di mas jerarquia a variables y sus ambitos`    
+## Variables y sus Ambitos
 Debe tener un nombre para ser referenciada `identificador`. Almacena un valor que corresponde a un `número`, un `string` o datos más complejos (como un `arreglo` o un `objeto`).
 El `ámbito` de una variable es el bloque de codigo dónde se puede ejecutar.
 
@@ -785,21 +800,67 @@ Tiene una sintaxis practica para el analisis recurrente de una variable que deri
     /*Aplicable a loops en funcion de un horario especifico. */
     ```
 
-### js y manipulacion del DOM
-Es el responsable de manejar los elementos del `HTML`, `nodos`, por ejemplo crear nuevos, darles una clase CSS, modificarlos y/o eliminarlos.
+## DOM
+Es la representación en JavaScript del documento HTML, esto permite crear, cambiar y/o remover elementos del mismo usando todas las herramientas de un lenguaje de programación como lo es JS.
 
-- Sintaxis interesante para vincular funciones a partes del `html`
+El nombre de la variable global que representa el DOM es `document`.
 
-    ```html
-    <button>Press me</button>
-    ```
+#### Elemento por Id 
+Para acceder a un elemento en el archivo `html` con un `id` especifico recurrimos a las siguientes sintaxis
 
     ```js
-    var button = document.querySelector('button');
-    button.onclick = function() {
-        var name = prompt('What is your name?');
-        alert('Hello ' + name + ', nice to see you!');
-    }
+    var example = document.getElementById('ejemplo') //ejemplo es el id
+
+    var example = document.querySelector('#ejemplo') //ejemplo es el id
+    ```
+
+#### Arrays de elementos del DOM
+Los métodos `getElementsByClassName()` y `getElementsByTagName()` devuelven una `lista` de los elementos coincidentes, incluso si la coincidencia es un solo elemento.
+
+    ```js
+    //Alista todos los elementos del DOM con la class .rojo
+    var elementsRojo = document.getElementsByClassName('rojo')
+
+    //Alista todos los elementos del DOM que se formen con el tag div
+    var elementsDiv = document.getElementsByTagName('div')
+    ```
+
+#### Agregar una class a un elemento
+Con el metodo `className` se puede agregar clases a un elemento previamente definido, ya sea por `id`, por `tag` o por `class`.
+
+    ```js
+    element = document.getElementById('example');
+    element.className += 'centrado'; 
+    //Agrega la class centrado al elemento con id="example"
+    ```
+
+#### Recuperar el valor del tributo class `pendiente`
+Para recuperar el valor del atributo class de un elemento se recurre a la siguiente sintaxis
+
+    ```html
+    <article class='doscolumnas' id='articulo1'>...</article>
+    ```
+
+    Solo dispongo de la manera pero no de la sintaxis
+
+    ```js
+    articulo.attributes.class
+    ```
+
+#### Insertar un elemento en el DOM
+Para insertar un `nuevo nodo` en el `DOM` recurrimos al `metodo` `.insertAdjacentHTML()`. Este metodo se aplica sobre un elemento ya definido
+
+Toma 2 parametros (posicion y contenido):
+- Posicion:
+    `beforebegin` - Antes del elemento en cuetion
+    `afterend` - Despues del elemento en cuestion
+    `afterbegin` - Dentro del elemento en la primer posicion
+    `beforeend` - Dentro del elemento en la ultima posicion.
+- Contenido: a eleccion.
+
+    ```js
+    foo=document.getElementById('footer')
+    foo.insertAdjacentHTML('beforebegin','<div id="nuevodiv">...</div>') 
     ```
 
 #### Write en elementos
@@ -862,4 +923,26 @@ Para su inclusion en consola se escribe lo siguiente:
     script.src = "https://cdn.jsdelivr.net/npm/underscore@1.13.3/underscoreumd-min.js"; // use this for linked script
     script.text = "alert('voila!');" // use this for inline script
     document.body.appendChild(script); //Lo incluye en el body creo que al final
+    ```
+
+
+
+
+
+
+
+
+
+- Sintaxis interesante para vincular funciones a partes del `html`
+
+    ```html
+    <button>Press me</button>
+    ```
+
+    ```js
+    var button = document.querySelector('button');
+    button.onclick = function() {
+        var name = prompt('What is your name?');
+        alert('Hello ' + name + ', nice to see you!');
+    }
     ```
