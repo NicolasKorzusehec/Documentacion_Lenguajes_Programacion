@@ -32,6 +32,7 @@ Páginas Web:
 - Enriquecer app Pay Together, eemplo en clase 7/6 19.38 min
 - Juego Ahorcado, 30/05 1h
 - Ejercicio de entrevista con html de grasshopper
+- Ejercicio de fundamentos 2 con html de grasshopper
 - Landingpage CocaCola
 - Landingpage RuyDiazdeGuzman (material del diseñador web en mail)
 
