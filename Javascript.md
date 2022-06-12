@@ -801,9 +801,9 @@ Tiene una sintaxis practica para el analisis recurrente de una variable que deri
     ```
 
 ## DOM
-Es la representación en JavaScript del documento HTML, esto permite crear, cambiar y/o remover elementos del mismo usando todas las herramientas de un lenguaje de programación como lo es JS.
+Es la representación en `JavaScript` del documento `HTML`, esto permite crear, cambiar y/o remover elementos del mismo usando todas las herramientas de un lenguaje de programación como lo es JS.
 
-El nombre de la variable global que representa el DOM es `document`.
+El nombre de la variable global que representa el `DOM` es `document`.
 
 #### Elemento por Id 
 Para acceder a un elemento en el archivo `html` con un `id` especifico recurrimos a las siguientes sintaxis
@@ -834,14 +834,14 @@ Con el metodo `className` se puede agregar clases a un elemento previamente defi
     //Agrega la class centrado al elemento con id="example"
     ```
 
-#### Recuperar el valor del tributo class `pendiente`
+#### Recuperar el valor del tributo class `pendiente a completar`
 Para recuperar el valor del atributo class de un elemento se recurre a la siguiente sintaxis
 
     ```html
     <article class='doscolumnas' id='articulo1'>...</article>
     ```
 
-    Solo dispongo de la manera pero no de la sintaxis
+    Solo dispongo de la manera pero no de la sintaxis.
 
     ```js
     articulo.attributes.class
