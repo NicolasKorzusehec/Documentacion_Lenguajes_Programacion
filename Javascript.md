@@ -77,6 +77,7 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - [SWITCH](#switch)
 
 - [DOM](#dom)
+    - [Nodos del DOM](#nodos-del-dom)
     - [Seleccionar elementos en el HTML](#seleccionar-elementos-en-el-html)
         - .getElementById('id')
         - .querySelector('CSS Selector')
@@ -88,7 +89,7 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - .textContent
     - [Cambiar estilos inline de CSS](#cambiar-estilos-inline-de-css)
         - .style
-        
+
     - [Arrays de elementos del DOM](#arrays-de-elementos-del-dom)
         - .getElementsByClassName() 
         - .getElementsByTagName()
@@ -821,6 +822,13 @@ El nombre de la variable global que representa el `DOM` es `document`.
 El `DOM` visualiza el documento de HTML como un `árbol de tres nodos`. Un nodo representa un documento de HTML.
 
 Nuestro documento se llama `nodo raíz` y contiene un `nodo hijo` el cual es el elemento <html>. El elemento <html> contiene dos hijos los cuales son los elementos <head> y <body>. Ambos elementos <head> y <body> tienen hijos propios. Podemos acceder a estos elementos en el documento y hacer cambios a ellos usando `JavaScript`.
+
+### Nodos del DOM
+La `raíz` del `árbol de nodos` de cualquier página `XHTML` siempre es la misma: un nodo de `tipo especial` denominado `Documento`.
+
+A partir de ese `nodo raíz`, cada etiqueta XHTML se transforma en un nodo de tipo `Elemento`. La conversión de etiquetas en nodos se realiza de forma `jerárquica`. De esta forma, del `nodo raíz` solamente pueden derivar los nodos `HEAD` y `BODY`. A partir de esta derivación inicial, cada etiqueta XHTML se transforma en un nodo que deriva del nodo correspondiente a su `etiqueta padre`.
+
+La transformación de las etiquetas XHTML habituales genera dos nodos: el primero es el nodo de tipo `Elemento` (correspondiente a la propia etiqueta XHTML) y el segundo es un nodo de tipo `Texto` que contiene el texto encerrado por esa etiqueta XHTML.
 
 ### Seleccionar elementos en el HTML
 
