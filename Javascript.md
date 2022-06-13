@@ -2,10 +2,11 @@
 Se define como orientado a objetos, basado en prototipos, imperativo, debilmente tipado y dinámico.
 
 ## Contenidos
-- [Variables y sus Ambitos](#variables-y-sus-ambitos)
-    - VAR
-    - LET
-    - CONST
+- [Introduccion a Javascript](#introduccion-a-javascript)
+    - [Variables y sus Ambitos](#variables-y-sus-ambitos)
+        - VAR
+        - LET
+        - CONST
     - [Tipos de datos](#tipos-de-datos)
         - [Strings](#strings)
         - [Valores Booleanos](#valores-booleanos)
@@ -39,7 +40,7 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
             - .slice
             - .splice
             - [Operador de propagacion](#operador-de-propagacion)
-    - [Arreglo ARRAY](#arreglo-array)
+    - [Arreglos - ARRAY](#arreglo-array)
         - [Reemplazar y agregar elementos](#reemplazar-y-agregar-elementos)
     - [Indexacion de Arreglos y Strings](#indexacion-de-arreglos-y-strings)
     - [Object](#object)
@@ -76,9 +77,18 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - [SWITCH](#switch)
 
 - [DOM](#dom)
-    - [Elemento por ID](#elemento-por-id)
+    - [Seleccionar elementos en el HTML](#seleccionar-elementos-en-el-html)
         - .getElementById('id')
-        - .querySelector('#id')
+        - .querySelector('CSS Selector')
+        - .querySelectorAll('') - Devuelve un Array en funcion del selector
+        - .getElementsByClassName() y .getElementsByTagName() - Devuelve un Array
+    - [Agregar nuevos elementos al Documento](#agregar-nuevos-elementos-al-documento)
+        - .createElement('')
+        - .appendChild()
+        - .textContent
+    - [Cambiar estilos inline de CSS](#cambiar-estilos-inline-de-css)
+        - .style
+        
     - [Arrays de elementos del DOM](#arrays-de-elementos-del-dom)
         - .getElementsByClassName() 
         - .getElementsByTagName()
@@ -96,7 +106,9 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
     - [Bibliotecas js](#biblioteca-js)
 
 `Para comprimir la vista temporalmente le di mas jerarquia a variables y sus ambitos`    
-## Variables y sus Ambitos
+
+## Introduccion a Javascript
+### Variables y sus Ambitos
 Debe tener un nombre para ser referenciada `identificador`. Almacena un valor que corresponde a un `número`, un `string` o datos más complejos (como un `arreglo` o un `objeto`).
 El `ámbito` de una variable es el bloque de codigo dónde se puede ejecutar.
 
@@ -802,20 +814,45 @@ Tiene una sintaxis practica para el analisis recurrente de una variable que deri
 
 ## DOM
 Es la representación en `JavaScript` del documento `HTML`, esto permite crear, cambiar y/o remover elementos del mismo usando todas las herramientas de un lenguaje de programación como lo es JS.
+También podemos agregar `eventos` a esos elementos para hacer más `dinámica` nuestra página.
 
 El nombre de la variable global que representa el `DOM` es `document`.
 
-#### Elemento por Id 
-Para acceder a un elemento en el archivo `html` con un `id` especifico recurrimos a las siguientes sintaxis
+El `DOM` visualiza el documento de HTML como un `árbol de tres nodos`. Un nodo representa un documento de HTML.
+
+Nuestro documento se llama `nodo raíz` y contiene un `nodo hijo` el cual es el elemento <html>. El elemento <html> contiene dos hijos los cuales son los elementos <head> y <body>. Ambos elementos <head> y <body> tienen hijos propios. Podemos acceder a estos elementos en el documento y hacer cambios a ellos usando `JavaScript`.
+
+### Seleccionar elementos en el HTML
+
+- `.getElementById('id')` 
+Para acceder a un elemento en el archivo `html` con un `id` especifico recurrimos alsiguiente metodo.
 
     ```js
-    var example = document.getElementById('ejemplo') //ejemplo es el id
-
-    var example = document.querySelector('#ejemplo') //ejemplo es el id
+    var example = document.getElementById('ejemplo'); //ejemplo es el id
     ```
 
-#### Arrays de elementos del DOM
-Los métodos `getElementsByClassName()` y `getElementsByTagName()` devuelven una `lista` de los elementos coincidentes, incluso si la coincidencia es un solo elemento.
+- `.querySelector('CSS Selector')` 
+Este método permite encontrar elementos con uno o más selectores de CSS.
+
+    ```js
+    var exampl1 = document.querySelector('#ejemplo'); //ejemplo es el id.
+    var example2 = document.querySelector('.list'); //list es una class de algun elemento.
+    var example3 = document.querySelector('h1'); //h1 es un elemento.
+    ```
+
+- `.querySelectorAll('')`
+Este método encuentra todos los elementos que coinciden con el `selector de CSS` y devuelve una `lista` de todos esos nodos.
+
+    ```js
+    //Para encontrar todos los elementos <li>, podría utilizar el combinador de hijos > para encontrar a todos los elementos hijos de <ul>.
+    const listItems = document.querySelectorAll("ul > li");
+    console.log(listItems); 
+    //[object NodeList]
+    ['<li/>', '<li/>', '<li/>', '<li/>'] //siendo que al tratarse de un Array se puede iterar con un forEach e imprimir en consola individualente.
+    ```
+
+- `.getElementsByClassName()` y `.getElementsByTagName()`
+Los métodos `.getElementsByClassName()` y `.getElementsByTagName()` devuelven una `lista` de los elementos coincidentes, incluso si la coincidencia es un solo elemento.
 
     ```js
     //Alista todos los elementos del DOM con la class .rojo
@@ -825,6 +862,44 @@ Los métodos `getElementsByClassName()` y `getElementsByTagName()` devuelven una
     var elementsDiv = document.getElementsByTagName('div')
     ```
 
+### Agregar nuevos elementos al documento
+
+- `document.createElement()`
+Agrega nuevos elementos al árbol del DOM.
+
+    ```js
+    let exampleList = document.createElement("ul"); //examplList es una variable que almacena ele lemento lista creado
+    //Un par de elementos <li>
+    let element1 = document.createElement("li");
+    let element2 = document.createElement("li");
+    ```
+
+- `.appendChild()`
+Agrega ese elemento <ul> al documento usando el método `appendChild()`
+
+    ```js
+    document.body.appendChild(exampleList); //Lo incluye en el body
+    //Incluimos los lementos de la lista en la lista.
+    exampleList.appendChild(element1);
+    exampleList.appendChild(element2);
+    ```
+
+- `.textContent`
+Agrega texto para nuestros elementos del ejemplo de la lista.
+
+    ```js
+    element1.textContent = 'Content';
+    ```
+
+### Cambiar estilos inline de CSS
+La propiedad `style` te da la habilidad de cambiar el CSS en tu documento de HTML.
+
+    ```js
+    const exampleh1 = document.querySelector('h1');
+    exampleh1.style.attribute = 'value'
+    ```
+
+
 #### Agregar una class a un elemento
 Con el metodo `className` se puede agregar clases a un elemento previamente definido, ya sea por `id`, por `tag` o por `class`.
 
@@ -833,6 +908,8 @@ Con el metodo `className` se puede agregar clases a un elemento previamente defi
     element.className += 'centrado'; 
     //Agrega la class centrado al elemento con id="example"
     ```
+
+
 
 #### Recuperar el valor del tributo class `pendiente a completar`
 Para recuperar el valor del atributo class de un elemento se recurre a la siguiente sintaxis
