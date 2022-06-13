@@ -78,6 +78,7 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
 
 - [DOM](#dom)
     - [Nodos del DOM](#nodos-del-dom)
+        - [Listas de nodos](#listas-de-nodos)
     - [Seleccionar elementos en el HTML](#seleccionar-elementos-en-el-html)
         - .getElementById('id')
         - .querySelector('CSS Selector')
@@ -89,10 +90,6 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - .textContent
     - [Cambiar estilos inline de CSS](#cambiar-estilos-inline-de-css)
         - .style
-
-    - [Arrays de elementos del DOM](#arrays-de-elementos-del-dom)
-        - .getElementsByClassName() 
-        - .getElementsByTagName()
     - [Agregar una class a un elemento](#agregar-una-class-a-un-elemento)
         - .className
     - [Recuperar el valor del tributo class](#recuperar-el-valor-del-tributo-class-pendiente)
@@ -830,6 +827,13 @@ A partir de ese `nodo raíz`, cada etiqueta XHTML se transforma en un nodo de ti
 
 La transformación de las etiquetas XHTML habituales genera dos nodos: el primero es el nodo de tipo `Elemento` (correspondiente a la propia etiqueta XHTML) y el segundo es un nodo de tipo `Texto` que contiene el texto encerrado por esa etiqueta XHTML.
 
+#### Listas de nodos
+Son uno de los elementos tipo `array` más utilizados cuando realizamos aplicaciones que implican un trabajo con el `DOM` y son el resultado de métodos como:
+
+    ```js
+    var myNodeLists = document. getElementByTagName('a');
+    ```
+
 ### Seleccionar elementos en el HTML
 
 - `.getElementById('id')` 
@@ -904,7 +908,7 @@ La propiedad `style` te da la habilidad de cambiar el CSS en tu documento de HTM
 
     ```js
     const exampleh1 = document.querySelector('h1');
-    exampleh1.style.attribute = 'value'
+    exampleh1.style.attribute = 'value' // Aplicable a cualquier propiedad de estilo deseada.
     ```
 
 
