@@ -79,15 +79,18 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
 - [DOM](#dom)
     - [Nodos del DOM](#nodos-del-dom)
         - [Listas de nodos](#listas-de-nodos)
-    - [Seleccionar elementos en el HTML](#seleccionar-elementos-en-el-html)
-        - .getElementById('id')
-        - .querySelector('CSS Selector')
-        - .querySelectorAll('') - Devuelve un Array en funcion del selector
-        - .getElementsByClassName() y .getElementsByTagName() - Devuelve un Array
-    - [Agregar nuevos elementos al Documento](#agregar-nuevos-elementos-al-documento)
+    - [Seleccionar elementos del DOM](#seleccionar-elementos-del-dom)
+        - .getElementById('`id`') 
+        - .querySelector('`CSS Selector`')
+        - Devuelven `Array` de elementos
+            - .querySelectorAll('`CSS Selector`') 
+            - .getElementsByClassName(`class CSS`)
+            - .getElementsByTagName(`Tags HTML`)
+    - [Agregar elementos al DOM](#agregar-elementos-al-dom)
         - .createElement('')
         - .appendChild()
         - .textContent
+            - [Ejemplos crear elementos](#ejemplos-crear-elementos)
     - [Cambiar estilos inline de CSS](#cambiar-estilos-inline-de-css)
         - .style
     - [Agregar una class a un elemento](#agregar-una-class-a-un-elemento)
@@ -102,6 +105,8 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - .innerHTML
     - [Importar js](#importar-js)
     - [Bibliotecas js](#biblioteca-js)
+
+- [Buenas practicas]()
 
 `Para comprimir la vista temporalmente le di mas jerarquia a variables y sus ambitos`    
 
@@ -834,7 +839,7 @@ Son uno de los elementos tipo `array` más utilizados cuando realizamos aplicaci
     var myNodeLists = document. getElementByTagName('a');
     ```
 
-### Seleccionar elementos en el HTML
+### Seleccionar elementos del DOM
 
 - `.getElementById('id')` 
 Para acceder a un elemento en el archivo `html` con un `id` especifico recurrimos alsiguiente metodo.
@@ -874,7 +879,7 @@ Los métodos `.getElementsByClassName()` y `.getElementsByTagName()` devuelven u
     var elementsDiv = document.getElementsByTagName('div')
     ```
 
-### Agregar nuevos elementos al documento
+### Agregar elementos al DOM
 
 - `document.createElement()`
 Agrega nuevos elementos al árbol del DOM.
@@ -901,6 +906,25 @@ Agrega texto para nuestros elementos del ejemplo de la lista.
 
     ```js
     element1.textContent = 'Content';
+    ```
+
+#### Ejemplos crear elementos
+
+    ```js
+    //Insertar list items en una lista con id LISTA con 2 caminos.
+    //Buscamos el elemento lista
+    const LISTA = document.getElementById('lista');
+
+    //A - Creamos el list item y le agregamos un nodo de texto con el contenido.
+    let item = document.createElement("li");
+    let texto = document.createTextNode("Elemento de prueba"); //Una opcion
+    item.appendChild(texto);
+    item.textContent = "Elemento de prueba"; //Otra opcion
+        LISTA.appendChild(item); //Lo incluimos en la lista
+
+    //B - Creamos el item en una plantilla literal
+    var item = "<li>Texto de prueba</li>";
+        LISTA.innerHTML += item; //Lo incluimos en la lista
     ```
 
 ### Cambiar estilos inline de CSS
@@ -941,7 +965,7 @@ Para insertar un `nuevo nodo` en el `DOM` recurrimos al `metodo` `.insertAdjacen
 
 Toma 2 parametros (posicion y contenido):
 - Posicion:
-    `beforebegin` - Antes del elemento en cuetion
+    `beforebegin` - Antes del elemento en cuestion
     `afterend` - Despues del elemento en cuestion
     `afterbegin` - Dentro del elemento en la primer posicion
     `beforeend` - Dentro del elemento en la ultima posicion.
@@ -1016,12 +1040,6 @@ Para su inclusion en consola se escribe lo siguiente:
 
 
 
-
-
-
-
-
-
 - Sintaxis interesante para vincular funciones a partes del `html`
 
     ```html
@@ -1035,3 +1053,15 @@ Para su inclusion en consola se escribe lo siguiente:
         alert('Hello ' + name + ', nice to see you!');
     }
     ```
+
+## Buenas practicas
+
+- `try catch`
+    Controla el `flojo del programa`. Sirve cuando ya sabes como funciona el programa. Previo a esta etapa se controla con `console.log()`
+
+- `sintaxis en variables`
+Se sigue el estandar internacional del formato de js
+    `constantes`: en MAYUSCULAS separado con guiones bajos `_`
+    `clases de js`: empiezan en mayuscula, siguen con minuscula y cada nueva palabra comienza con mayuscula
+    `variable`: empiezan en minuscula, cada nueva palabra comienza con mayuscula y sigue con minuscula 
+    `funciones`: en minuscula
