@@ -862,6 +862,8 @@ Estas `NodeList` son uno de los elementos simil `array` más utilizados cuando r
     ```
 Al realizar una `búsqueda de elementos` y guardarlos en una `variable`, podemos realizar la búsqueda posteriormente sobre esa variable en lugar de hacerla sobre `document`. Esto permite realizar `búsquedas acotadas` por zonas, en lugar de realizarlo siempre sobre document, que buscará en todo el documento HTML.
 
+Estas `listas` pueden ser iteradas como `pares clave / valor` donde cada `nodo elemento` forma un `objeto` con su `nodo de texto`.
+
 #### NodeList Estatica o Dinamica
 Es bueno tener en cuenta esta distinción cuando se elige cómo `iterar` sobre los elementos en `NodeList`, y cómo `guarda en caché` la longitud de la lista en particular.
 
