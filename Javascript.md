@@ -78,11 +78,11 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
 
 - [DOM](#dom)
     - [Nodos del DOM](#nodos-del-dom)
-        - [Listas de nodos](#listas-de-nodos)
+        - [NodeList o HTMLCollection](#nodelist-o-htmlcollection)
     - [Seleccionar elementos del DOM](#seleccionar-elementos-del-dom)
         - .getElementById('`id`') 
         - .querySelector('`CSS Selector`')
-        - Devuelven `Array` de elementos
+        - Recibir `NodeList o HTMLCollection`
             - .querySelectorAll('`CSS Selector`') 
             - .getElementsByClassName(`class CSS`)
             - .getElementsByTagName(`Tags HTML`)
@@ -91,26 +91,33 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - .appendChild()
         - .textContent
             - [Ejemplos crear elementos](#ejemplos-crear-elementos)
+    - Otras formas de agregar elementos al DOM:
+        - [Ubicar elementos en el DOM](#ubicar-elementos-en-el-dom)
+            - .insertAdjacentHTML(`pos`, `content`)
+        - [Crear nodos de elementos y de texto](#crear-nodos-de-elementos-y-de-texto)
+            - .innerHTML
     - [Cambiar estilos inline de CSS](#cambiar-estilos-inline-de-css)
-        - .style
-    - [Agregar una class a un elemento](#agregar-una-class-a-un-elemento)
-        - .className
-    - [Recuperar el valor del tributo class](#recuperar-el-valor-del-tributo-class-pendiente)
-        - articulo.attributes.class
-    - [Insertar un elemento en el DOM](#insertar-un-elemento-en-el-dom)
-        - .insertAdjacentHTML
+            - .style
+        - [Agregar una class a un elemento](#agregar-una-class-a-un-elemento)
+            - .className
+        - [Recuperar el valor del tributo class](#recuperar-el-valor-del-tributo-class-pendiente)
+            - articulo.attributes.class
 
-    - [Write en elementos](#write-en-elementos)
-    - [Escribiendo en html](#escribiendo-en-html)
-        - .innerHTML
+    - [Eventos en una Webpage](#eventos-en-una-webpage)
+        - .addEventListener()
+
     - [Importar js](#importar-js)
-    - [Bibliotecas js](#biblioteca-js)
+        - [Bibliotecas js](#biblioteca-js)
 
-- [Buenas practicas]()
+- [Buenas practicas](#buenas-practicas)
+
+- [Pendiente](#pendiente)
 
 `Para comprimir la vista temporalmente le di mas jerarquia a variables y sus ambitos`    
 
 ## Introduccion a Javascript
+Se debe tener en cuenta que si escribimos algo que se ejecute inmediatamente sin requerir un llamado a una `funcion` sera necesario que el elemento `script` aparezca al final del `body` para que se leen todos los `id` y recien ahi se `ejecute`.
+
 ### Variables y sus Ambitos
 Debe tener un nombre para ser referenciada `identificador`. Almacena un valor que corresponde a un `número`, un `string` o datos más complejos (como un `arreglo` o un `objeto`).
 El `ámbito` de una variable es el bloque de codigo dónde se puede ejecutar.
@@ -832,12 +839,16 @@ A partir de ese `nodo raíz`, cada etiqueta XHTML se transforma en un nodo de ti
 
 La transformación de las etiquetas XHTML habituales genera dos nodos: el primero es el nodo de tipo `Elemento` (correspondiente a la propia etiqueta XHTML) y el segundo es un nodo de tipo `Texto` que contiene el texto encerrado por esa etiqueta XHTML.
 
-#### Listas de nodos
-Son uno de los elementos tipo `array` más utilizados cuando realizamos aplicaciones que implican un trabajo con el `DOM` y son el resultado de métodos como:
+#### NodeList o HTMLCollection
+Aunque se hace referencia a `ARRAYS` realmente los métodos de búsqueda generalmente devuelven un tipo de dato `HTMLCollection` o `NodeList`, que aunque actúan de forma muy similar, `no son arrays`, y por lo tanto pueden carecer de algunos `métodos`, como por ejemplo `.forEach()`.
+
+Estas `NodeList` son uno de los elementos simil `array` más utilizados cuando realizamos aplicaciones que implican un trabajo con el `DOM` y son el resultado de métodos como:
 
     ```js
-    var myNodeLists = document. getElementByTagName('a');
+    var myNodeLists = document. getElementsByTagName('a');
     ```
+Al realizar una `búsqueda de elementos` y guardarlos en una `variable`, podemos realizar la búsqueda posteriormente sobre esa variable en lugar de hacerla sobre `document`. Esto permite realizar `búsquedas acotadas` por zonas, en lugar de realizarlo siempre sobre document, que buscará en todo el documento HTML.
+
 
 ### Seleccionar elementos del DOM
 
@@ -849,7 +860,8 @@ Para acceder a un elemento en el archivo `html` con un `id` especifico recurrimo
     ```
 
 - `.querySelector('CSS Selector')` 
-Este método permite encontrar elementos con uno o más selectores de CSS.
+Este método permite encontrar elementos conociendo `selectores CSS`.
+Busca el `primer elemento` que coincide con el selector CSS.
 
     ```js
     var exampl1 = document.querySelector('#ejemplo'); //ejemplo es el id.
@@ -858,7 +870,7 @@ Este método permite encontrar elementos con uno o más selectores de CSS.
     ```
 
 - `.querySelectorAll('')`
-Este método encuentra todos los elementos que coinciden con el `selector de CSS` y devuelve una `lista` de todos esos nodos.
+Este método encuentra todos los elementos que coinciden con el `selector de CSS` y devuelve una `NodeList` de todos esos nodos.
 
     ```js
     //Para encontrar todos los elementos <li>, podría utilizar el combinador de hijos > para encontrar a todos los elementos hijos de <ul>.
@@ -893,10 +905,11 @@ Agrega nuevos elementos al árbol del DOM.
 
 - `.appendChild()`
 Agrega ese elemento <ul> al documento usando el método `appendChild()`
+Siempre al final del bloque.
 
     ```js
     document.body.appendChild(exampleList); //Lo incluye en el body
-    //Incluimos los lementos de la lista en la lista.
+    //Incluimos los elementos de la lista en la lista.
     exampleList.appendChild(element1);
     exampleList.appendChild(element2);
     ```
@@ -907,6 +920,36 @@ Agrega texto para nuestros elementos del ejemplo de la lista.
     ```js
     element1.textContent = 'Content';
     ```
+
+### Ubicar elementos en el DOM
+Para Ubicar un `nuevo nodo` en el `DOM` recurrimos al `metodo` `.insertAdjacentHTML()`. Este metodo se aplica sobre un elemento ya definido
+
+Toma 2 parametros (posicion y contenido):
+- Posicion:
+    `beforebegin` - Antes del elemento en cuestion
+    `afterend` - Despues del elemento en cuestion
+    `afterbegin` - Dentro del elemento en la primer posicion
+    `beforeend` - Dentro del elemento en la ultima posicion.
+- Contenido: a eleccion, pueden ser `nodos` en una variable o bien una `plantilla literal`.
+
+    ```js
+    foo=document.getElementById('footer')
+    foo.insertAdjacentHTML('beforebegin','<div id="nuevodiv">...</div>') 
+    ```
+
+### Crear nodos de elementos y de texto
+Incluimos un nodo html en una variable y trabajamos sobre la misma
+
+    ```js
+    var datos = document.getElementById("datos"); 
+    //ahora manipulamos el elemento desde la variable
+    datos.innerHTML = `
+    <h1>primer texto</h1>
+    <h2>segundo texto</h2>
+    <h3>Esto es una variable: $(nombre) </h3>
+    `; //plantilla literal
+    ```
+
 
 #### Ejemplos crear elementos
 
@@ -935,7 +978,6 @@ La propiedad `style` te da la habilidad de cambiar el CSS en tu documento de HTM
     exampleh1.style.attribute = 'value' // Aplicable a cualquier propiedad de estilo deseada.
     ```
 
-
 #### Agregar una class a un elemento
 Con el metodo `className` se puede agregar clases a un elemento previamente definido, ya sea por `id`, por `tag` o por `class`.
 
@@ -944,8 +986,6 @@ Con el metodo `className` se puede agregar clases a un elemento previamente defi
     element.className += 'centrado'; 
     //Agrega la class centrado al elemento con id="example"
     ```
-
-
 
 #### Recuperar el valor del tributo class `pendiente a completar`
 Para recuperar el valor del atributo class de un elemento se recurre a la siguiente sintaxis
@@ -960,65 +1000,23 @@ Para recuperar el valor del atributo class de un elemento se recurre a la siguie
     articulo.attributes.class
     ```
 
-#### Insertar un elemento en el DOM
-Para insertar un `nuevo nodo` en el `DOM` recurrimos al `metodo` `.insertAdjacentHTML()`. Este metodo se aplica sobre un elemento ya definido
+### Eventos en una Webpage
+El `metodo` `.addEventListener()` permite agregar eventos a un elemento `html`.
 
-Toma 2 parametros (posicion y contenido):
-- Posicion:
-    `beforebegin` - Antes del elemento en cuestion
-    `afterend` - Despues del elemento en cuestion
-    `afterbegin` - Dentro del elemento en la primer posicion
-    `beforeend` - Dentro del elemento en la ultima posicion.
-- Contenido: a eleccion.
+- `.addEventListener()`
+Toma un tipo de `evento` y una `función`.
 
     ```js
-    foo=document.getElementById('footer')
-    foo.insertAdjacentHTML('beforebegin','<div id="nuevodiv">...</div>') 
+    //declaramos un nodo en una variable
+    const button = document.getElementById("btn");
+    //evento click, funcion flecha declarando una alerta
+    button.addEventListener("click", () => {
+        alert("Gracias por dar Click");
+    });
     ```
 
-#### Write en elementos
-Se elige el elemento en el que se escribira el argumento de la funcion.
 
-    ```js
-    document.write('contenido');
-    ```
-
-#### Escribiendo en html
-Creamos un div con un `id` especifico en el que se escribira lo buscado.
-
-    ```html
-    <div id="datos">
-    ```
-
-Incluimos ese elemento html en una variable y trabajamos sobre la misma
-
-    ```js
-    var datos = document.getElementById("datos"); 
-    //ahora manipulamos el elemento desde la variable
-    datos.innerHTML = "contenido";
-    ```
-
-Se debe tener en cuenta que si escribimos algo que se ejecute inmediatamente sin requerir un llamado a una `funcion` sera necesario que el elemento `script` aparezca al final del `body` para que se leen todos los `id` y recien ahi se `ejecute`.
-
-Se puede escribir html en el elemento elegido de la siguiente manera:
-
-    ```js
-    datos.innerHTML = `
-    <h1>primer texto</h1>
-    <h2>segundo texto</h2>
-    <h3>Esto es una variable: $(nombre) </h3>
-    `;
-    ```
-
-Para recibir la entrada de un `input` se recurre a la siguiente sintaxis
-
-    ```js
-    let temperatura = document.getElementById('temperatura').value;
-    ```
-
-En caso de tratarse de marcar una casilla o un elemento se termina la estructura con un `.checked` en vez de un `.value`
-
-#### Importar js
+### Importar js
 Para `importar` funciones u objetos de otro `archivo.js` se utiliza la siguiente sintaxis:
 
     ```js
@@ -1040,7 +1038,25 @@ Para su inclusion en consola se escribe lo siguiente:
 
 
 
-- Sintaxis interesante para vincular funciones a partes del `html`
+
+## Buenas practicas
+
+- `try catch`
+    Controla el `flojo del programa`. Sirve cuando ya sabes como funciona el programa. Previo a esta etapa se controla con `console.log()`
+
+- `sintaxis en variables`
+Se sigue el estandar internacional del formato de js
+    `constantes`: en MAYUSCULAS separado con guiones bajos `_`
+    `clases de js`: empiezan en mayuscula, siguen con minuscula y cada nueva palabra comienza con mayuscula
+    `variable`: empiezan en minuscula, cada nueva palabra comienza con mayuscula y sigue con minuscula 
+    `funciones`: en minuscula
+
+
+
+
+## `pendiente`
+
+##### Sintaxis interesante para vincular funciones a partes del `html`
 
     ```html
     <button>Press me</button>
@@ -1054,14 +1070,23 @@ Para su inclusion en consola se escribe lo siguiente:
     }
     ```
 
-## Buenas practicas
+    
 
-- `try catch`
-    Controla el `flojo del programa`. Sirve cuando ya sabes como funciona el programa. Previo a esta etapa se controla con `console.log()`
+##### Para recibir la entrada de un `input` se recurre a la siguiente sintaxis
 
-- `sintaxis en variables`
-Se sigue el estandar internacional del formato de js
-    `constantes`: en MAYUSCULAS separado con guiones bajos `_`
-    `clases de js`: empiezan en mayuscula, siguen con minuscula y cada nueva palabra comienza con mayuscula
-    `variable`: empiezan en minuscula, cada nueva palabra comienza con mayuscula y sigue con minuscula 
-    `funciones`: en minuscula
+    ```js
+    let temperatura = document.getElementById('temperatura').value;
+    ```
+
+    En caso de tratarse de marcar una casilla o un elemento se termina la estructura con un `.checked` en vez de un `.value`
+
+##### Write en elementos
+    Se elige el elemento en el que se escribira el argumento de la funcion.
+
+    ```js
+    document.write('contenido');
+    ```
+
+
+
+
