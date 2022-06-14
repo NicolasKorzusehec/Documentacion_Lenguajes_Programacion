@@ -101,6 +101,7 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
     - [Asignar atributos HTML a un elemento](#asignar-atributos-html-a-un-elemento  )
         - .style  `CSS inline`
         - .className   `CSS class`
+        - .classlist
         - .id
         - [Recuperar el valor del tributo class](#recuperar-el-valor-del-tributo-class-pendiente)
             - articulo.attributes.class
@@ -1017,11 +1018,21 @@ La propiedad `style` te da la habilidad de cambiar el CSS inline en tu documento
 - `.className`
 Con el metodo `className` se puede agregar clases a un elemento previamente definido.
 Es posible asignar a la propiedad className `varias clases` en un `string` separadas por espacio. Aunque es recomendable utilizar la propiedad `classList`.
+Puede tanto leerse como reemplazarse.
 
     ```js
     element = document.getElementById('example');
     element.className += 'centrado'; 
     //Agrega la class centrado al elemento con id="example"
+    ```
+
+- `.classList` 
+`Objeto` especial para manejar `clases CSS`. Contiene métodos y propiedades de ayuda.
+
+    ```js
+    const div = document.getElement('contenedor')
+
+    div.classList.add(c1, c2, c3...)//Añade las clases c1, c2... al elemento HTML.
     ```
 
 - `.id`
