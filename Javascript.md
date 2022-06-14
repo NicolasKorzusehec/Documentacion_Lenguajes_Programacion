@@ -96,10 +96,12 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
             - .insertAdjacentHTML(`pos`, `content`)
         - [Crear nodos de elementos y de texto](#crear-nodos-de-elementos-y-de-texto)
             - .innerHTML
-    - [Cambiar estilos inline de CSS](#cambiar-estilos-inline-de-css)
-            - .style
-        - [Agregar una class a un elemento](#agregar-una-class-a-un-elemento)
-            - .className
+        - [Clonar nodos](#clonar-nodos)
+        - [Eliminar nodos](#eliminar-nodos)
+    - [Asignar atributos HTML a un elemento](#asignar-atributos-html-a-un-elemento  )
+        - .style  `CSS inline`
+        - .className   `CSS class`
+        - .id
         - [Recuperar el valor del tributo class](#recuperar-el-valor-del-tributo-class-pendiente)
             - articulo.attributes.class
 
@@ -938,6 +940,8 @@ Toma 2 parametros (posicion y contenido):
     ```
 
 ### Crear nodos de elementos y de texto
+- `.innerHTML`
+Inserta elementos al DOM pero interpretando el código HTML indicado y renderizando sus elementos.
 Incluimos un nodo html en una variable y trabajamos sobre la misma
 
     ```js
@@ -950,6 +954,37 @@ Incluimos un nodo html en una variable y trabajamos sobre la misma
     `; //plantilla literal
     ```
 
+La propiedad `.innerHTML` comprueba y `parsea` el marcado HTML escrito (corrigiendo si hay errores).
+
+#### Clonar nodos
+Se debe ser cuidadoso al crear y duplicar elementos HTML. Un error muy común es asignar un elemento a otra variable, donde solo se esta `referenciando denuevo`, mas `no clonando`
+
+- `.cloneNode(deep)`
+El método `.cloneNode(deep)` acepta un parámetro  `deep` opcional, a `false por defecto`, para indicar el tipo de clonación que se realizará:
+
+true,:
+    clonará también sus hijos, conocido como una `clonación profunda` (Deep Clone).
+false:
+no clonará sus hijos, conocido como una `clonación superficial` (Shallow Clone).
+
+
+    ```js
+    const div = document.createElement("div");
+    div.textContent = "Elemento 1";
+
+    const div2 = div.cloneNode();   // Se clono div en div2
+    div2.textContent = "Elemento 2";
+    ```
+
+#### Eliminar nodos
+La forma más sencilla de `eliminar nodos` o elementos HTML es utilizando el método `.remove()` sobre el nodo o etiqueta a eliminar.
+
+    ```js
+    const div = document.querySelector(".deleteme");
+    div.isConnected;    // true
+    div.remove();
+    div.isConnected;    // false
+    ```
 
 #### Ejemplos crear elementos
 
@@ -970,21 +1005,31 @@ Incluimos un nodo html en una variable y trabajamos sobre la misma
         LISTA.innerHTML += item; //Lo incluimos en la lista
     ```
 
-### Cambiar estilos inline de CSS
-La propiedad `style` te da la habilidad de cambiar el CSS en tu documento de HTML.
+### Asignar atributos HTML a un elemento
+- `.style`
+La propiedad `style` te da la habilidad de cambiar el CSS inline en tu documento de HTML.
 
     ```js
     const exampleh1 = document.querySelector('h1');
-    exampleh1.style.attribute = 'value' // Aplicable a cualquier propiedad de estilo deseada.
+    exampleh1.style.color = 'red' // Aplicable a cualquier propiedad de estilo deseada.
     ```
 
-#### Agregar una class a un elemento
-Con el metodo `className` se puede agregar clases a un elemento previamente definido, ya sea por `id`, por `tag` o por `class`.
+- `.className`
+Con el metodo `className` se puede agregar clases a un elemento previamente definido.
+Es posible asignar a la propiedad className `varias clases` en un `string` separadas por espacio. Aunque es recomendable utilizar la propiedad `classList`.
 
     ```js
     element = document.getElementById('example');
     element.className += 'centrado'; 
     //Agrega la class centrado al elemento con id="example"
+    ```
+
+- `.id`
+Asigna el atributo `id` al elemento deseado.
+
+    ```js
+    const div = document.createElement("div"); // <div></div>
+    div.id = "page";
     ```
 
 #### Recuperar el valor del tributo class `pendiente a completar`
