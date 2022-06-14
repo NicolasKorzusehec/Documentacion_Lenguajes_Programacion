@@ -71,4 +71,5 @@ Pasarla en limpio, encararla
 - https://mdbootstrap.com/  `Material Design for Bootstrap v5 & v4`
 - https://learnui.design/ `UI design resources`
 - `Buenas practicas - capsular archivos para reducir ingreso de cualquiera y vulnerabilidades`
+- `coderunner y snippets`
 

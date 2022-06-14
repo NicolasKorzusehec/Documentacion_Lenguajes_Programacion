@@ -78,7 +78,10 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
 
 - [DOM](#dom)
     - [Nodos del DOM](#nodos-del-dom)
-        - [NodeList o HTMLCollection](#nodelist-o-htmlcollection)
+    - [NodeList o HTMLCollection](#nodelist-o-htmlcollection)
+        - NodeList Estatica o Dinamica
+    - [Metodos de NodeList](#metodos-de-nodelist)
+        - Indexacion
     - [Seleccionar elementos del DOM](#seleccionar-elementos-del-dom)
         - .getElementById('`id`') 
         - .querySelector('`CSS Selector`')
@@ -842,7 +845,7 @@ A partir de ese `nodo raíz`, cada etiqueta XHTML se transforma en un nodo de ti
 
 La transformación de las etiquetas XHTML habituales genera dos nodos: el primero es el nodo de tipo `Elemento` (correspondiente a la propia etiqueta XHTML) y el segundo es un nodo de tipo `Texto` que contiene el texto encerrado por esa etiqueta XHTML.
 
-#### NodeList o HTMLCollection
+### NodeList o HTMLCollection
 Aunque se hace referencia a `ARRAYS` realmente los métodos de búsqueda generalmente devuelven un tipo de dato `HTMLCollection` o `NodeList`, que aunque actúan de forma muy similar, `no son arrays`, y por lo tanto pueden carecer de algunos `métodos`, como por ejemplo `.forEach()`.
 
 Estas `NodeList` son uno de los elementos simil `array` más utilizados cuando realizamos aplicaciones que implican un trabajo con el `DOM` y son el resultado de métodos como:
@@ -852,6 +855,27 @@ Estas `NodeList` son uno de los elementos simil `array` más utilizados cuando r
     ```
 Al realizar una `búsqueda de elementos` y guardarlos en una `variable`, podemos realizar la búsqueda posteriormente sobre esa variable en lugar de hacerla sobre `document`. Esto permite realizar `búsquedas acotadas` por zonas, en lugar de realizarlo siempre sobre document, que buscará en todo el documento HTML.
 
+#### NodeList Estatica o Dinamica
+Es bueno tener en cuenta esta distinción cuando se elige cómo `iterar` sobre los elementos en `NodeList`, y cómo `guarda en caché` la longitud de la lista en particular.
+
+En algunos casos, NodeList es una colección `en vivo`, lo que significa que los cambios en el `DOM` `se reflejan` en la `colección`. 
+
+    ```js
+    //Node.childNodes esta en vivo
+    var parent = document.getElementById('parent');
+    var child_nodes = parent.childNodes;
+    console.log(child_nodes.length); // asumamos "2"
+    parent.appendChild(document.createElement('div'));
+    console.log(child_nodes.length); // debería imprimir "3" porque se actualiza.
+    ```
+
+En otros casos, NodeList es una colección `estática`, lo que significa que cualquier cambio posterior en el `DOM` `no afecta` el contenido de la `colección`. 
+    `document.querySelectorAll ()` devuelve un NodeList estático.
+
+### Metodos de NodeList
+
+-  `Indexacion de NodeList`
+Funciona de igual modo que con un arra `[]`. Una alternativa es `.item()` ubicandose el `indice` en el parentesis 
 
 ### Seleccionar elementos del DOM
 
