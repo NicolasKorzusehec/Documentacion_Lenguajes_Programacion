@@ -81,7 +81,14 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
     - [NodeList o HTMLCollection](#nodelist-o-htmlcollection)
         - NodeList Estatica o Dinamica
     - [Metodos de NodeList](#metodos-de-nodelist)
-        - Indexacion
+        - Indexacion de NodeList
+            - `.item()`
+        - `.entries()` itera los `pares` clave / valor
+        - `.keys()` itera las `claves` de los pares
+        - `.values()` itera los `valores` de los pares
+            - .forEach
+        
+
     - [Seleccionar elementos del DOM](#seleccionar-elementos-del-dom)
         - .getElementById('`id`') 
         - .querySelector('`CSS Selector`')
@@ -876,6 +883,58 @@ En otros casos, NodeList es una colección `estática`, lo que significa que cua
 
 -  `Indexacion de NodeList`
 Funciona de igual modo que con un arra `[]`. Una alternativa es `.item()` ubicandose el `indice` en el parentesis 
+
+- `.entries()`
+Devuelve un `iterator` que permite pasar por todos los `pares` clave / valor contenidos en este `objeto`.
+
+    ```js
+    var list = node.childNodes;
+
+    // Using for..of
+    for(var entry of list.entries()) {
+        console.log(entry);
+    };
+    //Resultado:
+    Array [ 0, <p> ];
+    Array [ 1, #text "hey" ];
+    Array [ 2, <span> ];
+    ```
+
+- `.keys()`
+Devuelve un `iterator` que permite pasar por todas las `claves` de los pares clave / valor contenidos en este `objeto`.
+
+    ```js
+    var list = node.childNodes;
+
+    // Using for..of
+    for(var key of list.keys()) {
+        console.log(key);
+    };
+    //Resultado:
+    0
+    1
+    2
+    ```
+
+- `.values()`
+Devuelve un `iterator` que permite recorrer todos los `valores` de los pares clave / valor contenidos en este `objeto`.
+
+    ```js
+    var list = node.childNodes;
+
+    // Using for..of
+    for(var entry of list.entries()) {
+        console.log(entry);
+    };
+    //Resultado:
+    <p>
+    #text "hey"
+    <span>
+    ```
+
+- `forEach`
+vease [Metodos de arrays](#de-arrays).
+
 
 ### Seleccionar elementos del DOM
 
