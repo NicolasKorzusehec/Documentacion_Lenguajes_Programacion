@@ -12,6 +12,7 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - [Valores Booleanos](#valores-booleanos)
             - Coerciones resultantes en FALSE
             - Coerciones resultantes en TRUE
+        - [null](#null)
         - [Undefined](#undefined)
     - [Funcion](#funcion)
         - [Parametros](#parametros)
@@ -43,7 +44,6 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
     - [Arreglos - ARRAY](#arreglo-array)
         - [Reemplazar y agregar elementos](#reemplazar-y-agregar-elementos)
     - [Indexacion de Arreglos y Strings](#indexacion-de-arreglos-y-strings)
-    - [Object](#object)
     - [CONDICIONALES](#condicionales)
         - [If statement](#if-statement)
         - [If else](#if-else)
@@ -119,8 +119,13 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
     - [Importar js](#importar-js)
         - [Bibliotecas js](#biblioteca-js)
 
-- [Estructurar datos]
-
+- [Estructurar datos](#estructurar-datos)
+    - [Object](#object)
+        - [Par clave / valor](#par-clave--valor)
+        - Borrar un par clave / valor
+            - delete object.key
+        - [Prueba key existente](#prueba-key-existente)
+        - [Bucle for in](#bucle-for-in)
 - [Buenas practicas](#buenas-practicas)
 
 - [Pendiente](#pendiente)
@@ -196,8 +201,13 @@ Esto refiere a que si en una espacio donde deberia haber una prueba hay otra cos
     Strings (cadenas de texto)
     Cualquier valor que no cuercione resultantente en False.
 
+#### null
+El valor especial `null` no pertenece a ninguno de los tipos descritos anteriormente.
+Es sólo un valor especial que representa `nada`, `vacío` o` valor desconocido`
+
 #### Undefined
 Valor `falsy`. 
+Significa `valor no asignado`
 Se devuelve en funciones que no tienen declaración return. De igual modo en índices de arreglo o propiedades de objects que no existan.
     `undefined` 
 
@@ -545,18 +555,6 @@ Los elementos de un arreglo se indexan comenzando por índice 0. De igual modo o
             ];
         var secondArray = first array [1];  // secondArray = 'xd'
     ```
-
-### Object
-Un `Object` almacena varos valores que tienen nombres de `propiedades` tambien llamadas `claves`. Facilita el `acceso` mas adelante en el codigo.
-
-    ```js
-    var example = {
-        prop1: value1;
-        prop2: value2;
-    };
-    console.log(example.prop1); // value1
-    ```
-
 
 ### CONDICIONALES
 Compuertas binarias que se guian por `TRUE` y `FALSE` para tomar un camino a realizar, llamandose `Control de flujo de los datos`.
@@ -1230,7 +1228,71 @@ Para su inclusion en consola se escribe lo siguiente:
     document.body.appendChild(script); //Lo incluye en el body creo que al final
     ```
 
+## Estructurar datos
 
+
+### Object
+Los objetos son `arreglos asociativos` con varias características especiales.
+El tipo de dato `object` es especial, mientras que los demás tipos de datos se llaman `primitivos` porque sus valores pueden contener una sola cosa; los objetos se utilizan para almacenar `colecciones de datos` y `entidades más complejas` asociados con un nombre `clave`.
+
+El tipo de dato `symbol` se utiliza para crear identificadores únicos para los objetos. Se vera en mayor profundidad mas adelante
+
+#### Par clave / valor
+Un `Object` almacena varios valores que tienen nombres de `propiedades` tambien llamadas `claves` las cuales refieren un `valor`. De aqui surge que se contruyen los objects con `pares clave / valor`. Facilita el `acceso` mas adelante en el codigo.
+
+    ```js
+    var example = {
+        key1: value1,
+        key2: value2,
+        "extended key": value3,
+    };
+    console.log(example.key1); // value1
+    console.log(example["extended key"]); // value3
+    ```
+Se puede acceder a un `par clave / valor` de dos maneras:
+
+- `Notacion de punto`
+Es literal y simple pero con `restricciones`
+object.key // value
+
+- `Notacion de corchetes`
+Funciona igual que la `notacion de punto` pero permite asignarle un valor a una variable y usar esa variable como `key`, considerando solamente el contenido `aplicable a asignar el valor de un input a una variable y usar en funcion de la misma`
+A su vez, permite buscar `keys` de mas de una palabra.
+
+##### Borrar un Par clave / valor
+Para eliminar una propiedad podemos usar el operador delete
+
+    ```js
+        delete user.age;
+    ```
+
+#### Prueba key existente
+Para probar fácilmente si la propiedad existe; existe un operador especial para ello: `in`
+
+    ```js
+    let user = { name: "John", age: 30 };
+    alert( "age" in user );    // mostrará "true"
+    ```
+
+### Bucle for in
+Para recorrer todas las claves de un objeto existe una forma especial de bucle: `for..in.`
+
+    ```js
+    let user = {
+    name: "John",
+    age: 30,
+    isAdmin: true
+    };
+
+    for (let key in user) {
+
+    // claves
+    alert( key );  // name, age, isAdmin
+
+    // valores de las claves
+    alert( user[key] ); // John, 30, true
+    }
+    ```
 
 
 ## Buenas practicas
