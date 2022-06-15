@@ -87,8 +87,6 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - `.keys()` itera las `claves` de los pares
         - `.values()` itera los `valores` de los pares
             - .forEach
-        
-
     - [Seleccionar elementos del DOM](#seleccionar-elementos-del-dom)
         - .getElementById('`id`') 
         - .querySelector('`CSS Selector`')
@@ -115,12 +113,13 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - .id
         - [Recuperar el valor del tributo class](#recuperar-el-valor-del-tributo-class-pendiente)
             - articulo.attributes.class
-
     - [Eventos en una Webpage](#eventos-en-una-webpage)
         - .addEventListener()
-
+            - [Ejemplos de eventos]()
     - [Importar js](#importar-js)
         - [Bibliotecas js](#biblioteca-js)
+
+- [Estructurar datos]
 
 - [Buenas practicas](#buenas-practicas)
 
@@ -1142,10 +1141,28 @@ Para recuperar el valor del atributo class de un elemento se recurre a la siguie
     ```
 
 ### Eventos en una Webpage
-El `metodo` `.addEventListener()` permite agregar eventos a un elemento `html`.
+El `metodo` `.addEventListener()` permite agregar `eventos` a un elemento `html`.
+Registra un `evento` a un `objeto` en específico. El `Objeto` especifico puede ser un simple `elemento` en un archivo, el mismo  `documento` , una `ventana` o un  `XMLHttpRequest`.
+Permite agregar mas de un `listener` a un solo `evento`. 
+
 
 - `.addEventListener()`
 Toma un tipo de `evento` y una `función`.
+
+    ```js
+    target.addEventListener(tipo, listener[, useCapture]);
+    target.addEventListener(tipo, listener[, useCapture, wantsUntrusted 
+    ]);
+    ```
+`tipo`: 
+`string`que representa el `tipo` de evento a escuchar.
+
+`listener`: 
+`objeto` que recibe una notificación cuando un evento del tipo especificado ocurre. Debe ser un `objeto` implementando la interfaz EventListener o solo una `function` en JavaScript.
+
+`useCapture`: 
+Si es `true`, `useCapture` indica que el usuario desea iniciar la captura. Después de iniciar la captura, todos los eventos del tipo especificado serán lanzados al `listener` registrado antes de comenzar  a ser controlados por algún EventTarget que esté por debajo en el arbol DOM del documento.
+
 
     ```js
     //declaramos un nodo en una variable
@@ -1156,6 +1173,42 @@ Toma un tipo de `evento` y una `función`.
     });
     ```
 
+    ```js
+    //DOMContentLoaded = la pagina carga por completo y recien ahi se ejecutan las funciones.
+    //aca si alistamos funciones con eventos internos estamos planteando que se habiliten cuando cargue la pagina por completo y luego cada funcion tiene sus eventos necesario para funcionar.
+    document.addEventListener("DOMContentLoaded", (e)=>{
+    searchFilter(".card-filter", ".card");
+    });
+    ```
+
+#### Ejemplos de eventos
+- Cambiar texto en funcion de un click
+    ```html
+    <table id="t">
+        <tr>
+            <td id="t1">one</td>
+        </tr>
+        <tr>
+            <td id="t2">two</td>
+        </tr>
+    </table>
+    ```
+
+    ```js
+    // Function to change the content of t2
+    function modifyText() {
+        var t2 = document.getElementById("t2");
+        t2.firstChild.nodeValue = "three";
+    }
+
+    // Function to add event listener to t
+    function load() {
+        var el = document.getElementById("t");
+        el.addEventListener("click", modifyText, false);
+    }
+
+    document.addEventListener("DOMContentLoaded", load, false);
+    ```
 
 ### Importar js
 Para `importar` funciones u objetos de otro `archivo.js` se utiliza la siguiente sintaxis:
