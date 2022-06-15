@@ -124,6 +124,7 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - [Par clave / valor](#par-clave--valor)
         - Borrar un par clave / valor
             - delete object.key
+        -[this en objects](#this-en-objects)
         - [Prueba key existente](#prueba-key-existente)
         - [Bucle for in](#bucle-for-in)
 - [Buenas practicas](#buenas-practicas)
@@ -1265,6 +1266,23 @@ Para eliminar una propiedad podemos usar el operador delete
     ```js
         delete user.age;
     ```
+
+#### this en objects
+Se puede hacer referencia al objeto en cuestion estando dentro del mismo con la palabra reservada `this`.
+
+```js
+var persona = {
+  nombre: ['Bob', 'Smith'],
+  edad: 32,
+  //declaramos una propiedad de dos palabras como string usando this
+  "quien es": this.nombre[0] + '' + this.nombre[1] + ' tiene ' + this.edad + ' años.',
+  //exponemos "quien es" en un alert
+  bio: function (){
+    alert(this["quien es"]);
+  },
+}
+```
+
 
 #### Prueba key existente
 Para probar fácilmente si la propiedad existe; existe un operador especial para ello: `in`
