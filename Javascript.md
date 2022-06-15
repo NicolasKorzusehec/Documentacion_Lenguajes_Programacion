@@ -14,6 +14,7 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
             - Coerciones resultantes en TRUE
         - [null](#null)
         - [Undefined](#undefined)
+    - [typeof]
     - [Funcion](#funcion)
         - [Parametros](#parametros)
         - [Return](#return)
@@ -124,9 +125,11 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - [Par clave / valor](#par-clave--valor)
         - Borrar un par clave / valor
             - delete object.key
-        -[this en objects](#this-en-objects)
+        - [this en objects](#this-en-objects)
         - [Prueba key existente](#prueba-key-existente)
-        - [Bucle for in](#bucle-for-in)
+    - [metodos de objects](#metodos-de-objects)
+    - [Bucle for in](#bucle-for-in)
+    
 - [Buenas practicas](#buenas-practicas)
 
 - [Pendiente](#pendiente)
@@ -211,6 +214,14 @@ Valor `falsy`.
 Significa `valor no asignado`
 Se devuelve en funciones que no tienen declaración return. De igual modo en índices de arreglo o propiedades de objects que no existan.
     `undefined` 
+
+### typeof
+Devuelve el tipo de dato que almacena una variable u objeto.
+
+    ```js
+    let num = 8;
+    console.log(typeof num); //"number"
+    ```
 
 
 ### Funcion
@@ -1231,7 +1242,6 @@ Para su inclusion en consola se escribe lo siguiente:
 
 ## Estructurar datos
 
-
 ### Object
 Los objetos son `arreglos asociativos` con varias características especiales.
 El tipo de dato `object` es especial, mientras que los demás tipos de datos se llaman `primitivos` porque sus valores pueden contener una sola cosa; los objetos se utilizan para almacenar `colecciones de datos` y `entidades más complejas` asociados con un nombre `clave`.
@@ -1268,21 +1278,20 @@ Para eliminar una propiedad podemos usar el operador delete
     ```
 
 #### this en objects
-Se puede hacer referencia al objeto en cuestion estando dentro del mismo con la palabra reservada `this`.
+La palabra clave `this` se refiere al `objeto actual` en el que se está escribiendo el código.
 
-```js
-var persona = {
-  nombre: ['Bob', 'Smith'],
-  edad: 32,
-  //declaramos una propiedad de dos palabras como string usando this
-  "quien es": this.nombre[0] + '' + this.nombre[1] + ' tiene ' + this.edad + ' años.',
-  //exponemos "quien es" en un alert
-  bio: function (){
-    alert(this["quien es"]);
-  },
-}
-```
-
+    ```js
+    var persona = {
+    nombre: ['Bob', 'Smith'],
+    edad: 32,
+    //declaramos una propiedad de dos palabras como string usando this
+    "quien es": this.nombre[0] + '' + this.nombre[1] + ' tiene ' + this.edad + ' años.',
+    //exponemos "quien es" en un alert
+    bio: function (){
+        alert(this["quien es"]);
+    },
+    }
+    ```
 
 #### Prueba key existente
 Para probar fácilmente si la propiedad existe; existe un operador especial para ello: `in`
@@ -1291,6 +1300,9 @@ Para probar fácilmente si la propiedad existe; existe un operador especial para
     let user = { name: "John", age: 30 };
     alert( "age" in user );    // mostrará "true"
     ```
+
+### Metodos de objects
+Al crear `keys` en object que contienen `funciones`, las mismas le permiten al objeto hacer algo con sus datos, y se les denomina `metodos` del `objeto`.
 
 ### Bucle for in
 Para recorrer todas las claves de un objeto existe una forma especial de bucle: `for..in.`
