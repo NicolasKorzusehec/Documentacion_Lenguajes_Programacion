@@ -129,6 +129,23 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - [Prueba key existente](#prueba-key-existente)
     - [metodos de objects](#metodos-de-objects)
     - [Bucle for in](#bucle-for-in)
+    - [JSON](#json)
+        - [Sintaxis JSON](#sintaxis-json)
+        - [Factores de JSON]
+            - await
+            - async
+            - response
+            - fetch
+
+        - [Metodos JSON, toJSON](#metodos-json-tojson)
+            - .parse
+            - .text
+            - .json
+            - JSON.stringify()
+            - JSON.parse()
+        - [Convertir un objeto en JSON](#convertir-un-objeto-en-json)
+        - [Ejemplo de acceso a datos JSON](#ejemplo-de-acceso-a-datos-json)
+            
     
 - [Buenas practicas](#buenas-practicas)
 
@@ -1324,6 +1341,133 @@ Para recorrer todas las claves de un objeto existe una forma especial de bucle: 
     }
     ```
 
+### JSON
+JSON es un `formato de datos` que tiene su propio estándar independiente y librerías para la mayoría de los lenguajes de programación.
+Parte del concepto `par key / value`.
+
+La `diferencia` entre los objetos de `js` y los objetos en una estructura de datos `JSON` es que JSON no te permite tener errores de sintaxis en el documento.
+
+#### Sintaxis JSON
+- Cualquier uso de comillas sera doble
+- La estructura puede partir de un arreglo que contenga objetos.
+- objetos:
+        Es posible introducir una cantidad `infinita` de propiedades.
+        Las propiedades se separan con coma. `La ultima propiedad nodebe terminar con una coma`
+- propiedad-keys: 
+        `Comillas dobles` tanto al inicio como al final.
+        Unir palabras con una `mayuscula` en una nueva paabra o con un `guion bajo`.
+
+- valor-value
+        Acepta `strings`, `numeros enteros`, `numeros decimales`( delimitando el decimal con un `punto`), `booleanos`, `arrays`,
+
+### Factores de JSON
+    - await
+    - async
+    - response
+    - fetch
+
+
+### Metodos JSON, toJSON
+- `.parse()`
+Transforma un json que esta en formato de string devuelta a JSON.
+Para decodificar un string JSON.
+
+- `.text()`
+Una vez que se recibe un json mediante la siguiente estructura,     transforma el json a formato de string
+
+
+    ```js
+    async function obtenerDatos(){
+        const response = await fetch("#url");
+        const json = await response.text();
+    };
+    ```
+
+- `.json()`
+Al recibir un json por la siguiente estructura, lo deja en formato json.
+
+    ```js
+    async function obtenerDatos(){
+        const response = await fetch("http://127.0.0.1:5500/JSONactividad/datos.json");
+        const json = await response.json();
+    };
+    ```
+
+- `JSON.stringify()`
+Toma al objeto entre parentesis y lo convierte a un string.
+
+    ```js
+    let student = {
+    name: 'John',
+    age: 30,
+    isAdmin: false,
+    courses: ['html', 'css', 'js'],
+    wife: null
+    };
+
+    let json = JSON.stringify(student);
+
+    alert(typeof json); // ¡obtenemos un string!
+    ```
+
+- `JSON.parse()`
+Para decodificar un string JSON, se necesita otro método llamado `JSON.parse`.
+
+    ```js
+    let value = JSON.parse(str, [reviver]);
+    //str: string JSON para analizar.
+    reviver: function(key,value) 
+    //opcional que será llamado para cada par (propiedad, valor) y puede transformar el valor.
+    ```
+
+    ```js
+    //Usando el reviver
+    let str = '{"title":"Conference","date":"2017-11-30T12:00:00.000Z"}';
+    //Al parsear el value de date vuelve como string.
+    let meetup = JSON.parse(str, function(key, value) {
+    if (key == 'date') return new Date(value);
+    return value;
+    });
+
+    alert( meetup.date.getDate() ); // ¡Ahora funciona!
+    //Sirve tambien para objetos anidados.
+    ```
+
+### Convertir un objeto en JSON
+
+```js
+let user = {
+  name: "John Smith",
+  age: 35
+};
+let user2 = JSON.parse(JSON.stringify(user));
+//JSON.stringify invoca tojson dandole el formato necesario para habilitarse en JSON, luego JSON.parse(object) lo decodifica en JSON.
+```
+
+### Ejemplo de acceso a datos JSON
+Usando `XMLHttpRequest`
+
+    ```js
+    var http_request = new XMLHttpRequest();
+    var url = "http://example.net/jsondata.php"; // Esta URL debería devolver datos JSON
+    
+    // Descarga los datos JSON del servidor.
+    http_request.onreadystatechange = handle_json;
+    http_request.open("GET", url, true);
+    http_request.send(null);
+    
+    function handle_json() {
+    if (http_request.readyState == 4) {
+        if (http_request.status == 200) {
+        var json_data = http_request.responseText; 
+        var the_object = eval("(" + json_data + ")");
+        } else {
+        alert("Ocurrió un problema con la URL.");
+        }
+        http_request = null;
+    }
+    }
+    ```
 
 ## Buenas practicas
 
