@@ -1520,3 +1520,17 @@ Se sigue el estandar internacional del formato de js
 
 
 
+<div class="text-center mt-4" id="json">
+                    <form>
+                        <div class="row m-2">
+                            <div class="col-6">
+                                <button onclick="" class="btn btn-outline-secondary btn-sm">Load latest data</button>
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <button onclick="" class="btn btn-outline-secondary btn-sm">Update latest data
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
