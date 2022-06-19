@@ -14,7 +14,7 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
             - Coerciones resultantes en TRUE
         - [null](#null)
         - [Undefined](#undefined)
-    - [typeof]
+    - [typeof](#typeof)
     - [Funcion](#funcion)
         - [Parametros](#parametros)
         - [Return](#return)
