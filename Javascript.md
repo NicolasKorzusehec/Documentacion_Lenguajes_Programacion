@@ -131,21 +131,24 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
     - [Bucle for in](#bucle-for-in)
     - [JSON](#json)
         - [Sintaxis JSON](#sintaxis-json)
-        - [Factores de JSON]
-            - await
-            - async
-            - response
-            - fetch
-
-        - [Metodos JSON, toJSON](#metodos-json-tojson)
-            - .parse
-            - .text
-            - .json
-            - JSON.stringify()
-            - JSON.parse()
-        - [Convertir un objeto en JSON](#convertir-un-objeto-en-json)
+    - [Factores de JSON](#factores-de-json)
+        - await
+        - async
+        - response
+        - fetch
+    - [Metodos JSON, toJSON](#metodos-json-tojson)
+        - .parse
+        - .text
+        - .json
+        - JSON.stringify()
+        - JSON.parse()
+    - [Convertir un objeto en JSON](#convertir-un-objeto-en-json)
         - [Ejemplo de acceso a datos JSON](#ejemplo-de-acceso-a-datos-json)
-            
+
+- [Fetch](#fetch)
+    - [Arquitectura SOAP](#arquitectura-soap)
+    - [Arquitectura REST](#arquitectura-rest)
+    - [REST - Interfaz](#rest---interfaz)
     
 - [Buenas practicas](#buenas-practicas)
 
@@ -1468,6 +1471,27 @@ Usando `XMLHttpRequest`
     }
     }
     ```
+
+## Fetch
+En arquitectura cliente/servidor, el
+cliente hace un fetch al servidor para que nos envíe lo que se está pidiendo.
+
+### Arquitectura SOAP
+Arquitectura `dividida por niveles` que se utilizaba para hacer un servicio, es `más complejo` de montar como de gestionar y solo trabajaba con `XML` a diferencia de `arquitectura REST`.
+
+### Arquitectura REST
+Lo más extendido hoy día.
+Frente a nuestros pedidos al servidor se nos devolverá un JSON,que se puede traducir fácilmente a objetos javascript y con eso mostrarlo en pantalla usando al DOM y colocando las clases para dar el estilo necesario.
+`Fetch` tiene la habilidad de leer archivos de `texto plano`, como `JSON` o
+hasta un `.txt`
+
+### REST - Interfaz
+`REST` es una `interfaz` para conectar varios sistemas basados en el `protocolo HTTP`.
+Sirve para obtener y `generar datos y operaciones`, devolviendo esos datos `en formatos` muy específicos, como `XML` y `JSON`.
+Utiliza los verbos `GET`, `POST`, `PUT` y `DELETE`. De aquí surge una alternativa a `SOAP` solucionando la `complejidad` que la mimsma sumaba.
+Asi faciitando  el desarrollo de una `API REST`, en este caso de un `servicio` en el cual nosotros vamos a `almacenar nuestra lógica de negocio` y vamos `servir los datos` con una serie de `recursos URL` y una serie de datos que nosotros los limitaremos, es decir, será nuestro `BACKEND` nuestra `lógica pura de negocios` que nosotros vamos a utilizar.
+
+
 
 ## Buenas practicas
 
