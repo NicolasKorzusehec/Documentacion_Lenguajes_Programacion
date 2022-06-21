@@ -131,11 +131,6 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
     - [Bucle for in](#bucle-for-in)
     - [JSON](#json)
         - [Sintaxis JSON](#sintaxis-json)
-    - [Factores de JSON](#factores-de-json)
-        - await
-        - async
-        - response
-        - fetch
     - [Metodos JSON, toJSON](#metodos-json-tojson)
         - .parse
         - .text
@@ -150,6 +145,13 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
     - [Arquitectura REST](#arquitectura-rest)
         - [REST - Interfaz](#rest---interfaz)
         - [REST - Ventajas](#rest---ventajas)
+    - [Elementos de Fetch](#factores-de-json)
+        - fetch
+        - .then
+        - await
+        - async
+        - response
+        -   
 
     
 - [Buenas practicas](#buenas-practicas)
@@ -1363,13 +1365,7 @@ La `diferencia` entre los objetos de `js` y los objetos en una estructura de dat
         Unir palabras con una `mayuscula` en una nueva paabra o con un `guion bajo`.
 
 - valor-value
-        Acepta `strings`, `numeros enteros`, `numeros decimales`( delimitando el decimal con un `punto`), `booleanos`, `arrays`,
-
-### Factores de JSON
-    - await
-    - async
-    - response
-    - fetch
+        Acepta `strings`, `numeros enteros`, `numeros decimales`( delimitando el decimal con un `punto`), `booleanos`, `arrays`.
 
 
 ### Metodos JSON, toJSON
@@ -1501,6 +1497,27 @@ Todos los objetos se manipulan mediante `URI`.
 - Es completamente `independiente de la plataforma`, pudiendo usarse `REST` en cualquier sistema operativo.
 - Se puede hacer a las APIs publicas.
 - Brinda `escalabilidad` gracias a la separacion de los conceptos `CLIENTE` `SERVIDOR`.
+
+### Elementos de Fetch
+- `fetch`
+Ubica la solicitud que realizaremos por medio de un URL obligatorio.
+    `fetch('URL')`
+Hace promesas a traves de `.then`.
+
+- `.then`
+Es una `promesa`. `'Promete'` que va a traer una respuesta.
+
+    ```js
+    //Toma una data y la transforma, en este caso la data viene en formato txt.
+    fetch('URL');
+    .then( data => data.text 
+    //la preformateamos en un archivo que podemos leer.)
+    ```
+
+
+- await
+- async
+- response
 
 
 
