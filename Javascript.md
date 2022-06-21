@@ -148,7 +148,9 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
 - [Fetch](#fetch)
     - [Arquitectura SOAP](#arquitectura-soap)
     - [Arquitectura REST](#arquitectura-rest)
-    - [REST - Interfaz](#rest---interfaz)
+        - [REST - Interfaz](#rest---interfaz)
+        - [REST - Ventajas](#rest---ventajas)
+
     
 - [Buenas practicas](#buenas-practicas)
 
@@ -1473,23 +1475,33 @@ Usando `XMLHttpRequest`
     ```
 
 ## Fetch
-En arquitectura cliente/servidor, el
-cliente hace un fetch al servidor para que nos envíe lo que se está pidiendo.
+En arquitectura cliente/servidor, el `cliente` hace un `fetch` al `servidor` para que nos envíe lo que se está pidiendo.
 
 ### Arquitectura SOAP
 Arquitectura `dividida por niveles` que se utilizaba para hacer un servicio, es `más complejo` de montar como de gestionar y solo trabajaba con `XML` a diferencia de `arquitectura REST`.
 
 ### Arquitectura REST
 Lo más extendido hoy día.
-Frente a nuestros pedidos al servidor se nos devolverá un JSON,que se puede traducir fácilmente a objetos javascript y con eso mostrarlo en pantalla usando al DOM y colocando las clases para dar el estilo necesario.
+Frente a nuestros pedidos al servidor se nos devolverá un JSON, que se puede traducir fácilmente a objetos javascript y con eso mostrarlo en pantalla usando al DOM y colocando las clases para dar el estilo necesario.
 `Fetch` tiene la habilidad de leer archivos de `texto plano`, como `JSON` o
-hasta un `.txt`
+hasta un `.txt`.
 
-### REST - Interfaz
+#### REST - Interfaz
 `REST` es una `interfaz` para conectar varios sistemas basados en el `protocolo HTTP`.
-Sirve para obtener y `generar datos y operaciones`, devolviendo esos datos `en formatos` muy específicos, como `XML` y `JSON`.
+Sirve para obtener y `generar datos y operaciones`, devolviendo esos datos en `formatos` muy específicos, como `XML` y `JSON`.
 Utiliza los verbos `GET`, `POST`, `PUT` y `DELETE`. De aquí surge una alternativa a `SOAP` solucionando la `complejidad` que la mimsma sumaba.
-Asi faciitando  el desarrollo de una `API REST`, en este caso de un `servicio` en el cual nosotros vamos a `almacenar nuestra lógica de negocio` y vamos `servir los datos` con una serie de `recursos URL` y una serie de datos que nosotros los limitaremos, es decir, será nuestro `BACKEND` nuestra `lógica pura de negocios` que nosotros vamos a utilizar.
+Facilitando asi el desarrollo de una `API REST`, en este caso de un `servicio` en el cual nosotros vamos a `almacenar nuestra lógica de negocio` y vamos `servir los datos` con una serie de `recursos URL` y una serie de datos que nosotros los limitaremos, es decir, será nuestro `BACKEND` nuestra `lógica pura de negocios` que nosotros vamos a utilizar.
+Crea una petición `HTTP` que contiene toda la información necesaria, es decir, un `REQUEST` a un `servidor` tiene toda la información necesaria y solo espera una `RESPONSE`, ósea una respuesta en concreto.
+Todos los objetos se manipulan mediante `URI`.
+
+#### REST - Ventajas
+- Permite separar el `cliente` del `servidor` y las tecnologias que envuelve a ambas.
+- Tiene una gran comunidad.
+- Se puede crear `diseño de un microservicio orientado a un dominio` (DDD).
+- Es completamente `independiente de la plataforma`, pudiendo usarse `REST` en cualquier sistema operativo.
+- Se puede hacer a las APIs publicas.
+- Brinda `escalabilidad` gracias a la separacion de los conceptos `CLIENTE` `SERVIDOR`.
+
 
 
 
