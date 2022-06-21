@@ -1523,6 +1523,8 @@ Es una `promesa`. `'Promete'` que va a traer una respuesta.
 
 
 ## Buenas practicas
+- `consola`
+    Podemos usar la consola desde VScode abriendo la terinal de `powershell`. En la misma ejecutamos el codigo descrito al usar el comando `node` `ruta del archivo`.
 
 - `try catch`
     Controla el `flojo del programa`. Sirve cuando ya sabes como funciona el programa. Previo a esta etapa se controla con `console.log()`
