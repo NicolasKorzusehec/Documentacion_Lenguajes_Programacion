@@ -141,6 +141,10 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
     - [Arquitectura SOAP](#arquitectura-soap)
     - [Arquitectura REST](#arquitectura-rest)
         - [REST - Interfaz](#rest---interfaz)
+            - GET
+            - POST 
+            - PUT
+            - DELETE
         - [REST - Ventajas](#rest---ventajas)
     - [Sintaxis Fetch](#sintaxis-fetch)
         - URL
@@ -158,7 +162,7 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - [Comprobando estado del Fetch](#comprobando-estado-del-fetch)
         - [Enviar peticion con credencial](#enviar-peticion-con-credencial)
         - [XMLHttpRequest - Ejemplo](#xmlhttprequest---ejemplo)
-
+    - [Otras APIs](#otras-apis)
     
 - [Buenas practicas](#buenas-practicas)
 
@@ -1435,6 +1439,14 @@ let user2 = JSON.parse(JSON.stringify(user));
 En arquitectura cliente/servidor, el `cliente` hace un `fetch` al `servidor` para que nos envíe lo que se está pidiendo.
 Esta `API` permite realizar `peticiones asincronas` mediante `promesas`.
 
+Toda `REST API` tiene tres elementos. La `solicitud` (request), la `respuesta` (response) y los `encabezados` (header).
+
+`Request` Estos son los datos que envías a la `API`, como una identificación de pedido (id) para obtener los detalles del pedido.
+
+`Response` Los datos que obtengas del `servidor` después de una solicitud exitosa o fallida.
+
+`Headers` Metadatos adicionales que se mandan a la API para ayudar al servidor a comprender qué tipo de solicitud se está mandando, por ejemplo, “content-type” (tipo de contenido).
+
 ### Arquitectura SOAP
 Arquitectura `dividida por niveles` que se utilizaba para hacer un servicio, es `más complejo` de montar como de gestionar y solo trabajaba con `XML` a diferencia de `arquitectura REST`.
 
@@ -1451,6 +1463,11 @@ Utiliza los verbos `GET`, `POST`, `PUT` y `DELETE`. De aquí surge una alternati
 Facilitando asi el desarrollo de una `API REST`, en este caso de un `servicio` en el cual nosotros vamos a `almacenar nuestra lógica de negocio` y vamos `servir los datos` con una serie de `recursos URL` y una serie de datos que nosotros los limitaremos, es decir, será nuestro `BACKEND` nuestra `lógica pura de negocios` que nosotros vamos a utilizar.
 Crea una petición `HTTP` que contiene toda la información necesaria, es decir, un `REQUEST` a un `servidor` tiene toda la información necesaria y solo espera una `RESPONSE`, ósea una respuesta en concreto.
 Todos los objetos se manipulan mediante `URI`.
+
+- `GET — Obtener` datos de la API. 
+- `POST — Empujar` los datos a la API. Por ejemplo, crear un nuevo registro de usuario con nombre, edad y dirección de correo electrónico.
+- `PUT — Actualizar` un registro existente con nuevos datos.
+- `DELETE — Eliminar` un registro. 
 
 #### REST - Ventajas
 - Permite separar el `cliente` del `servidor` y las tecnologias que envuelve a ambas.
@@ -1642,6 +1659,9 @@ Usando `XMLHttpRequest`
 
 
 
+### Otras APIs
+- `Twitter API`
+Obtener un usuario de Twitter en función de su nombre de usuario.
 ## Buenas practicas
 - `consola`
     Podemos usar la consola desde VScode abriendo la terinal de `powershell`. En la misma ejecutamos el codigo descrito al usar el comando `node` `ruta del archivo`.

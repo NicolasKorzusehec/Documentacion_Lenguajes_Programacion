@@ -59,6 +59,7 @@ Pasarla en limpio, encararla
 - `js Callbacks`
 - `js objects`
 - `js Propiedades DOM y BOM`
+- https://es.javascript.info/promise-basics `js promises`
 - https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Template_literals `js Plantillas literales, Plantilla de cadenas` 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math `js funciones relativas a la matematica`
 - https://lenguajejs.com/javascript/dom/que-es/#api-nativa-de-javascript `js libreria de terceros`
