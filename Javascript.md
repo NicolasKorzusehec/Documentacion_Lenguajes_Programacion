@@ -133,25 +133,30 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - [Sintaxis JSON](#sintaxis-json)
     - [Metodos JSON, toJSON](#metodos-json-tojson)
         - .parse
-        - .text
-        - .json
         - JSON.stringify()
         - JSON.parse()
     - [Convertir un objeto en JSON](#convertir-un-objeto-en-json)
-        - [Ejemplo de acceso a datos JSON](#ejemplo-de-acceso-a-datos-json)
 
 - [Fetch](#fetch)
     - [Arquitectura SOAP](#arquitectura-soap)
     - [Arquitectura REST](#arquitectura-rest)
         - [REST - Interfaz](#rest---interfaz)
         - [REST - Ventajas](#rest---ventajas)
-    - [Elementos de Fetch](#factores-de-json)
+    - [API Fetch](#api-fetch)
+        - URL
         - fetch
         - .then
+    - [Response](#response)
+        - Propiedades
+        - [Metodos Response](#metodos-response)
+            - .clone
+            - .text
+            - .json
+            - .blob
         - await
         - async
-        - response
-        -   
+ 
+    - [XMLHttpRequest - Ejemplo](#xmlhttprequest---ejemplo)
 
     
 - [Buenas practicas](#buenas-practicas)
@@ -1373,27 +1378,6 @@ La `diferencia` entre los objetos de `js` y los objetos en una estructura de dat
 Transforma un json que esta en formato de string devuelta a JSON.
 Para decodificar un string JSON.
 
-- `.text()`
-Una vez que se recibe un json mediante la siguiente estructura,     transforma el json a formato de string
-
-
-    ```js
-    async function obtenerDatos(){
-        const response = await fetch("#url");
-        const json = await response.text();
-    };
-    ```
-
-- `.json()`
-Al recibir un json por la siguiente estructura, lo deja en formato json.
-
-    ```js
-    async function obtenerDatos(){
-        const response = await fetch("http://127.0.0.1:5500/JSONactividad/datos.json");
-        const json = await response.json();
-    };
-    ```
-
 - `JSON.stringify()`
 Toma al objeto entre parentesis y lo convierte a un string.
 
@@ -1445,30 +1429,6 @@ let user2 = JSON.parse(JSON.stringify(user));
 //JSON.stringify invoca tojson dandole el formato necesario para habilitarse en JSON, luego JSON.parse(object) lo decodifica en JSON.
 ```
 
-### Ejemplo de acceso a datos JSON
-Usando `XMLHttpRequest`
-
-    ```js
-    var http_request = new XMLHttpRequest();
-    var url = "http://example.net/jsondata.php"; // Esta URL debería devolver datos JSON
-    
-    // Descarga los datos JSON del servidor.
-    http_request.onreadystatechange = handle_json;
-    http_request.open("GET", url, true);
-    http_request.send(null);
-    
-    function handle_json() {
-    if (http_request.readyState == 4) {
-        if (http_request.status == 200) {
-        var json_data = http_request.responseText; 
-        var the_object = eval("(" + json_data + ")");
-        } else {
-        alert("Ocurrió un problema con la URL.");
-        }
-        http_request = null;
-    }
-    }
-    ```
 
 ## Fetch
 En arquitectura cliente/servidor, el `cliente` hace un `fetch` al `servidor` para que nos envíe lo que se está pidiendo.
@@ -1498,27 +1458,118 @@ Todos los objetos se manipulan mediante `URI`.
 - Se puede hacer a las APIs publicas.
 - Brinda `escalabilidad` gracias a la separacion de los conceptos `CLIENTE` `SERVIDOR`.
 
-### Elementos de Fetch
-- `fetch`
+### API Fetch
+
+    ```js
+    fetch('https://randomuser.me/api/')
+    .then( response => response.json())
+    //El argumento de las promesas es como la respuesta que obtemnemos del fetch, no importa el nombre que le pongamos (data, response, res).
+    //Transformamos el dato en algo que podemos leer:
+    //.bloob() para imagenes.
+    .then( response => {
+    console.log(response.results['0']);
+    contenido.innerHTML = `
+    <img src="${response.results['0'].picture.large}" width="100px" class="img-fluid rounded-circle">
+    <p>Nombre: ${response.results['0'].name.title} ${response.results['0'].name.first} ${response.results['0'].name.last}</p>
+    `});
+    ```
+Un caso con una funcion:
+Trabajamos todo desde una constante y no con promesas
+
+    ```js
+    async function obtenerDatos(){
+        const response = await fetch("http://127.0.0.1:5500/JSONactividad/datos.json"); 
+        //Al tratarlo con constantes se recurres al elemento await
+        const json = await response.json();
+    };
+    ```
+
+- `URL`
+Se puede trabajar con URLs de APIs de la Web o bien con URLs Locales, que representan archivos JSON propios, bajo la siguiente sintaxis:
+`http://127.0.0.1:5500/JSONactividad/datos.json`
+Conformandose por el puerto `http://127.0.0.1:5500/` concatenado a la direccion del archivo `JSONactividad/datos.json`
+
+- `fetch()`
+`Metodo global` para obtener recursos de forma asincrona por la red facilmente. Por defecto toma el metodo GET
 Ubica la solicitud que realizaremos por medio de un URL obligatorio.
     `fetch('URL')`
 Hace promesas a traves de `.then`.
+No envia ni recibe cookies a menos que se configuren `credentials de la opción init`
 
 - `.then`
 Es una `promesa`. `'Promete'` que va a traer una respuesta.
+El objeto `Promise` devuelto desde `fetch()` no será rechazado con un estado de error HTTP incluso si la respuesta es un `error HTTP 404 o 500`; se resolverá normalmente `con un estado ok configurado a false`, y  este solo sera `rechazado` ante un fallo de red o si algo impidió completar la solicitud.
 
     ```js
     //Toma una data y la transforma, en este caso la data viene en formato txt.
     fetch('URL');
-    .then( data => data.text 
-    //la preformateamos en un archivo que podemos leer.)
+    .then( data => data.text )
+    //la preformateamos en un archivo que podemos leer.
+    //para imagenes se usa .bloob()    
     ```
 
+### Response
+La interfaz `Response` de la `Fetch API` representa la respuesta a una petición.
 
+- Propiedades:
+`Response.headers` 
+    Contiene el objeto Headers asociado con la respuesta.
+`Response.ok`
+    Contiene un `estado` indicando si la respuesta fue exitosa (estado en el rango  200-299) o no.
+
+#### Metodos Response
+- `Response.clone()`
+Clona un Objeto Respuesta `Response`.
+
+- `.text()`
+Una vez que se recibe un response mediante la siguiente estructura,     transforma el json a formato de string para poder interpretarlo.
+
+
+    ```js
+    async function obtenerDatos(){
+        const response = await fetch("#url");
+        const json = await response.text();
+    };
+    ```
+
+- `.json()`
+Al recibir un response por la siguiente estructura, lo deja en formato json para poder interpretarlo.
+
+    ```js
+    async function obtenerDatos(){
+        const response = await fetch("http://127.0.0.1:5500/JSONactividad/datos.json");
+        const json = await response.json();
+    };
+    ```
+
+###
 - await
 - async
-- response
 
+### XMLHttpRequest - Ejemplo
+Usando `XMLHttpRequest`
+
+    ```js
+    var http_request = new XMLHttpRequest();
+    var url = "http://example.net/jsondata.php"; // Esta URL debería devolver datos JSON
+    
+    // Descarga los datos JSON del servidor.
+    http_request.onreadystatechange = handle_json;
+    http_request.open("GET", url, true);
+    http_request.send(null);
+    
+    function handle_json() {
+    if (http_request.readyState == 4) {
+        if (http_request.status == 200) {
+        var json_data = http_request.responseText; 
+        var the_object = eval("(" + json_data + ")");
+        } else {
+        alert("Ocurrió un problema con la URL.");
+        }
+        http_request = null;
+    }
+    }
+    ```
 
 
 
