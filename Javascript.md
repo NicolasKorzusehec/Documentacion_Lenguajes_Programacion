@@ -155,8 +155,10 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
             - .blob
         - await
         - async
- 
-    - [XMLHttpRequest - Ejemplo](#xmlhttprequest---ejemplo)
+    - [API Fetch - Casos](#api-fetch---casos)
+        - [Comprobando estado del Fetch](#comprobando-estado-del-fetch)
+        - [Enviar peticion con credencial](#enviar-peticion-con-credencial)
+        - [XMLHttpRequest - Ejemplo](#xmlhttprequest---ejemplo)
 
     
 - [Buenas practicas](#buenas-practicas)
@@ -1495,8 +1497,9 @@ Ubica la solicitud que realizaremos por medio de un URL obligatorio.
     `fetch('URL')`
 Hace promesas a traves de `.then`.
 No envia ni recibe cookies a menos que se configuren `credentials de la opción init`
+Cabe destacar que `fetch()` devuelve una `respuesta HTTP` y la misma debe ser atravesada por algun metodo para poder interpretarla. 
 
-- `.then`
+- `.then()`
 Es una `promesa`. `'Promete'` que va a traer una respuesta.
 El objeto `Promise` devuelto desde `fetch()` no será rechazado con un estado de error HTTP incluso si la respuesta es un `error HTTP 404 o 500`; se resolverá normalmente `con un estado ok configurado a false`, y  este solo sera `rechazado` ante un fallo de red o si algo impidió completar la solicitud.
 
@@ -1521,6 +1524,11 @@ La interfaz `Response` de la `Fetch API` representa la respuesta a una petición
 - `Response.clone()`
 Clona un Objeto Respuesta `Response`.
 
+    ```js
+    var myRequest = new Request('flowers.jpg');
+    var newRequest = myRequest.clone(); // a copy of the request is now stored in newRequest
+    ```
+
 - `.text()`
 Una vez que se recibe un response mediante la siguiente estructura,     transforma el json a formato de string para poder interpretarlo.
 
@@ -1542,11 +1550,43 @@ Al recibir un response por la siguiente estructura, lo deja en formato json para
     };
     ```
 
-###
+### pendiente
 - await
 - async
 
-### XMLHttpRequest - Ejemplo
+
+### API Fetch - Casos
+
+#### Comprobando estado del Fetch 
+
+    ```js
+    fetch('flores.jpg')
+        .then(function(response) {
+        if(response.ok) {
+            response.blob()
+            .then(function(miBlob) {
+                var objectURL = URL.createObjectURL(miBlob);
+                miImagen.src = objectURL;
+            });
+        } else {
+            console.log('Respuesta de red OK pero respuesta HTTP no OK');
+        }
+        })
+        .catch(function(error) {
+            console.log('Hubo un problema con la petición Fetch:' + error.message);
+        });
+    ```
+
+#### Enviar peticion con credencial
+Para producir que los navegadores envien una petición con las credenciales incluidas, incluso para una llamada de origen cruzado, añadimos credentials: 'include' en el el objeto init que se pasa al método fetch().
+
+    ```js
+    fetch('https://example.com', {
+    credentials: 'include'
+    })
+    ```
+
+#### XMLHttpRequest - Ejemplo
 Usando `XMLHttpRequest`
 
     ```js
