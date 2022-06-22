@@ -1445,7 +1445,7 @@ hasta un `.txt`.
 #### REST - Interfaz
 `REST` es una `interfaz` para conectar varios sistemas basados en el `protocolo HTTP`.
 Sirve para obtener y `generar datos y operaciones`, devolviendo esos datos en `formatos` muy específicos, como `XML` y `JSON`.
-Utiliza los verbos `GET`, `POST`, `PUT` y `DELETE`. De aquí surge una alternativa a `SOAP` solucionando la `complejidad` que la mimsma sumaba.
+Utiliza los verbos `GET`, `POST`, `PUT` y `DELETE`. De aquí surge una alternativa a `SOAP` solucionando la `complejidad` que la misma sumaba.
 Facilitando asi el desarrollo de una `API REST`, en este caso de un `servicio` en el cual nosotros vamos a `almacenar nuestra lógica de negocio` y vamos `servir los datos` con una serie de `recursos URL` y una serie de datos que nosotros los limitaremos, es decir, será nuestro `BACKEND` nuestra `lógica pura de negocios` que nosotros vamos a utilizar.
 Crea una petición `HTTP` que contiene toda la información necesaria, es decir, un `REQUEST` a un `servidor` tiene toda la información necesaria y solo espera una `RESPONSE`, ósea una respuesta en concreto.
 Todos los objetos se manipulan mediante `URI`.
@@ -1463,9 +1463,9 @@ Todos los objetos se manipulan mediante `URI`.
     ```js
     fetch('https://randomuser.me/api/')
     .then( response => response.json())
-    //El argumento de las promesas es como la respuesta que obtemnemos del fetch, no importa el nombre que le pongamos (data, response, res).
+    //El argumento de las promesas es como la respuesta que obtenemos del fetch, no importa el nombre que le pongamos (data, response, res).
     //Transformamos el dato en algo que podemos leer:
-    //.bloob() para imagenes.
+    //.blob() para imagenes.
     .then( response => {
     console.log(response.results['0']);
     contenido.innerHTML = `
@@ -1479,7 +1479,7 @@ Trabajamos todo desde una constante y no con promesas
     ```js
     async function obtenerDatos(){
         const response = await fetch("http://127.0.0.1:5500/JSONactividad/datos.json"); 
-        //Al tratarlo con constantes se recurres al elemento await
+        //Al tratarlo con constantes se recurre al elemento async y await
         const json = await response.json();
     };
     ```
