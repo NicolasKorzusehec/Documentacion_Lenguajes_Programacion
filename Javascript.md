@@ -137,12 +137,12 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - JSON.parse()
     - [Convertir un objeto en JSON](#convertir-un-objeto-en-json)
 
-- [Fetch](#fetch)
+- [API Fetch](#api-fetch)
     - [Arquitectura SOAP](#arquitectura-soap)
     - [Arquitectura REST](#arquitectura-rest)
         - [REST - Interfaz](#rest---interfaz)
         - [REST - Ventajas](#rest---ventajas)
-    - [API Fetch](#api-fetch)
+    - [Sintaxis Fetch](#sintaxis-fetch)
         - URL
         - fetch
         - .then
@@ -1430,7 +1430,7 @@ let user2 = JSON.parse(JSON.stringify(user));
 ```
 
 
-## Fetch
+## API Fetch
 En arquitectura cliente/servidor, el `cliente` hace un `fetch` al `servidor` para que nos envíe lo que se está pidiendo.
 
 ### Arquitectura SOAP
@@ -1458,7 +1458,7 @@ Todos los objetos se manipulan mediante `URI`.
 - Se puede hacer a las APIs publicas.
 - Brinda `escalabilidad` gracias a la separacion de los conceptos `CLIENTE` `SERVIDOR`.
 
-### API Fetch
+### Sintaxis Fetch
 
     ```js
     fetch('https://randomuser.me/api/')
