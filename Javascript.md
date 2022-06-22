@@ -153,7 +153,7 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
             - .text
             - .json
             - .blob
-    - [Async/await]()
+    - [Async/await](#asyncawait)
     - [API Fetch - Casos](#api-fetch---casos)
         - [Comprobando estado del Fetch](#comprobando-estado-del-fetch)
         - [Enviar peticion con credencial](#enviar-peticion-con-credencial)
