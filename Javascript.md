@@ -153,8 +153,7 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
             - .text
             - .json
             - .blob
-        - await
-        - async
+    - [Async/await]()
     - [API Fetch - Casos](#api-fetch---casos)
         - [Comprobando estado del Fetch](#comprobando-estado-del-fetch)
         - [Enviar peticion con credencial](#enviar-peticion-con-credencial)
@@ -1434,6 +1433,7 @@ let user2 = JSON.parse(JSON.stringify(user));
 
 ## API Fetch
 En arquitectura cliente/servidor, el `cliente` hace un `fetch` al `servidor` para que nos envíe lo que se está pidiendo.
+Esta `API` permite realizar `peticiones asincronas` mediante `promesas`.
 
 ### Arquitectura SOAP
 Arquitectura `dividida por niveles` que se utilizaba para hacer un servicio, es `más complejo` de montar como de gestionar y solo trabajaba con `XML` a diferencia de `arquitectura REST`.
@@ -1521,6 +1521,8 @@ La interfaz `Response` de la `Fetch API` representa la respuesta a una petición
     Contiene un `estado` indicando si la respuesta fue exitosa (estado en el rango  200-299) o no.
 
 #### Metodos Response
+`response` también tiene algunos `métodos` interesantes, la mayoría de ellos para procesar mediante una `promesa` los datos recibidos y facilitar el trabajo con ellos
+
 - `Response.clone()`
 Clona un Objeto Respuesta `Response`.
 
@@ -1550,10 +1552,37 @@ Al recibir un response por la siguiente estructura, lo deja en formato json para
     };
     ```
 
-### pendiente
-- await
-- async
+- `.formData()`
+Al recibir un response por la siguiente estructura, devuelve una promesa para poder interpretarlo como datos de formulario.
 
+    ```js
+    async function obtenerDatos(){
+        const response = await fetch("http://127.0.0.1:5500/JSONactividad/datos.json");
+        const json = await response.formData();
+    };
+    ```
+
+### Async/await
+Realiza el mismo trabajo ue con .then y las funciones flechas.
+`await` sólo se puede ejecutar si esta dentro de una función definida como `async`.
+
+- Creamos una función request(url) que definimos con async
+- Llamamos a fetch utilizando await para esperar y resolver la promesa
+- Comprobamos si todo ha ido bien usando response.ok
+- Llamamos a response.text() utilizando await y devolvemos el resultado
+
+```js
+const request = async (url) => {
+    const response = await fetch(url);
+    if (!response.ok)
+    throw new Error("WARN", response.status);
+    const data = await response.text();
+    return data;
+}
+
+const resultOk = await request("/robots.txt");
+const resultError = await request("/nonExistentFile.txt");
+```
 
 ### API Fetch - Casos
 
