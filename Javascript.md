@@ -150,6 +150,7 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - URL
         - fetch
         - .then
+        - .catch
     - [Response](#response)
         - Propiedades
         - [Metodos Response](#metodos-response)
@@ -163,7 +164,9 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - [Enviar peticion con credencial](#enviar-peticion-con-credencial)
         - [XMLHttpRequest - Ejemplo](#xmlhttprequest---ejemplo)
     - [Otras APIs](#otras-apis)
-    
+
+- [Promesas y Callbacks]
+
 - [Buenas practicas](#buenas-practicas)
 
 - [Pendiente](#pendiente)
@@ -1516,6 +1519,8 @@ Hace promesas a traves de `.then`.
 No envia ni recibe cookies a menos que se configuren `credentials de la opción init`
 Cabe destacar que `fetch()` devuelve una `respuesta HTTP` y la misma debe ser atravesada por algun metodo para poder interpretarla. 
 
+Tanto `.then()` como `.catch()` son promesas en funcion de lo que devuelve la `peticion`, si se resuelve `correctamente` se ejecuta `.then()` por el contrario si ocurre algun `error` y no se pudo resolver la peticion se ejecuta `.catch()`
+
 - `.then()`
 Es una `promesa`. `'Promete'` que va a traer una respuesta.
 El objeto `Promise` devuelto desde `fetch()` no será rechazado con un estado de error HTTP incluso si la respuesta es un `error HTTP 404 o 500`; se resolverá normalmente `con un estado ok configurado a false`, y  este solo sera `rechazado` ante un fallo de red o si algo impidió completar la solicitud.
@@ -1527,6 +1532,19 @@ El objeto `Promise` devuelto desde `fetch()` no será rechazado con un estado de
     //la preformateamos en un archivo que podemos leer.
     //para imagenes se usa .bloob()    
     ```
+
+- `.catch()`
+Un `.catch()` es usado si se produce algún `error` en la peticion. Es analogo al funcionamiento de `.then()`.
+
+    ```js
+    fetch('https://swapi.co/api/people/1/')
+    .then(res => res.json())
+    .then(res => console.log(res)); 
+    // imprime el objeto recibido.
+    .catch( err => console.error(err)); 
+    // muestra un mensaje de error en la consola.
+    ```
+
 
 ### Response
 La interfaz `Response` de la `Fetch API` representa la respuesta a una petición.
@@ -1662,6 +1680,34 @@ Usando `XMLHttpRequest`
 ### Otras APIs
 - `Twitter API`
 Obtener un usuario de Twitter en función de su nombre de usuario.
+
+https://publicapis.dev/ 
+
+https://www.coingecko.com/en/api/documentation
+https://api.mercadolibre.com/sites/MLA/search?q=malabares
+https://pokeapi.co/
+https://rickandmortyapi.com/documentation
+https://icanhazdadjoke.com/
+
+## Promesas y Callbacks
+
+### Callbacks
+
+#### Ejemplo de callbacks
+
+    ```js
+    const suma = (n1, n2) => n1 + n2;
+    const resta = (n1, n2) => n1 - n2;
+    const multiplicacion = (n1, n2) => n1 * n2;
+    const division = (n1, n2) => n1 / n2;
+    /*función que recibe un callback que permite elegir qué
+    operación realizar*/
+    //Admite suma, resta, multiplicacion, division
+    function calculadora(n1, n2, operacion) {
+        return operacion(n1, n2);
+    }
+    ```
+
 ## Buenas practicas
 - `consola`
     Podemos usar la consola desde VScode abriendo la terinal de `powershell`. En la misma ejecutamos el codigo descrito al usar el comando `node` `ruta del archivo`.
