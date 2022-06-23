@@ -8,3 +8,8 @@ Python es un lenguaje de programación interpretado, de alto nivel y de propósi
 - Tiene un conjunto de diferentes bibliotecas y API que soportan el análisis, la visualización y la manipulación de datos.
 
 ## Contenidos
+
+https://code.visualstudio.com/docs/python/python-tutorial#_prerequisites 
+ver video y clase
+ver camino para usar python en la extension python
+ver carpeta con paginas de python
