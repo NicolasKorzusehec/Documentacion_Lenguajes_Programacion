@@ -165,7 +165,9 @@ Se define como orientado a objetos, basado en prototipos, imperativo, debilmente
         - [XMLHttpRequest - Ejemplo](#xmlhttprequest---ejemplo)
     - [Otras APIs](#otras-apis)
 
-- [Promesas y Callbacks]
+- [Promesas y Callbacks](#promesas-y-callbacks)
+    - [Callback](#callbacks)
+        - [Ejemplo de Callbacks](#ejemplo-de-callbacks)
 
 - [Buenas practicas](#buenas-practicas)
 
