@@ -29,7 +29,7 @@ Páginas Web:
 - actividades extra clase 5 Sprint 2
 - Calculadora Web, Actividad en segunda parte de la clase del 24/05
 - Arma tu sandwich, armarla con selects. En segunda parte de la clase 26/05
-- Enriquecer app Pay Together, eemplo en clase 7/6 19.38 min
+- Enriquecer app Pay Together, ejemplo en clase 7/6 19.38 min (trabajar con json, incluir fecha, si pago al contado, impresion de json, de pdf, de excel)
 - Juego Ahorcado, 30/05 1h
 - Ejercicio de entrevista con html de grasshopper
 - Ejercicio de fundamentos 2 con html de grasshopper
