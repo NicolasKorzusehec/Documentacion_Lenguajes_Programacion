@@ -12,7 +12,7 @@ Python es un lenguaje de programación interpretado, de alto nivel y de propósi
     - [Tipos de datos basicos](#tipos-de-datos-basicos)
         - [Type](#type)
     - [Palabras reservadas](#palabras-resevadas)
-    -[Funciones internas](#funciones-internas)
+    - [Funciones internas](#funciones-internas)
 - [Pendiente](#pendiente)
 
 
@@ -74,15 +74,41 @@ Ejemplo:
 - print
 - while
 
+### Operadores matematicos
+- `Destacar`:
+
+    Division
+    Python lleva a cabo una división de enteros, redondeandose siempre el resultado a la baja.
+        Una alternativa posible en este caso es el cálculo de un porcentaje y no el de una fracción:
+
+        ```py
+        >>> minuto*100/60
+        98
+        ```
+    Modulo
+    Puede usar el operador modulo para extraer el dígito más a la derecha de un número. Por ejemplo, x % 10 devuelve el dígito más a la derecha de x (en base 10). De forma similar, x % 100 devuelve los dos últimos dígitos.
+
+    Comparacion
+    ==, !=, >, <, >=, <=
+
+    Operadores logicos
+
+        and
+        x >0 and x <10
+
+        or
+        n %2 == 0 or n %3 ==0
+
+        not
+        not (x >y)
+
 ### Funciones internas
 - `input()`
 Cuando llamamos a esta función, el programa se detiene y espera a que el usuario escriba algo. Cuando el usuario pulsa la tecla Return o Enter, el programa se reanuda e `input` devuelve lo que el usuario escribió
 como tipo string
     entrada = input()
-Antes de llamar a `input` es conveniente mostrar un mensaje que le pida al usuario
-el dato solicitado. Este mensaje se llama indicador (prompt en inglés). Puede
-proporcionarle un indicador a input como argumento:
-nombre = input ("Como te llamas? ")
+Antes de llamar a `input` es conveniente mostrar un mensaje que le pida al usuario el dato solicitado. Este mensaje se llama indicador (prompt en inglés). Puede proporcionarle un indicador a input como argumento:
+    nombre = input ("Como te llamas? ")
 
 ## pendiente
 https://code.visualstudio.com/docs/python/python-tutorial#_prerequisites 
