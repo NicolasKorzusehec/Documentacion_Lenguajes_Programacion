@@ -1,12 +1,6 @@
 # Python
 Python es un lenguaje de programación interpretado, de alto nivel y de propósito general.
 
-- Fue diseñado para ser simple y fácil de aprender. Por lo tanto, reduce el tiempo de desarrollo general del código del proyecto.
-- Le permite trabajar rápidamente e integrar sistemas de manera más eficiente.
-- Su facilidad de codificación y el soporte de la comunidad de código abierto ha llevado al crecimiento exponencial de Python.
-- Utilizado tanto por principiantes como por programadores experimentados
-- Tiene un conjunto de diferentes bibliotecas y API que soportan el análisis, la visualización y la manipulación de datos.
-
 ## Contenidos
 - [Introduccion a Python](#introduccion-a-python)
     - [Tipos de datos basicos](#tipos-de-datos-basicos)
@@ -20,6 +14,11 @@ Python es un lenguaje de programación interpretado, de alto nivel y de propósi
 
 
 ## Introduccion a Python
+- Fue diseñado para ser simple y fácil de aprender. Por lo tanto, reduce el tiempo de desarrollo general del código del proyecto.
+- Le permite trabajar rápidamente e integrar sistemas de manera más eficiente.
+- Su facilidad de codificación y el soporte de la comunidad de código abierto ha llevado al crecimiento exponencial de Python.
+- Utilizado tanto por principiantes como por programadores experimentados
+- Tiene un conjunto de diferentes bibliotecas y API que soportan el análisis, la visualización y la manipulación de datos.
 
 ### Tipos de datos basicos
 - `Números`
@@ -110,8 +109,23 @@ como tipo string
 Antes de llamar a `input` es conveniente mostrar un mensaje que le pida al usuario el dato solicitado. Este mensaje se llama indicador (prompt en inglés). Puede proporcionarle un indicador a input como argumento:
     nombre = input ("Como te llamas? ")
 
+### Declarar funciones
+Recurrimos a `def` nombre de la funcion `:`, luego desarrollamos la ejecucion y en cada linea de la ejecucion se le aplica necesariamente una sangria para que forme parte del cuerpo de la funcion.
+Por ultimo, presionamos dos teclas <ENTER> indicando a Python
+que se acabó el cuerpo de la función.
+
+    ```py
+    def holaMundo():
+        print ("Hola Mundo!")
+        print ("Estoy programando en Python.")
+
+
+    holamundo()     """se ejecuta la funcion"""
+    ```
 ## pendiente
 https://code.visualstudio.com/docs/python/python-tutorial#_prerequisites 
 ver video y clase
 ver camino para usar python en la extension python
 ver carpeta con paginas de python
+
+entornos virtuales, dependencias
