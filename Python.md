@@ -7,6 +7,10 @@ Python es un lenguaje de programación interpretado, de alto nivel y de propósi
         - [Type](#type)
     - [Palabras reservadas](#palabras-resevadas)
     - [Funciones internas](#funciones-internas)
+    - [Declarar funciones](#declarar-funciones)
+    - [Estructuras de control](#estructuras-de-control)
+        - if
+
 - [Pendiente](#pendiente)
 
 
@@ -34,7 +38,7 @@ Este tipo de datos se corresponde con una cadena de caracteres.
 Lógicos
 - `Booleano (bool)`
 Este tipo de dato reconoce solamente dos valores: Verdadero (True) y Falso (False)
-### Type
+#### Type
 Cuando uno no está seguro del tipo que tiene un determinado valor, puede
 preguntárselo al interprete de Python usando el comando "type"
 Ejemplo:
@@ -122,6 +126,35 @@ que se acabó el cuerpo de la función.
 
     holamundo()     """se ejecuta la funcion"""
     ```
+
+### Estructuras de control
+- `if`
+
+    ```py
+    if x > 0:
+        print("x es positivo")
+    ```
+
+- `if else`
+`elif` es una abreviatura de `"else if"`. De nuevo, sólo se ejecutará una rama. No hay limite al número de sentencias `elif`, pero sólo se permite `una sentencia else` (que puede omitirse) y debe ser la ultima rama de la sentencia
+
+    ```py
+    if x%2 == 0:
+        print("x es par")
+    else:
+        print("x es par")
+
+    """Otro ejemplo"""
+    if x < y:
+        print (x, "es menor que", y)
+    elif x > y:  """Estos elif pueden repetirse indefinidamente"""
+        print (x, "es mayor que", y)
+    else:
+        print (x, "y", y, "son iguales")
+
+    ```
+
+
 ## pendiente
 https://code.visualstudio.com/docs/python/python-tutorial#_prerequisites 
 ver video y clase
