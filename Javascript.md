@@ -1,6 +1,8 @@
 # JavaScript
 Se define como orientado a objetos, basado en prototipos, imperativo, debilmente tipado y dinámico.
 
+[Volver al inicio](./README.md)
+
 ## Contenidos
 - [Introduccion a Javascript](#introduccion-a-javascript)
     - [Variables y sus Ambitos](#variables-y-sus-ambitos)

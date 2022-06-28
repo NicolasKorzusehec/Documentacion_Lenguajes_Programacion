@@ -1,6 +1,8 @@
 # Python
 Python es un lenguaje de programación interpretado, de alto nivel y de propósito general.
 
+[Volver al inicio](./README.md)
+
 ## Contenidos
 - [Introduccion a Python](#introduccion-a-python)
     - [Tipos de datos basicos](#tipos-de-datos-basicos)
