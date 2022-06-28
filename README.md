@@ -73,4 +73,4 @@ Pasarla en limpio, encararla
 - https://learnui.design/ `UI design resources`
 - `Buenas practicas - capsular archivos para reducir ingreso de cualquiera y vulnerabilidades`
 - `coderunner y snippets`
-
+- Frameworks: SASS, React, Angular,MERN/MEAN, Django, Spring, Ruby on Rails.

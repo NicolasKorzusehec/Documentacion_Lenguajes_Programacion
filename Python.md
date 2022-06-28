@@ -179,6 +179,13 @@ Ej.: 20 > x > 40
     ```
 
 ## pendiente
+https://packaging-python-org.translate.goog/en/latest/guides/installing-using-pip-and-virtual-environments/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=wapp#creating-a-virtual-environment
+pip y virtual enviroments - buenas practicas
+en los repos podemos armar una carpeta de entorno que tenga todas las dependencias instaladas.
+
+pep8,convenciones y normativas para hacer codigo python eficiente, que permita que se le hagan testeos, guias de estilo para python
+https://peps.python.org/pep-0008/ 
+
 https://code.visualstudio.com/docs/python/python-tutorial#_prerequisites 
 ver video y clase
 ver camino para usar python en la extension python
