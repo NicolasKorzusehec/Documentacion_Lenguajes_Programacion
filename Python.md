@@ -14,11 +14,10 @@ Python es un lenguaje de programación interpretado, de alto nivel y de propósi
             - elif
         - while
         - for
+    - [Estructuras de datos]()
 
+- [Buenas practicas]()
 - [Pendiente](#pendiente)
-
-
-
 
 
 ## Introduccion a Python
@@ -84,7 +83,7 @@ Ejemplo:
 ### Operadores matematicos
 - `Destacar`:
 
-    Division
+    - Division
     Python lleva a cabo una división de enteros, redondeandose siempre el resultado a la baja.
         Una alternativa posible en este caso es el cálculo de un porcentaje y no el de una fracción:
 
@@ -92,13 +91,15 @@ Ejemplo:
         >>> minuto*100/60
         98
         ```
-    Modulo
+        Se destaca la division entera señalada con dos barras `//`
+
+    - Modulo
     Puede usar el operador modulo para extraer el dígito más a la derecha de un número. Por ejemplo, x % 10 devuelve el dígito más a la derecha de x (en base 10). De forma similar, x % 100 devuelve los dos últimos dígitos.
 
-    Comparacion
+    - Comparacion
     ==, !=, >, <, >=, <=
 
-    Operadores logicos
+    - Operadores logicos
 
         and
         x >0 and x <10
@@ -178,6 +179,12 @@ Ej.: 20 > x > 40
         print (p, len (p))
     ```
 
+## Buenas practicas
+- Estructuras
+
+    ```py
+    if __name__ == '__main__':
+    ```
 ## pendiente
 https://packaging-python-org.translate.goog/en/latest/guides/installing-using-pip-and-virtual-environments/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=wapp#creating-a-virtual-environment
 pip y virtual enviroments - buenas practicas
@@ -191,4 +198,4 @@ ver video y clase
 ver camino para usar python en la extension python
 ver carpeta con paginas de python
 
-entornos virtuales, dependencias
+entornos virtuales, dependencias - tener muchas versiones de python en una misma computadora.
