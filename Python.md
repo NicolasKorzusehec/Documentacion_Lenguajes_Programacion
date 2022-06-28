@@ -10,6 +10,10 @@ Python es un lenguaje de programación interpretado, de alto nivel y de propósi
     - [Declarar funciones](#declarar-funciones)
     - [Estructuras de control](#estructuras-de-control)
         - if
+        - if else
+            - elif
+        - while
+        - for
 
 - [Pendiente](#pendiente)
 
@@ -128,6 +132,9 @@ que se acabó el cuerpo de la función.
     ```
 
 ### Estructuras de control
+Aceptan condiciones de doble comparacion como en matematicas. 
+Ej.: 20 > x > 40
+
 - `if`
 
     ```py
@@ -151,9 +158,25 @@ que se acabó el cuerpo de la función.
         print (x, "es mayor que", y)
     else:
         print (x, "y", y, "son iguales")
-
     ```
 
+- `while`
+
+    ```py
+    n = int (input ("Ingrese un numero: "))
+    while n > 0:
+        print n
+        n = n-1
+        print ("Despegando!")
+    ```
+
+- `for`
+
+    ```py
+    palabras = ['gato', 'ventana', 'defenestrado']
+    for p in palabras:
+        print (p, len (p))
+    ```
 
 ## pendiente
 https://code.visualstudio.com/docs/python/python-tutorial#_prerequisites 
