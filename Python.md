@@ -8,6 +8,7 @@ Python es un lenguaje de programación interpretado, de alto nivel y de propósi
     - [Tipos de datos basicos](#tipos-de-datos-basicos)
         - [Type](#type)
     - [Palabras reservadas](#palabras-resevadas)
+    - [Operadores Matematicos](#operadores-matematicos)
     - [Funciones internas](#funciones-internas)
     - [Declarar funciones](#declarar-funciones)
     - [Estructuras de control](#estructuras-de-control)
@@ -52,7 +53,7 @@ Ejemplo:
 >>> type(17)
 <type 'int'>
 
-### Palabras resevadas
+### Palabras reservadas
 - and
 - continue
 - else
