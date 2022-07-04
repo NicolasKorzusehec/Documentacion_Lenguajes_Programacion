@@ -202,3 +202,10 @@ ver camino para usar python en la extension python
 ver carpeta con paginas de python
 
 entornos virtuales, dependencias - tener muchas versiones de python en una misma computadora.
+
+librerias lint, te adecua el codigo a p8
+
+todo lo de la segunda parte del sprint4
+
+open ai api     beta.openai.com
+prompts.ai
