@@ -24,6 +24,7 @@ https://github.com/carabedo/django
 
 ```
 pip install virtualenvwrapper (Descarga la libreria en la computadora)
+pip install virtualenvwrapper-win (Descarga la libreria en la computadora, este es indispensable con la terminacion win)
 
 mkvirtualenv ``Nombre del entorno`` (crea el entorno en una carpeta llamada envs en el directorio desde el que se ejecute el comando)
 
